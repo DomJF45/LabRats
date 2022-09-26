@@ -25,7 +25,7 @@ const setProject = asyncHandler( async(req, res) => {
     res.status(400)
     throw new error('Not found')
   }
-  await Lab.findOneAndUpdate(req.params.labId, {$push: {projects: {name: req.body.name}}}, {overwrite: false})
+  await Lab.findOneAndUpdate({_id: project.parentId}, {$push: {projects: {name: req.body.name}}}, {overwrite: false})
   res.status(200).json(project);
 })
 

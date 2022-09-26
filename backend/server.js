@@ -15,6 +15,7 @@ app.use('/api/labs', require('./routes/labRoute'));
 app.use('/api/labs/:labId/projects', require('./routes/projectRoute'));
 
 app.use(errorHandler)
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`.blue.underline);
 })
