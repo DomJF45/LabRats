@@ -4,22 +4,23 @@
   padding-bottom: 2px;
   /* box-shadow: 1px 1px 20px rgba(0,0,0,.1); */
   background-color: #fff;
-  top: 0;
-  overflow: auto;
-  position: sticky;
+  
   width: 100%;
   z-index: 999;
-}
-.landingNav.active {
-  position: sticky;
-}
+} 
 .startBtn {
+  padding: 8px 18px;
   background-color: #FFB703;
   border: #FFB703;
+  border-radius: 8px;
+  color: #fff;
   margin-left: auto;
   float: right;
 }
 .startBtn:hover {
+  background-color: #f4b004;
+}
+.startBtn:active {
   background-color: #f4b004;
 }
 

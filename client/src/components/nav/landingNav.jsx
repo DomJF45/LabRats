@@ -2,25 +2,14 @@ import React, {useState} from 'react'
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
+import MyButton from '../button/MyButton';
 import './Nav.css';
 import { Nav } from 'react-bootstrap';
 const LandingNav = () => {
 
-  const [stick, setStick] = useState(false);
-
-  const changeBackground = () => {
-    if (window.scrollY >= 84) {
-      setStick(true)
-    } else {
-      setStick(false)
-    }
-  }
-
-  window.addEventListener('scroll', changeBackground)
-
   return (
     <>
-      <nav className={stick ? "landingNav active" : "landingNav"}>
+      <nav className={"landingNav"}>
         <ul>
         <svg width="55" height="55" viewBox="0 0 67 65" fill="none" xmlns="http://www.w3.org/2000/svg" style={{marginRight: "1rem"}}>
             <path d="M28.3949 10.0301C28.3949 14.1723 25.9325 17.5301 22.8949 17.5301C19.8574 17.5301 17.3947 15.0301 17.8947 11.0301C19.3947 7.53014 19.3947 4.03014 21.3947 2.03014C23.3947 2.03014 28.3949 5.88799 28.3949 10.0301Z" fill="#828A92"/>
@@ -46,6 +35,9 @@ const LandingNav = () => {
             </svg>
 
           <li>LabRats</li>
+          {/* <MyButton className='startBtn'>
+            Get Started
+          </MyButton> */}
           <Button className='startBtn'>
             Get Started
           </Button>

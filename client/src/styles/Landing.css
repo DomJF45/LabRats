@@ -1,9 +1,7 @@
-.stickyNav {
 
-}
 .landingLayout {
   margin-top: 2rem;
-  max-width: 1300px;
+  max-width: 90%;
   justify-content: center;
   align-items: center;
   display: block;
@@ -13,21 +11,23 @@
   
 }
 .jumboContainer {
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 .jumboContainer img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: fill;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 .jumboImage {
-  background-image: url('../img/lab.jpeg');
-  background-size: 180%;
-  object-fit: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 10px;
+  /* background-image: url('../img/lab.jpeg');
+  background-size: 180%; */
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 50%;
 }
 .divDivider {
   width: 100%;
@@ -37,7 +37,7 @@
 .jumbotron {
   max-width: inherit;
   text-align: start;
-  width: 60%;
+  width: 40%;
   margin: 0;
 }
 .jumbotron h1 {
@@ -47,9 +47,13 @@
   max-width: 100%;
   max-height: 100%;
 }
+.title {
+  margin-top: 1rem;
+}
 .title h1 {
   font-size: 20px;
 }
 .bio {
+  margin-top: 1rem;
   font-size: 20px;
 }
