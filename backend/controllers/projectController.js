@@ -2,12 +2,10 @@ const asyncHandler = require('express-async-handler');
 const Project = require('../models/projectModel');
 const Lab = require('../models/labModel');
 
-
 const getProjects = asyncHandler( async(req, res) => {
   // const lab = await Lab.find({})
 
   const projects = await Project.find({parentId: req.params.labId});
-  
   
   res.status(200).json(projects);
 })
@@ -31,19 +29,19 @@ const setProject = asyncHandler( async(req, res) => {
 
 const updateProject = asyncHandler( async(req, res) =>{
 
-  const project = await Project.findById(req.params.id);
+  const project = await Project.findById(req.params.projectId);
   if (!project) {
     res.status(400)
     throw new Error('Not Found')
   }
-  const updatedProject = await Project.findByIdAndUpdate(req.params.id, req.body, {new: true});
+  const updatedProject = await Project.findByIdAndUpdate(req.params.projectId, req.body, {new: true});
   
   res.status(200).json(updatedProject);
 })
 
 const deleteProject = asyncHandler( async(req, res) => {
 
-  const project = await Project.findById(req.params.id);
+  const project = await Project.findById(req.params.projectId);
   if (!project) {
     res.status(400);
     throw new Error('Not Found');

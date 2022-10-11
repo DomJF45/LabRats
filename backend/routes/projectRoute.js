@@ -9,6 +9,6 @@ const {
 const {labProtect} = require('../middleware/authMiddleware')
 
 router.route('/').get(getProjects).post(setProject);
-router.route('/:id').put(updateProject).delete(deleteProject);
+router.route('/:projectId').put(updateProject).delete(deleteProject);
 
 module.exports = router;

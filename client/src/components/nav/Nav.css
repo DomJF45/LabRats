@@ -1,0 +1,40 @@
+.landingNav {
+  padding: 0;
+  padding-top: .5rem;
+  padding-bottom: 2px;
+  /* box-shadow: 1px 1px 20px rgba(0,0,0,.1); */
+  background-color: #fff;
+  top: 0;
+  overflow: auto;
+  position: sticky;
+  width: 100%;
+  z-index: 999;
+}
+.landingNav.active {
+  position: sticky;
+}
+.startBtn {
+  background-color: #FFB703;
+  border: #FFB703;
+  margin-left: auto;
+  float: right;
+}
+.startBtn:hover {
+  background-color: #f4b004;
+}
+
+nav ul {
+  max-width: 1300px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+nav ul li {
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+}
