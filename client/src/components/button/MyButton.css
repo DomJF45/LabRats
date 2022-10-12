@@ -13,3 +13,11 @@
   transform:translateY(3px) translateX(3px);
   box-shadow: none;
 }
+
+@media screen and (max-width: 950px) {
+  .lr-btn {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+}
