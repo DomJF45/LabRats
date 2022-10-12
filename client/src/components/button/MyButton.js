@@ -2,10 +2,10 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import './MyButton.css';
 
-const MyButton = ({children}) => {
+const MyButton = ({children, props}) => {
   return (
     <>
-      <Button className="lr-btn">
+      <Button style={{width: props}} className="lr-btn">
         {children}
       </Button>
     </>

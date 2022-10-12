@@ -1,0 +1,10 @@
+.register-container {
+  font-weight: 200;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 40%;
+  margin-top: 10rem;
+}
+.register-container h1 {
+  text-align: center;
+}
