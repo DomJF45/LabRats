@@ -16,16 +16,19 @@
   color: #fff;
   margin-left: auto;
   float: right;
+  transition: all .2s ease-in;
 }
 .startBtn:hover {
   background-color: #f4b004;
+  transform:translateY(-3px);
+  box-shadow: 2px 2px #888;
 }
 .startBtn:active {
   background-color: #f4b004;
 }
 
 nav ul {
-  max-width: 1300px;
+  max-width: 90%;
   list-style: none;
   display: flex;
   align-items: center;
@@ -39,3 +42,4 @@ nav ul li {
   padding: 0;
   margin: 0;
 }
+

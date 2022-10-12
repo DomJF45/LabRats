@@ -1,3 +1,15 @@
 .lr-btn {
-  
+  padding: 8px 18px;
+  background-color: #FFB703;
+  border: #FFB703;
+  border-radius: 8px;
+  color: #fff;
+  width: 40%;
+  transition: all .2s ease-in;
+  box-shadow: 3px 3px #888;
+}
+.lr-btn:hover {
+  background-color: #f4b004;
+  transform:translateY(3px) translateX(3px);
+  box-shadow: none;
 }

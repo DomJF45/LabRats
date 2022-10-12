@@ -27,7 +27,7 @@
   background-size: 180%; */
   justify-content: flex-end;
   align-items: flex-end;
-  width: 50%;
+  width: 55%;
 }
 .divDivider {
   width: 100%;
@@ -41,7 +41,8 @@
   margin: 0;
 }
 .jumbotron h1 {
-  font-size: 70px;
+  font-size: 65px;
+  font-weight: 300;
 }
 .jumbotron img {
   max-width: 100%;
@@ -52,8 +53,25 @@
 }
 .title h1 {
   font-size: 20px;
+  font-weight: 300;
 }
 .bio {
   margin-top: 1rem;
   font-size: 20px;
+}
+
+@media screen and (max-width: 950px) {
+  .jumboContainer {
+    display: block;
+  }
+  .jumbotron {
+    width: 100%;
+  }
+  .jumbotron h1 {
+    font-size: 60px;
+  }
+  .jumboImage {
+    width: 100%;
+  }
+
 }

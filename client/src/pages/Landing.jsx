@@ -1,7 +1,9 @@
 import React from 'react'
 import LandingNav from '../components/nav/landingNav'
 import Card from "react-bootstrap/Card"
-import lab from "../img/lab.jpeg"
+import MyButton from '../components/button/MyButton'
+import {landingData, org, lab} from './data'
+
 import '../styles/Landing.css'
 
 const Landing = () => {
@@ -11,23 +13,50 @@ const Landing = () => {
         <LandingNav />
       </div>
       <div className="landingLayout">
-        <div className="jumboContainer">
-          <div className="jumbotron">
-            <h1>Start Managing Your Lab Today</h1>
-            <div className="divDivider"></div>
-            <div className="about">
-              <div className="title">
-                <h2>What is LabRats?</h2>
+        {landingData.map((data) => (
+          data.hasBtn ? (
+          <>
+            <MyButton>Get Started Now</MyButton>
+            <div className="jumboContainer">
+              
+              <div className="jumbotron">
+                <h1>{data.jumboTitle}</h1>
+                <div className="divDivider"></div>
+                <div className="about">
+                  <div className="title">
+                    <h2>{data.aboutTitle}</h2>
+                  </div>
+                  <div className="bio">
+                    <p>{data.bio}</p>
+                  </div>
+                </div>
               </div>
-              <div className="bio">
-                <p>LabRats is a Laboratory Management system for Principle Investigators (PI's), Graduate Research Assistants (GRA's), and Undergraduate Research Assistants (URA's). Here, you can create a Lab, Projects, and Tasks that are assignable to your lab members. With Lab Rats, you can now reference current operations within the lab in a simple, streamlined fashion.</p>
+              <div className='jumboImage'>
+                <img src={data.img}/>
               </div>
             </div>
-          </div>
-          <div className='jumboImage'>
-            <img src={lab}/>
-          </div>
-        </div>
+          </>
+          ) : (
+            <div className="jumboContainer">
+              <div className="jumbotron">
+                <h1>{data.jumboTitle}</h1>
+                <div className="divDivider"></div>
+                <div className="about">
+                  <div className="title">
+                    <h2>{data.aboutTitle}</h2>
+                  </div>
+                  <div className="bio">
+                    <p>{data.bio}</p>
+                  </div>
+                </div>
+              </div>
+              <div className='jumboImage'>
+                <img src={data.img}/>
+              </div>
+            </div>
+          )
+        
+        ))}
       </div>
     </>
   )

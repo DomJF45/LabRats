@@ -25,7 +25,7 @@ const Register = () => {
             </Form>
             <div style={{}}>
 
-            <Button style={{width: "100%"}}>Submit</Button>
+              <Button style={{width: "100%"}}>Submit</Button>
             </div>
           </Card.Body>
         </Card>
