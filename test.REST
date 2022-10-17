@@ -1,14 +1,22 @@
 ###
-PUT http://localhost:4000/api/labs/63210bf813e6f82bbd5bab98
+POST http://localhost:4000/api/users 
 Content-Type: application/json
 
 {
-  "labName": "New Lab",
-  "users": [
-    {
-      "id": 1, 
-      "name": "Kyle", 
-      "role": "basic"
-    }
-  ]
+  "name": "john",
+  "email": "test@mail.com",
+  "password": "password123",
+  "role": "Director"
 }
+
+###
+POST http://localhost:4000/api/users/login
+Content-Type: application/json
+
+{
+  "email": "test@mail.com",
+  "password": "password123"
+}
+###
+GET http://localhost:4000/api/users/me
+

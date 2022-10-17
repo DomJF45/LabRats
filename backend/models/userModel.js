@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
 const userModel = mongoose.Schema({
+  labId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Lab'
+  },
   email: {
     type: String,
-    required: [true, 'Please enter an email']
+    required: [true, 'Please enter an email'],
+    unique: true
   },
   password: {
     type: String,
@@ -13,14 +18,9 @@ const userModel = mongoose.Schema({
     type: String,
     required: [true, 'Please add a name']
   },
-  isAdmin: {
-    type: Boolean
-  },
-  isGRA: {
-    type: Boolean
-  },
-  isURA: {
-    type: Boolean
+  role: {
+    type: String,
+    required: [true, 'Please add a role']
   }
 })
 

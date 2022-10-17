@@ -11,6 +11,7 @@ dbConnect();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
+app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/labs', require('./routes/labRoute'));
 app.use('/api/labs/:labId/projects', require('./routes/projectRoute'));
 app.use('/api/labs/:labId/projects/:projectId/tasks', require('./routes/taskRoute'));

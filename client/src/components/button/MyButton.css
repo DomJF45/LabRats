@@ -1,4 +1,5 @@
 .lr-btn {
+  margin-top: 1rem;
   padding: 8px 18px;
   background-color: #FFB703;
   border: #FFB703;
@@ -10,8 +11,8 @@
 }
 .lr-btn:hover {
   background-color: #f4b004;
-  transform:translateY(3px) translateX(3px);
-  box-shadow: none;
+  transform:translateY(-3px);
+  box-shadow: 8px 8px #888;
 }
 
 @media screen and (max-width: 950px) {
