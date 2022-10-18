@@ -27,10 +27,10 @@ const Landing = () => {
         {landingData.map((data) => (
           data.hasBtn ? (
           <>
-            <MyButton>Get Started Now</MyButton>
             <div className="jumboContainer">
               
               <div className="jumbotron">
+                <MyButton props={'100%'} onClick={(e) => {navigate('/register')}}>Get Started Now</MyButton>
                 <h1>{data.jumboTitle}</h1>
                 <div className="divDivider"></div>
                 <div className="about">

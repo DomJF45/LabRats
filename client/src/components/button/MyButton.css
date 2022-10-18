@@ -1,5 +1,6 @@
 .lr-btn {
   margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 8px 18px;
   background-color: #FFB703;
   border: #FFB703;
@@ -10,9 +11,38 @@
   box-shadow: 3px 3px #888;
 }
 .lr-btn:hover {
-  background-color: #f4b004;
+  background-color: #FFB703;
   transform:translateY(-3px);
   box-shadow: 8px 8px #888;
+}
+.lr-btn:active {
+  background-color: #f4b004;
+}
+.lr-btn:active:focus {
+  background-color: #f4b004;
+}
+
+.nv-btn {
+  float:right;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  padding: 8px 18px;
+  background-color: #FFB703;
+  border: #FFB703;
+  border-radius: 8px;
+  color: #fff;
+  
+  transition: all .2s ease-in;
+  box-shadow: 3px 3px #888;
+}
+.nv-btn:hover {
+  background-color: #FFB703;
+  transform:translateY(-3px);
+  box-shadow: 8px 8px #888;
+}
+.nv-btn:active:focus {
+  background-color: #f4b004;
 }
 
 @media screen and (max-width: 950px) {
