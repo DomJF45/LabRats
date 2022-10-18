@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import LandingNav from '../components/nav/landingNav'
-import Card from "react-bootstrap/Card"
+import { register } from '../features/auth/authSlice'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import MyButton from '../components/button/MyButton'
 import {landingData, org, lab} from './data'
 
 import '../styles/Landing.css'
 
 const Landing = () => {
+
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth)
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard')
+    }
+  }, [user, navigate])
+
   return (
     <>
       <div className='stickyNav'>

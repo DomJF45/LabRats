@@ -2,13 +2,16 @@
 import RegisterPage from './pages/Register';
 import Landing from './pages/Landing';
 import Login from './components/auth/Login';
-import Dashboard from './components/dashboard/Dashboard';
+import DashboardPage from './pages/Dashboard';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom"
+
 
 const router = createBrowserRouter([
   {
@@ -25,12 +28,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />
+    element: <DashboardPage />
   },
 ])
 
 
 function App() {
+
+
   return (
     <>
 
@@ -38,6 +43,7 @@ function App() {
         {/* <Navigation /> */}
         {/* <RegisterContainer /> */}
         <RouterProvider router={router} />
+        <ToastContainer />
       </div>
     </>
   );

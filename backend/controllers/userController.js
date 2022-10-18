@@ -7,9 +7,9 @@ const Lab = require('../models/labModel')
 // POST -- Register User -- /api/users -- public
 const registerUser = asyncHandler(async (req, res) => {
 
-  const { labId, name, email, password, role } = req.body
+  const { name, email, password } = req.body
 
-  if (!name || !email || !password || !role) {
+  if (!name || !email || !password) {
     res.status(400);
     throw new Error('Please add all fields')
   }
@@ -28,21 +28,20 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // create user
   const user = await User.create({
-    labId,
+    
     name,
     email,
     password: hashedPassword, // store hashed password as password
-    role
+    
   })
 
   if (user) {
     res.status(201)
     res.json({
-      _id: user.id,
-      labId: user.labId,
+      
       name: user.name,
       email: user.email,
-      role: user.role,
+      
       token: generateToken(user._id)
     }) 
   } else {

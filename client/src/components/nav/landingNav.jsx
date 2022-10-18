@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -6,6 +7,8 @@ import MyButton from '../button/MyButton';
 import './Nav.css';
 import { Nav } from 'react-bootstrap';
 const LandingNav = () => {
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -38,7 +41,7 @@ const LandingNav = () => {
           {/* <MyButton className='startBtn'>
             Get Started
           </MyButton> */}
-          <Button className='startBtn'>
+          <Button className='startBtn' onClick={() => navigate('/register')}>
             Get Started
           </Button>
         </ul>
