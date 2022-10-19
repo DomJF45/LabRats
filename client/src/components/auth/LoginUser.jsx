@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { login, reset } from '../../features/auth/authSlice';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Form from "react-bootstrap/Form"
 import MyButton from '../button/MyButton'
@@ -82,6 +82,20 @@ const LoginUser = () => {
           </Form.Group>
           <MyButton props={"100%"} onClick={() => this.submit()}>Register</MyButton>
         </Form>
+        <div style={{padding: "1.5rem 0", display: "flex", justifyContent: "center"}}>
+          <div style={{paddingRight: ".5rem"}}>
+
+            <p style={{textAlign: "center"}}>Don't have an account? </p>
+          </div>
+          <NavLink 
+            to="/register"
+            style={isActive => ({
+              color: isActive ? "#FFB703" : "blue",
+              textDecoration: "none"
+            })}
+          
+          >Sign Up</NavLink>
+        </div>
       </div>
     </div>
     </>
