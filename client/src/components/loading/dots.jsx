@@ -3,7 +3,7 @@ import './dots.css';
 
 function Dots() {
   return (
-    <div style={{display: "flex", justifyContent: "center", maxHeight: "60vh"}}>
+    <div>
 
       <div className="snippet" data-title=".dot-windmill">
         <div className="stage">

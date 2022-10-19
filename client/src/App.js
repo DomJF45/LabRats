@@ -1,7 +1,7 @@
 
 import RegisterPage from './pages/Register';
 import Landing from './pages/Landing';
-import Login from './components/auth/Login';
+import Login from './pages/Login'
 import DashboardPage from './pages/Dashboard';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

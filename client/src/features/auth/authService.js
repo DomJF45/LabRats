@@ -26,7 +26,8 @@ const loginUser = async(userData) => {
 }
 
 const authService = {
-  registerUser
+  registerUser,
+  loginUser
 }
 
 export default authService;

@@ -4,11 +4,22 @@
   display: grid;
   grid-template-columns: 40%;
   margin-top: 10rem;
+  position: relative;
 }
 .register-container h1 {
   font-size: 4rem;
   text-align: center;
   font-weight: 200;
+  position: relative;
+}
+
+.loading-on {
+  position: absolute;
+  top: 2.5rem;
+  left: 58%;
+}
+.loading-off {
+  display: none;
 }
 
 @media screen and (max-width: 950px) {
