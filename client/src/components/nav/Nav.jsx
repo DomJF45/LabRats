@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap'
 import Nav from 'react-bootstrap/Nav'
 import { NavDropdown } from 'react-bootstrap'
 
-const Navigation = () => {
+const Navigation = ({userProps}) => {
   return (
     <>
     <Navbar bg="light" variant="light">
@@ -24,7 +24,7 @@ const Navigation = () => {
           <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
               <Navbar.Text>
-                Signed in as: <a href="#login">User</a>
+                Signed in as: <a href="#login">{userProps}</a>
               </Navbar.Text>
             </Navbar.Collapse>
         </Container>
