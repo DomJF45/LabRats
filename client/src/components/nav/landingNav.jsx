@@ -42,8 +42,8 @@ const LandingNav = () => {
             Get Started
           </MyButton> */}
          
-            <MyButton className='nv-btn' onClick={() => navigate('/register')}>
-              Get Started
+            <MyButton className='nv-btn' onClick={() => navigate('/login')}>
+              Log In
             </MyButton>
           
         </ul>

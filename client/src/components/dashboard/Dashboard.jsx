@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import Navigation from '../nav/Nav'; 
 const Dashboard = () => {
 
@@ -16,7 +17,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Navigation userProps={user.name}/>
+      <Navigation props={user} />
     </>
   )
 }

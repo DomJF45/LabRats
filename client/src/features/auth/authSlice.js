@@ -32,6 +32,10 @@ export const login = createAsyncThunk('auth/login', async(user, thunkAPI) => {
   }
 }) 
 
+export const logout = createAsyncThunk('auth/logout', async() => {
+  await authService.signoutUser();
+})
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -41,7 +45,8 @@ export const authSlice = createSlice({
       state.success = false
       state.error = false
       state.message = ''
-    }
+    },
+
   }, // not async, async will go in extra reducers
   extraReducers: (builder) => {
     // because async thunk, need to handle reducers here
@@ -74,6 +79,10 @@ export const authSlice = createSlice({
         state.message = action.payload
         state.user = null
       })
+      .addCase(logout.fulfilled, (state) => {
+        state.user = null
+      })
+      
   }
 })
 

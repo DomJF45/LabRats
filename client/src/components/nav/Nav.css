@@ -10,6 +10,13 @@
   width: 100%;
   z-index: 999;
 } 
+
+.dashboard-nav ul {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+  list-style: none;
+}
 .startBtn {
   padding: 8px 18px;
   background-color: #FFB703;
@@ -27,6 +34,31 @@
 }
 .startBtn:active {
   background-color: #f4b004;
+}
+
+.dashboard-nav {
+  overflow: hidden;
+  padding: 0;
+  padding-top: .5rem;
+  padding-bottom: 2px;
+  box-shadow: 1px 1px 20px rgba(0,0,0,.1);
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  font-size: 25px;
+}
+
+.nav-left {
+  float: left;
+}
+.nav-right {
+  float: right;
+  margin-right: 3rem;
+  font-size: 18px;
+  text-align: center;
+  margin-top: .2rem;
 }
 
 nav ul {
