@@ -8,4 +8,16 @@
 
 .my-btn-group {
   margin-top: 1.5rem;
+  position: relative;
+  
 }
+
+.dots-container {
+  margin-top: 2rem;
+  position: absolute;
+  top: 0;
+  right: 400px;
+}
+/*
+  need to change dots container , doesnt resize right
+*/

@@ -38,6 +38,7 @@ export const logout = createAsyncThunk('auth/logout', async() => {
 
 export const update = createAsyncThunk('auth/update', async(user, thunkAPI) => {
   try {
+    console.log(user)
     return await authService.updateUser(user);
   } catch (error) {
     const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString()); 
@@ -96,14 +97,13 @@ export const authSlice = createSlice({
       })
       .addCase(update.fulfilled, (state, action) => {
         state.loading = false
-        state.error = false
+        state.success = true
         state.user = action.payload
       })
       .addCase(update.rejected, (state, action) => {
         state.loading = false
         state.error = true
         state.message = action.payload
-        state.user = null
       })
       
   }

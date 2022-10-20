@@ -8,12 +8,12 @@ const {
   addLab,
   updateUser
 } = require('../controllers/userController')
-const {protect} = require('../middleware/authMiddleware');
+const {protect, updateProtect} = require('../middleware/authMiddleware');
 
 router.post('/', registerUser)
 router.post('/login', loginUser),
 router.get('/me', protect, getUser)
 // router.put('/me', protect, addLab)
-router.put('/update', protect, updateUser)
+router.put('/update', updateProtect, updateUser)
 
 module.exports = router;

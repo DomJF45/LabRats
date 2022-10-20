@@ -76,14 +76,9 @@ const loginUser = asyncHandler(async (req, res) => {
 })
 
 const getUser = asyncHandler(async (req, res) => {
-  const { _id, email, name, role } = await User.findById(req.user.id); // set this in the middleware
+   // set this in the middleware
 
-  res.status(200).json({
-    id: _id,
-    name,
-    email,
-    role
-  })
+  res.status(200).json(req.user)
 })
 
 const addLab = asyncHandler(async (req, res) => {
@@ -110,11 +105,8 @@ const addLab = asyncHandler(async (req, res) => {
 })
 
 const updateUser = asyncHandler(async(req, res) => {
-  const user = await User.findById(req.user.id);
-  if (!user) {
-    res.status(400);
-    throw new Error ('User not found');
-  }
+  
+
   const updatedUser = await User.findByIdAndUpdate(req.user.id, req.body, {
     new: true
   })

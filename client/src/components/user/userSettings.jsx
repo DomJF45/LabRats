@@ -1,7 +1,9 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { update } from '../../features/auth/authSlice';
+import { update, reset } from '../../features/auth/authSlice';
+import { toast } from 'react-toastify';
 import Navigation from '../nav/Nav';
+import Dots from '../loading/dots';
 import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form'
 import '../../styles/UserSettings.css';
@@ -10,7 +12,7 @@ import MyButton from '../button/MyButton';
 const UserSettings = () => {
 
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
+  const { user, loading, success, error, message } = useSelector((state) => state.auth);
   const state = {
     button: 1
   }
@@ -26,11 +28,22 @@ const UserSettings = () => {
     if (state.button === 1) {
       const userData = {
         name: nameRef.current.value,
-        role: roleRef.current.value
+        role: roleRef.current.value,
+        token: user.token
+        
       }
       dispatch(update(userData));
     }
   }
+  
+  useEffect(() => {
+
+    if (error) {
+      toast.error(message)
+    }
+
+
+  },[user, loading, success, error, message, dispatch])
   
 
   return (
@@ -65,7 +78,7 @@ const UserSettings = () => {
                   placeholder={user.email}
                 ></Form.Control>
                 <Form.Label>Role (current: {user.role})</Form.Label>
-                <Form.Select ref={roleRef}>
+                <Form.Select ref={roleRef} defaultValue={user.role}>
                   <option>Principle Investigator</option>
                   <option>Graduate Research Assistant</option>
                   <option>Undergraduate Research Assistant</option>
@@ -78,7 +91,7 @@ const UserSettings = () => {
                   className='submit-btn'
                   type="submit"
                   onClick={() => (state.button = 1)}
-                >Submit</MyButton>
+                >Save Changes</MyButton>
                 <MyButton 
                   style={{maxWidth: "10rem", float: "left", marginLeft: "1rem"}} 
                   className='cancel-btn'
@@ -87,6 +100,12 @@ const UserSettings = () => {
                 >
                   Cancel
                 </MyButton>
+                {loading ? (<>
+                  <div className='dots-container'>
+                  <Dots />
+                </div>
+                </>):(<>
+                </>)}
               </div>
             </Form>
           </div>

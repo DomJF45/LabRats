@@ -5,7 +5,7 @@ const User = require('../models/userModel');
 
 const protect = asyncHandler(async(req, res, next) => {
   let token;
-
+  console.log(req.body);
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     try {
       // get token from header
@@ -20,7 +20,7 @@ const protect = asyncHandler(async(req, res, next) => {
     } catch (error) {
       console.log(error);
       res.status(401);
-      throw new Error('Not Authorized')
+      throw new Error('Not authorized')
     }
   }
 
@@ -28,6 +28,23 @@ const protect = asyncHandler(async(req, res, next) => {
     res.status(401);
     throw new Error('Not authorized, no token');
   }
+})
+
+const updateProtect = asyncHandler(async(req, res, next) => {
+
+  try {
+
+    req.user = await User.findOne({token: req.body.token})
+    
+    next();
+
+  } catch (error) {
+    console.log(error);
+    res.status(401);
+    throw new Error('User not found')
+  }
+
+  
 })
 
 // const labProtect = asyncHandler( async(req, res, next) => {
@@ -46,5 +63,6 @@ const protect = asyncHandler(async(req, res, next) => {
 // })
 
 module.exports = {
-  protect
+  protect,
+  updateProtect
 }

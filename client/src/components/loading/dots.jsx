@@ -1,7 +1,7 @@
 import React from 'react'
 import './dots.css';
 
-function Dots() {
+function Dots({ styleProps}) {
   return (
     <div>
 
