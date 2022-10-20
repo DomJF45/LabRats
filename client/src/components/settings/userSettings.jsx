@@ -48,17 +48,8 @@ const UserSettings = () => {
 
   return (
     <>
-      <Navigation props={user} />
-      <div className='user-settings-container'>
-        <h1>Settings</h1>
-        {/* <div className='settings-nav'>
-          <Nav variant="tabs" defaultActiveKey='settings'>
-            <Nav.Item>
-              <Nav.Link id="settings">Settings</Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </div> */}
-        <div className='div-divider' />
+      <div className='user-settings-container' style={{maxWidth: "90%", marginLeft: "auto", marginRight: "auto"}}>
+        <h3>User: {user.name}</h3>
         <div className='info-container'>
           <div className="about-container">
             <Form onSubmit={onSubmit}>

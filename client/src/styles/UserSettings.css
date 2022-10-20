@@ -1,23 +1,52 @@
-.user-settings-container {
-  max-width: 780px;
+.settings-header {
   display: block;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  margin-top: 2rem;
+}
+.settings-container {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 10% 90%;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
-}
-
-.my-btn-group {
-  margin-top: 1.5rem;
-  position: relative;
   
 }
-
+.user-settings-container {
+  max-width: 100%;
+  /* background-color: green; */
+}
+.div-divider {
+  width: 100%;
+  height: 1px;
+  background: black;
+}
+.my-btn-group {
+  margin-top: 1.5rem;
+  
+  
+}
 .dots-container {
   margin-top: 2rem;
-  position: absolute;
+  
   top: 0;
   right: 400px;
 }
+
+.about-container {
+  margin-bottom: 2rem;
+}
+
+.nav-settings {
+  /* background-color: blue; */
+  width: 100%;
+  
+}
+
 /*
   need to change dots container , doesnt resize right
 */

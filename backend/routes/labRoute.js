@@ -8,7 +8,7 @@ const {
 } = require('../controllers/labController')
 const { protect } = require('../middleware/authMiddleware');
 
-router.route('/').get(protect, getLabs).post(protect, setLabs);
-router.route('/:labId').put(protect, updateLabs).delete(protect, deleteLabs);
+router.route('/').get(getLabs).post(setLabs);
+router.route('/:labId').put(updateLabs).delete(deleteLabs);
 
 module.exports = router;

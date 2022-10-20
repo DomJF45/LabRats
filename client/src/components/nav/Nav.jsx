@@ -31,7 +31,7 @@ const Navigation = ({props}) => {
     <>
       <Navbar>
       <Container>
-        <Navbar.Brand href="#home">LabRats</Navbar.Brand>
+        <Navbar.Brand href='#' onClick={() => {navigate('/dashboard')}}>LabRats</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
