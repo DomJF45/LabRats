@@ -29,10 +29,19 @@ const signoutUser = () => {
   localStorage.removeItem('user');
 }
 
+const updateUser = async(userData) => {
+  const response = await axios.put(`${API_URL}update`, userData);
+  if (response.data) {
+    localStorage.setItem('user', JSON.stringify(response.data));
+  }
+  return response.data;
+}
+
 const authService = {
   registerUser,
   loginUser,
-  signoutUser
+  signoutUser,
+  updateUser
 }
 
 export default authService;

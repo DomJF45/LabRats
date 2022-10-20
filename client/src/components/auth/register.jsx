@@ -29,7 +29,7 @@ const Register = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPassRef = useRef();
-
+  const roleRef = useRef();
   useEffect(() => {
     if (error) {
       toast.error(message);
@@ -51,6 +51,7 @@ const Register = () => {
         name: nameRef.current.value,
         email: emailRef.current.value,
         password: passwordRef.current.value,
+        role: roleRef.current.value
       }
 
       dispatch(register(userData));
@@ -101,7 +102,14 @@ const Register = () => {
               type="password" 
               placeholder='Confirm Password'
               ref={confirmPassRef} 
+              className="mb-3"
               ></Form.Control>
+              <Form.Label>Role</Form.Label>
+              <Form.Select ref={roleRef}>
+                <option>Principle Investigator</option>
+                <option>Graduate Research Assistant</option>
+                <option>Undergraduate Research Assistant</option>
+              </Form.Select>
             </Form.Group>
             <MyButton props={"100%"} onClick={() => this.submit()}>Register</MyButton>
           </Form>

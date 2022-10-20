@@ -7,7 +7,7 @@ const Lab = require('../models/labModel')
 // POST -- Register User -- /api/users -- public
 const registerUser = asyncHandler(async (req, res) => {
 
-  const { name, email, password } = req.body
+  const { name, email, password, role } = req.body
 
   if (!name || !email || !password) {
     res.status(400);
@@ -32,6 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     email,
     password: hashedPassword, // store hashed password as password
+    role,
     
   })
 
@@ -41,8 +42,8 @@ const registerUser = asyncHandler(async (req, res) => {
       
       name: user.name,
       email: user.email,
-      
-      token: generateToken(user._id)
+      token: generateToken(user._id),
+      role: user.role
     }) 
   } else {
     res.status(400)
@@ -65,24 +66,23 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
-      token: generateToken(user._id)
+      token: generateToken(user._id),
+      role: user.role
     })
   } else {
+    res.status(400)
     throw new Error('INVALID CREDENTIALS')
   }
-
-
-
-  res.json({message: 'Login User'})
 })
 
 const getUser = asyncHandler(async (req, res) => {
-  const { _id, email, name } = await User.findById(req.user.id); // set this in the middleware
+  const { _id, email, name, role } = await User.findById(req.user.id); // set this in the middleware
 
   res.status(200).json({
     id: _id,
     name,
-    email
+    email,
+    role
   })
 })
 
@@ -109,6 +109,18 @@ const addLab = asyncHandler(async (req, res) => {
   
 })
 
+const updateUser = asyncHandler(async(req, res) => {
+  const user = await User.findById(req.user.id);
+  if (!user) {
+    res.status(400);
+    throw new Error ('User not found');
+  }
+  const updatedUser = await User.findByIdAndUpdate(req.user.id, req.body, {
+    new: true
+  })
+  res.status(200).json(updatedUser);
+})
+
 const generateToken = (id) => {
   return jwt.sign({id}, process.env.JWT_SECRET, {
     expiresIn: '30d',
@@ -119,5 +131,6 @@ module.exports = {
   registerUser,
   loginUser,
   getUser,
-  addLab
+  addLab,
+  updateUser
 }

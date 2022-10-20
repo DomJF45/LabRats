@@ -38,7 +38,7 @@ const Navigation = ({props}) => {
             Signed in as: { props === null ? '': props.name}
           </Navbar.Text>
           <NavDropdown align="end" className="mx-2">
-            <NavDropdown.Item>User Info</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => navigate('/user-settings')}>User Info</NavDropdown.Item>
             <NavDropdown.Divider />
             <div style={{justifyContent: "center", alignItems: "center", display: "flex", marginTop: "0"}}>
               <MyButton onClick={handleLogout} style={{width: "initial"}}>Sign Out</MyButton>

@@ -44,6 +44,47 @@
 .nv-btn:active:focus {
   background-color: #f4b004;
 }
+.cancel-btn {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 8px 18px;
+  background-color: #888;
+  border: #888;
+  border-radius: 8px;
+  color: #fff;
+  width: 40%;
+  transition: all .2s ease-in;
+  box-shadow: 3px 3px #FFB703;
+}
+.cancel-btn:hover {
+  background-color: #888;
+  transform:translateY(-3px);
+  box-shadow: 8px 8px #FFB703;
+}
+.cancel-btn:active:focus {
+  background-color: #888;
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 8px 18px;
+  background-color: #FFB703;
+  border: #FFB703;
+  border-radius: 8px;
+  color: #fff;
+  width: 40%;
+  transition: all .2s ease-in;
+  box-shadow: 3px 3px #888;
+}
+.submit-btn:hover {
+  background-color: #f4b004;
+  transform:translateY(-3px);
+  box-shadow: 8px 8px #888;
+}
+.submit-btn:active:focus {
+  background-color: #f4b004;
+}
 
 @media screen and (max-width: 950px) {
   .lr-btn {
