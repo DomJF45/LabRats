@@ -25,10 +25,12 @@ const UserSettingsPage = () => {
           <Nav variant='tabs' className="flex-column" defaultActiveKey='user'>
             <Nav.Link 
               eventKey='user' 
-              onClick={() => {console.log(setActive('user'))}}>User</Nav.Link>
+              onClick={() => {setActive('user')}}
+              >User</Nav.Link>
+
             <Nav.Link 
               eventKey='lab'
-              onClick={() => {console.log(setActive('lab'))}}
+              onClick={() => {setActive('lab')}}
             >Lab</Nav.Link>
           </Nav>
         </div>

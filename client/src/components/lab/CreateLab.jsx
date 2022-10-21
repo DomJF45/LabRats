@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { registerLab, reset } from '../../features/lab/labSlice';
 import { subjectData } from '../settings/subjectData'
 import Dots from '../loading/dots'
 import MyButton from '../button/MyButton'
@@ -7,32 +9,72 @@ import { toast } from 'react-toastify'
 
 const CreateLab = () => {
 
+  const dispatch = useDispatch();
+  const { lab, error, success, loading, message } = useSelector((state) => state.lab);
+
+  const labNameRef = useRef();
+  const instituteRef = useRef();
+  const fieldRef = useRef();
+  const passwordRef = useRef();
+  const confirmPassRef = useRef();
+
   const state = {
     button: 1
   }
 
-  
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (state.button === 1) {
+      console.log({
+        labName: labNameRef.current.value,
+        insitute: instituteRef.current.value,
+        field: fieldRef.current.value,
+        password: passwordRef.current.value,
+        confirm: confirmPassRef.current.value
+      })
+    }
+  }
 
   return (
     <>
     <h3>Create a Lab</h3>
     <div>
       <div>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <Form.Group>
             <Form.Label>Lab Name: </Form.Label>
-            <Form.Control type="text" className='mb-3' />
+            <Form.Control 
+              type="text" 
+              className='mb-3'
+              ref={labNameRef}
+            />
             <Form.Label>Institution:</Form.Label>
-            <Form.Control type="text" className='mb-3' />
+            <Form.Control 
+              type="text" 
+              className='mb-3' 
+              ref={instituteRef}
+            />
             <Form.Label>Field of Study:</Form.Label>
             <Form.Select
               className='mb-3'
-              // define subjectRef here
+              ref={fieldRef}
             >
               {subjectData.map((subject) => (
                   <option>{subject.name}</option>
               ))}
             </Form.Select>
+            <Form.Label>Lab Password:</Form.Label>
+            <Form.Control 
+              type='password' 
+              className='mb-3'
+              ref={passwordRef}
+            />
+            <Form.Label>Confirm Password: </Form.Label>
+            <Form.Control 
+              type='password' 
+              className='mb-3'
+              ref={confirmPassRef}
+            />
           </Form.Group>
           <div className='my-btn-group'>
           <MyButton 
@@ -40,7 +82,7 @@ const CreateLab = () => {
               className='submit-btn'
               type="submit"
               onClick={() => (state.button = 1)}
-            >Save Changes</MyButton>
+            >Create Lab</MyButton>
             <MyButton 
               style={{maxWidth: "10rem", float: "left", marginLeft: "1rem"}} 
               className='cancel-btn'

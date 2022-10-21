@@ -1,6 +1,9 @@
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');
 // 
 const Lab = require('../models/labModel');
+
 
 // returns all labs
 const getLabs = asyncHandler(async (req, res) => {
@@ -15,12 +18,43 @@ const setLabs = asyncHandler(async (req, res) => {
   //   res.status(400)
   //   throw new Error('Please add Lab Name')
   // }
-  const newLab = await Lab.create({
-    labName: req.body.labName
-    
-  });
-  res.status(200).json(newLab);
+  
+  const { labName, password, institution, fieldOfStudy } = req.body;
 
+  if (!labName || !password || !institution || !fieldOfStudy ) {
+    res.status(400);
+    throw new Error("Please add all fields");
+  }
+  
+  const labExists = await Lab.findOne({labName});
+
+  if (labExists) {
+    res.status(400);
+    throw new Error('Lab already exists')
+  }
+
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt)
+
+  const lab = await Lab.create({
+    labName,
+    password: hashedPassword,
+    admin,
+    institution,
+    fieldOfStudy
+  });
+
+  if (lab) {
+    res.status(201); // lab created
+    res.json({
+      labName: lab.name,
+      admin: lab.admin,
+      token: generateToken(lab._id)
+    })
+  } else {
+    res.status(400);
+    throw new Error('Invalid Lab Data')
+  }
 })
 
 // updates lab
@@ -49,6 +83,13 @@ const deleteLabs = asyncHandler(async (req, res) => {
 
   res.status(200).json({ id: req.params.id });
 })
+
+
+const generateToken = (id) => {
+  return jwt.sign({id}, process.env.JWT_SECRET, {
+    expiresIn: '30d'
+  })
+}
 
 // exports all controllers -> import into route files
 module.exports = {
