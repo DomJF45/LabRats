@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form'
 const JoinLab = () => {
 
   const dispatch = useDispatch();
-  const { user, error, success, loading, message } = useSelector((state) => state.auth);
+  const { lab, error, success, loading, message } = useSelector((state) => state.lab);
 
   let name = 'kennesaw';
   let response;
@@ -17,10 +17,7 @@ const JoinLab = () => {
     console.log(response);
   }, [])
 
-  const testLabID = {
-    name: 'Brain Lab',
-    id: '829ghq662z'
-  };
+  
 
 
   const state = {
@@ -34,7 +31,7 @@ const JoinLab = () => {
   return (
     <>
           <div style={{display: "block", marginTop: "2rem"}}>
-            <h3>Lab Name: {testLabID.name} </h3>
+            <h3>Join Lab</h3>
           </div>
           <div className='info-container' style={{marginBottom: "2rem"}}>
             <div className="about-container">
@@ -44,8 +41,10 @@ const JoinLab = () => {
                   <Form.Control 
                     className='mb-3' 
                     type='text'
-                    placeholder={testLabID.id}
+                    placeholder={'id'}
                   ></Form.Control>
+                  <Form.Label>Lab Password</Form.Label>
+                  <Form.Control type="password" placeholder="lab password" />
                 </Form.Group>
                 <div className="my-btn-group">
 
@@ -54,7 +53,7 @@ const JoinLab = () => {
                     className='submit-btn'
                     type="submit"
                     onClick={() => (state.button = 1)}
-                  >Save Changes</MyButton>
+                  >Submit</MyButton>
                   <MyButton 
                     style={{maxWidth: "10rem", float: "left", marginLeft: "1rem"}} 
                     className='cancel-btn'

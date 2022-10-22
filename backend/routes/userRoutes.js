@@ -14,6 +14,6 @@ router.post('/', registerUser)
 router.post('/login', loginUser),
 router.get('/me', protect, getUser)
 // router.put('/me', protect, addLab)
-router.put('/update', updateProtect, updateUser)
+router.put('/update', protect, updateUser)
 
 module.exports = router;

@@ -25,13 +25,18 @@ const loginUser = async(userData) => {
   return response.data;
 }
 
-const signoutUser = () => {
+const signoutUser = async () => {
+  
   localStorage.removeItem('user');
 }
 
-const updateUser = async(userData) => {
+const updateUser = async(userData, userToken) => {
   console.log(userData)
-  const response = await axios.put(`${API_URL}update`, userData);
+  const response = await axios.put(`${API_URL}update`, userData, {
+    headers: {
+      'Authorization': `Bearer ${userToken}`
+    }
+  });
   if (response.data) {
     localStorage.setItem('user', JSON.stringify(response.data));
   }

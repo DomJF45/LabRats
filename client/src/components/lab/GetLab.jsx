@@ -7,7 +7,9 @@ import JoinLab from './JoinLab';
 const GetLab = () => {
 
   const { user } = useSelector((state) => state.auth);
+  const { lab } = useSelector((state) => state.lab);
   const [createLab, setCreateLab] = useState('')
+  const [joinLab, setJoinLab] = useState('');
   const [isShowing, setIsShowing] = useState(false);
   
 
@@ -24,8 +26,14 @@ const GetLab = () => {
   }
 
   const hideLab = () => {
-
+    setCreateLab(<></>)
   }
+
+  const showJoinLab = () => {
+    setJoinLab(<JoinLab />)
+    setIsShowing(true);
+  }
+
 
   switch (user.role) {
     case 'Principle Investigator':
@@ -48,10 +56,10 @@ const GetLab = () => {
     case 'Graduate Research Assistant':
       return (
         <>
-          {testLabID ? (
+          {lab ? (
               <> 
                 <div style={{display: "block", marginTop: "2rem"}}>
-                  <h3>Lab Name: {testLabID.name} </h3>
+                  <h3>Lab Name: {lab.labName} </h3>
                   <p>Hello There</p>
                 </div>
                 <div my-btn-group>
@@ -71,10 +79,10 @@ const GetLab = () => {
     case 'Undergraduate Research Assistant':
       return (
         <>
-          {testLabID ? (
+          {lab ? (
               <> 
                 <div style={{display: "block", marginTop: "2rem"}}>
-                  <h3>Lab Name: {testLabID.name} </h3>
+                  <h3>Lab Name: {lab.labName} </h3>
                   <p>Hello There</p>
                 </div>
                 <div my-btn-group>
@@ -83,8 +91,13 @@ const GetLab = () => {
               </>
             ) : (
               <>
+                <div style={{display: "block", marginTop: "2rem"}}>
+                  <h3>No current lab yet </h3>
+                  <p>Join a lab?</p>
+                </div>
+                {joinLab}
                 <div my-btn-group>
-                  <MyButton >Join Lab</MyButton>
+                  <MyButton onClick={showJoinLab} style={isShowing ? {display: "none"} : {}}>Join Lab</MyButton>
                 </div>
               </>
             )

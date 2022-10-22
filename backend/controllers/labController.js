@@ -3,13 +3,17 @@ const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');
 // 
 const Lab = require('../models/labModel');
+const userModel = require('../models/userModel');
 
 
 // returns all labs
 const getLabs = asyncHandler(async (req, res) => {
   // get body data
-  const labs = await Lab.find() // later on will find by user
-  res.status(200).json(labs);
+  const labs = await Lab.find({$or: [{ admin: req.user.id }, {users: {userId: req.user.id}}]})
+   // later on will find by user
+  console.log('I am a bug at getLabs - labController');
+  console.log(labs);
+  res.status(200).json(labs); 
 })
 
 // creates lab
@@ -39,7 +43,7 @@ const setLabs = asyncHandler(async (req, res) => {
   const lab = await Lab.create({
     labName,
     password: hashedPassword,
-    admin,
+    admin: req.user.id,
     institution,
     fieldOfStudy
   });
@@ -49,6 +53,8 @@ const setLabs = asyncHandler(async (req, res) => {
     res.json({
       labName: lab.name,
       admin: lab.admin,
+      institution: lab.institution,
+      fieldOfStudy: lab.fieldOfStudy,
       token: generateToken(lab._id)
     })
   } else {
@@ -84,6 +90,23 @@ const deleteLabs = asyncHandler(async (req, res) => {
   res.status(200).json({ id: req.params.id });
 })
 
+const joinLab = asyncHandler(async (req, res) => {
+  const { id, password } = req.body;
+  const lab = await Lab.findById(id);
+  if (lab && (await bcrypt.compare(password, lab.password))) {
+
+    await Lab.findByIdAndUpdate({id: id}, {$push: {users: {name: req.user.name, role: req.user.roll, userId: req.user.id }}}, {overwrite: false});
+
+    res.status(200);
+    res.json({
+      lab
+    })
+  } else {
+    res.status(400)
+    throw new Error('Invalid Lab Information')
+  }
+})
+
 
 const generateToken = (id) => {
   return jwt.sign({id}, process.env.JWT_SECRET, {
@@ -96,5 +119,6 @@ module.exports = {
   getLabs,
   setLabs,
   updateLabs,
-  deleteLabs
+  deleteLabs,
+  joinLab
 }

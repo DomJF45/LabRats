@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { labService } from '../lab/labService';
 import authService from './authService'
 
 // grab the user from the local storage
@@ -39,7 +40,7 @@ export const logout = createAsyncThunk('auth/logout', async() => {
 export const update = createAsyncThunk('auth/update', async(user, thunkAPI) => {
   try {
     console.log(user)
-    return await authService.updateUser(user);
+    return await authService.updateUser(user, user.token);
   } catch (error) {
     const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString()); 
     return thunkAPI.rejectWithValue(message);
@@ -91,6 +92,7 @@ export const authSlice = createSlice({
       })
       .addCase(logout.fulfilled, (state) => {
         state.user = null
+        
       })
       .addCase(update.pending, (state) => {
         state.loading = true

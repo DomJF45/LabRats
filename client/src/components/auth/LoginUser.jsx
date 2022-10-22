@@ -17,14 +17,13 @@ const LoginUser = () => {
 
 
   const { user, loading, success, error, message} = useSelector((state) => state.auth);
-
   // useEffect for resest and error message
   useEffect(() => {
     if (error) {
       toast.error(message);
     }
     if (success || user) {
-      navigate('/');
+      navigate('/dashboard');
     }
     dispatch(reset());
   }
@@ -44,7 +43,7 @@ const LoginUser = () => {
     }
 
     dispatch(login(userData))
-
+    // dispatch(getLab(user.token));
     
 
   }
