@@ -1,21 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
+import { labs, success, error, message, loading } from '../../features/lab/labSlice';
+import { joinLab, reset } from '../../features/lab/labSlice';
 import { subjectData } from '../settings/subjectData'
 import Dots from '../loading/dots'
 import MyButton from '../button/MyButton'
 import Form from 'react-bootstrap/Form'
+import { toast } from 'react-toastify';
 
 const JoinLab = () => {
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { lab, error, success, loading, message } = useSelector((state) => state.lab);
+  const { user } = useSelector((state) => state.auth);
+  const {error, success, loading, message } = useSelector((state) => state.lab);
 
-  let name = 'kennesaw';
-  let response;
+  const idRef = useRef();
+  const passwordRef = useRef();
 
   useEffect(() => {
-    console.log(response);
-  }, [])
+    if (error) {
+      toast.error(message);
+      console.log(message);
+    }
+    if (success) {
+      toast.error('Joined Lab!');
+    }
+  }, [user, error, message, success, loading])
 
   
 
@@ -26,6 +38,14 @@ const JoinLab = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (state.button === 1) {
+      const labData = {
+        labId: idRef.current.value,
+        password: passwordRef.current.value
+      }
+      dispatch(joinLab(labData));
+    }
+    dispatch(reset());
   }
 
   return (
@@ -42,9 +62,10 @@ const JoinLab = () => {
                     className='mb-3' 
                     type='text'
                     placeholder={'id'}
+                    ref={idRef}
                   ></Form.Control>
                   <Form.Label>Lab Password</Form.Label>
-                  <Form.Control type="password" placeholder="lab password" />
+                  <Form.Control type="password" placeholder="lab password" ref={passwordRef} />
                 </Form.Group>
                 <div className="my-btn-group">
 

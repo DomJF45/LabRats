@@ -27,7 +27,8 @@ const getLab  = async (token) => {
 }
 
 const joinLab = async (labData, token) => {
-  const response = await axios.get(`${API_URL}/joinLab`, labData, {
+  console.log(labData)
+  const response = await axios.post(`${API_URL}join`, labData, {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -37,5 +38,6 @@ const joinLab = async (labData, token) => {
 
 export const labService = {
   registerLab,
-  getLab
+  getLab,
+  joinLab
 }

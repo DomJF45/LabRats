@@ -1,24 +1,22 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { getLab, reset } from '../../features/lab/labSlice';
+import { useNavigate } from 'react-router-dom';
 import MyButton from '../button/MyButton';
 import CreateLab from './CreateLab';
 import JoinLab from './JoinLab';
+import { toast } from 'react-toastify';
 
 const GetLab = () => {
 
   const { user } = useSelector((state) => state.auth);
-  const { lab } = useSelector((state) => state.lab);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { labs, error, success, message, } = useSelector((state) => state.lab);
   const [createLab, setCreateLab] = useState('')
   const [joinLab, setJoinLab] = useState('');
   const [isShowing, setIsShowing] = useState(false);
   
-
-  const testLabID = {
-    name: 'Brain Lab',
-    institution: 'Kennesaw State University',
-    fieldOfStudy: 'SOCIAL SCIENCES & LAW',
-    id: '829ghq662z'
-  };
 
   const showLab = () => {
     setCreateLab(<CreateLab />);
@@ -34,18 +32,56 @@ const GetLab = () => {
     setIsShowing(true);
   }
 
+  useEffect(() => {
 
+    if (error) {
+      console.log(message);
+    }
+
+    if (success) {
+      toast.success('Joined Lab!!')
+    }
+
+    if (!user) {
+      // navigate to '/'
+
+      navigate('/')
+    }
+    
+
+    dispatch(getLab())
+    return () => {
+      dispatch(reset());
+
+    }
+
+  }, [user, navigate, error, message, dispatch])
+
+  console.log(labs.labName)
   switch (user.role) {
     case 'Principle Investigator':
       return(
         <>
           <div style={{display: "block", marginTop: "2rem"}}>
-            <h3>Lab Name: {testLabID.name} </h3>
-            <div style={{display: "flex"}}>
-              <h5>Institution:</h5>
-              <p>{testLabID.institution}</p>
-              <p></p>
-            </div>
+            {labs.map((lab) => (
+              <>
+                <h3>Lab Name: {lab.labName} </h3>
+                <div style={{display: "flex"}}>
+                  <h5 style={{marginRight:"1rem"}}>Institution:</h5>
+                  <p>{lab.institution}</p>
+                </div>
+                <div style={{display: "flex"}}>
+                  <h5 style={{marginRight:"1rem"}}>Admin:</h5>
+                  <p>{lab.admin[0].adminName}</p>
+                </div>
+                <div style={{display: "flex"}}>
+                  <h5 style={{marginRight:"1rem"}}>ID:</h5>
+                  <p>{lab.labId}</p>
+                </div>
+              </>
+            ))}
+            
+            
           </div> {/* map through multiple labs later */}
           <div className='my-btn-group'>
             {createLab}
@@ -56,10 +92,10 @@ const GetLab = () => {
     case 'Graduate Research Assistant':
       return (
         <>
-          {lab ? (
+          {labs ? (
               <> 
                 <div style={{display: "block", marginTop: "2rem"}}>
-                  <h3>Lab Name: {lab.labName} </h3>
+                  <h3>Lab Name: {labs.labName} </h3>
                   <p>Hello There</p>
                 </div>
                 <div my-btn-group>
@@ -79,29 +115,36 @@ const GetLab = () => {
     case 'Undergraduate Research Assistant':
       return (
         <>
-          {lab ? (
+          { labs.length !== 0 ? (
+            labs.map((lab) => (
               <> 
-                <div style={{display: "block", marginTop: "2rem"}}>
-                  <h3>Lab Name: {lab.labName} </h3>
-                  <p>Hello There</p>
+                <h3>{lab.labName} </h3>
+                <div style={{display: "flex"}}>
+                  <h5 style={{marginRight:"1rem"}}>Institution:</h5>
+                  <p>{lab.institution}</p>
+                </div>
+                <div style={{display: "flex"}}>
+                  <h5 style={{marginRight:"1rem"}}>PI:</h5>
+                  <p>{lab.admin[0].adminName}</p>
+                </div>
+                <div style={{display: "flex"}}>
+                  <h5 style={{marginRight:"1rem"}}>ID:</h5>
+                  <p>{lab._id}</p>
                 </div>
                 <div my-btn-group>
                   <MyButton onClick={() => {return (<JoinLab />)}}>Join Lab</MyButton>
                 </div>
               </>
-            ) : (
-              <>
-                <div style={{display: "block", marginTop: "2rem"}}>
-                  <h3>No current lab yet </h3>
-                  <p>Join a lab?</p>
-                </div>
-                {joinLab}
-                <div my-btn-group>
-                  <MyButton onClick={showJoinLab} style={isShowing ? {display: "none"} : {}}>Join Lab</MyButton>
-                </div>
-              </>
-            )
-          }
+            ))
+          ) : (
+            <> 
+              <h1>Lab not Found</h1>
+              <div my-btn-group>
+                  {joinLab}
+                  <MyButton style={isShowing ? {display: "none"} : {}} onClick={showJoinLab}>Join Lab</MyButton>
+              </div>
+            </>
+          )}
         </>
       )
     default:
@@ -110,7 +153,11 @@ const GetLab = () => {
 
   return (
     <>
-      <JoinLab />
+      <h1>Lab not Found</h1>
+      <div my-btn-group>
+        <MyButton onClick={() => {return (<JoinLab />)}}>Join Lab</MyButton>
+      </div>
+  
     </>
   )
 }

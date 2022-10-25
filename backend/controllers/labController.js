@@ -1,15 +1,20 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');
-// 
+
 const Lab = require('../models/labModel');
-const userModel = require('../models/userModel');
+
 
 
 // returns all labs
 const getLabs = asyncHandler(async (req, res) => {
   // get body data
-  const labs = await Lab.find({$or: [{ admin: req.user.id }, {users: {userId: req.user.id}}]})
+  let labs;
+  if (req.user.role === 'Principle Investigator') {
+    labs = await Lab.find({'admin': {$elemMatch: {adminID: req.user.id}}})
+  } else {
+    labs = await Lab.find({'users': {$elemMatch: {userId: req.user.id}}})
+  }
    // later on will find by user
   console.log('I am a bug at getLabs - labController');
   console.log(labs);
@@ -23,14 +28,14 @@ const setLabs = asyncHandler(async (req, res) => {
   //   throw new Error('Please add Lab Name')
   // }
   
-  const { labName, password, institution, fieldOfStudy } = req.body;
+  const { labName, labId, password, institution, fieldOfStudy } = req.body;
 
   if (!labName || !password || !institution || !fieldOfStudy ) {
     res.status(400);
     throw new Error("Please add all fields");
   }
   
-  const labExists = await Lab.findOne({labName});
+  const labExists = await Lab.findOne({labId});
 
   if (labExists) {
     res.status(400);
@@ -42,8 +47,14 @@ const setLabs = asyncHandler(async (req, res) => {
 
   const lab = await Lab.create({
     labName,
+    labId,
     password: hashedPassword,
-    admin: req.user.id,
+    admin: [
+      {
+        adminName: req.user.name,
+        adminID: req.user.id
+      }
+    ],
     institution,
     fieldOfStudy
   });
@@ -91,17 +102,23 @@ const deleteLabs = asyncHandler(async (req, res) => {
 })
 
 const joinLab = asyncHandler(async (req, res) => {
-  const { id, password } = req.body;
-  const lab = await Lab.findById(id);
+  console.log(`joinLab line 94 ${req.body}`)
+  const { labId, password } = req.body;
+  console.log(labId, password);
+  const lab = await Lab.findOne({labId: labId});
+  console.log(`Lab at 97 ${lab}`);
+  if (!lab) {
+    res.status(404);
+    throw new Error("Lab not found")
+  }
   if (lab && (await bcrypt.compare(password, lab.password))) {
-
-    await Lab.findByIdAndUpdate({id: id}, {$push: {users: {name: req.user.name, role: req.user.roll, userId: req.user.id }}}, {overwrite: false});
-
+    await lab.update({$push: {users: {name: req.user.name, role: req.user.role, userId: req.user._id}}}, {overwrite: false});
     res.status(200);
     res.json({
       lab
     })
   } else {
+    console.log(`error`);
     res.status(400)
     throw new Error('Invalid Lab Information')
   }

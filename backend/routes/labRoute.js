@@ -11,5 +11,5 @@ const { protect, updateProtect } = require('../middleware/authMiddleware');
 
 router.route('/').get(protect, getLabs).post(protect, setLabs);
 router.route('/:labId').put(protect, updateLabs).delete(protect, deleteLabs);
-router.post('/joinLab', protect, joinLab)
+router.post('/join', protect, joinLab)
 module.exports = router;

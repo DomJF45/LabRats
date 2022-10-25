@@ -4,6 +4,7 @@ import { registerLab, reset } from '../../features/lab/labSlice';
 import { subjectData } from '../settings/subjectData'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
+import { nanoid } from '@reduxjs/toolkit';
 import Dots from '../loading/dots'
 import MyButton from '../button/MyButton'
 import Form from 'react-bootstrap/Form'
@@ -43,6 +44,7 @@ const CreateLab = () => {
 
       const labData = {
         labName: labNameRef.current.value,
+        labId: nanoid(),
         password: passwordRef.current.value,
         admin: user.name,
         institution: instituteRef.current.value,

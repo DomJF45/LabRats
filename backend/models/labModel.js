@@ -6,13 +6,20 @@ const labModel = mongoose.Schema({
     required: [true, "Please add a lab name"],
     unique: true
   },
+  labId: {
+    type: String,
+    unique: true
+  },
   password: {
     type: String,
     required: [true, 'Please add a lab password']
   },
-  admin: {
-    type: mongoose.Schema.Types.ObjectId,
-  },
+  admin: [
+    {
+      adminName: String,
+      adminID: mongoose.Schema.Types.ObjectId
+    }
+  ],
   institution: {
     type: String,
     required: [true, 'Please add an institute']
