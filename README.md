@@ -41,7 +41,7 @@ Here is some test login info if you do not want to create accounts for a full la
   - PI: Name: John, Email: test@mail.com, Password: password123, Role: PI
   - Lab: Name: Brain Lab 2, ID: hd7ilyP1R75ZQujW4TIUZ, Password: password123
   - Lab Users:
-    - Name: Biggest Mac, Password: password123, Role: Undergraduate Research Assistant (URA)
+    - Name: Biggest Mac, Email: big@mail.com, Password: password123, Role: Undergraduate Research Assistant (URA)
 - ### Group 2
   - PI: Name: Mike, Email: mike@mail.com, Password: password123, Role: PI
   - Lab: Name: Bone Lab, ID: , Password: password123
