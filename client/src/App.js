@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     element: <UserSettingsPage />
   },
   {
-    path: "dashboard/:labId",
+    path: ":labId",
     element: <Lab />
   }
 ])
@@ -64,8 +64,8 @@ function App() {
         {/* <RegisterContainer /> */}
         <UserContext.Provider>
 
-          {/* <RouterProvider router={router} /> */}
-          <BrowserRouter>
+          <RouterProvider router={router} />
+          {/* <BrowserRouter>
             <Routes>
               <Route path='/' element={<Landing />} />
               <Route path='/register' element={<RegisterPage />} />
@@ -74,7 +74,7 @@ function App() {
               <Route path='/user-settings' element={<UserSettingsPage />} />
               <Route path='/:labId' element={<Lab />} />
             </Routes>
-          </BrowserRouter>
+          </BrowserRouter> */}
           <ToastContainer />
         </UserContext.Provider>
       </div>
