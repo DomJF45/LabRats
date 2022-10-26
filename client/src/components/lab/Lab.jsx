@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { getLab, reset } from '../../features/lab/labSlice'; 
+import { getSingleLab, reset } from '../../features/lab/labSlice'; 
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Lab = () => {
 
-  const { labs, error, message, success, loading } = useSelector((state) => state.lab)
+  let { labId } = useParams();
+  const { lab, error, message, success, loading } = useSelector((state) => state.lab)
   const { user } = useSelector((state) => state.auth)
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,8 +26,8 @@ const Lab = () => {
     }
     
 
-    dispatch(getLab())
-    console.log(labs)
+    dispatch(getSingleLab(labId))
+    
     return () => {
       dispatch(reset());
 
@@ -36,7 +37,8 @@ const Lab = () => {
 
   return (
     <>
-      <h1>{labs.labName}</h1>
+      <h1>{lab.labName}</h1>
+      <p>{lab.institution}</p>
     </>
   )
 }

@@ -50,6 +50,7 @@ const GetLab = () => {
     
 
     dispatch(getLab())
+    console.log('infinite loop at GetLab.jsx')
     return () => {
       dispatch(reset());
 

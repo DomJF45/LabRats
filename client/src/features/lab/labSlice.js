@@ -5,6 +5,7 @@ import {labService} from './labService'
 
 const initialState = {
   labs: [],
+  lab: {},
   error: false,
   success: false,
   loading: false,
@@ -27,6 +28,16 @@ export const getLab = createAsyncThunk('lab/get', async(_, thunkAPI) => {
     const token = thunkAPI.getState().auth.user.token
     return await labService.getLab(token);
   } catch(error) {
+    const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString());
+    return thunkAPI.rejectWithValue(message);
+  }
+})
+
+export const getSingleLab = createAsyncThunk('lab/getOne', async(labId, thunkAPI) => {
+  try {
+    console.log(`This is the labId at getSingleLab Slice ${labId}`)
+    return await labService.getSingleLab(labId);
+  } catch (error) {
     const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString());
     return thunkAPI.rejectWithValue(message);
   }
@@ -92,6 +103,19 @@ export const labSlice = createSlice({
       .addCase(joinLab.rejected, (state, action) => {
         state.error = true
         state.loading = false
+        state.message = action.payload
+      })
+      .addCase(getSingleLab.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(getSingleLab.fulfilled, (state, action) => {
+        state.loading = false
+        state.success = true
+        state.lab = action.payload
+      })
+      .addCase(getSingleLab.rejected, (state, action) => {
+        state.loading = false
+        state.error = true
         state.message = action.payload
       })
       

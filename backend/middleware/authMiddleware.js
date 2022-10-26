@@ -5,7 +5,7 @@ const User = require('../models/userModel');
 
 const protect = asyncHandler(async(req, res, next) => {
   let token;
-  console.log(req.body);
+  
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     try {
       // get token from header
@@ -19,51 +19,47 @@ const protect = asyncHandler(async(req, res, next) => {
       next(); // middleware needs to call next middleware
 
     } catch (error) {
+
       console.log(error);
       res.status(401);
       throw new Error('Not authorized')
+
     }
   }
 
   if (!token) {
     res.status(401);
     throw new Error('Not authorized, no token');
-  }
-})
-
-const updateProtect = asyncHandler(async(req, res, next) => {
-
-  try {
-
-    req.user = await User.findOne({token: req.body.token})
     
-    next();
-
-  } catch (error) {
-    console.log(error);
-    res.status(401);
-    throw new Error('User not found')
   }
-
-  
 })
 
-// const labProtect = asyncHandler( async(req, res, next) => {
-//   try {
 
-//     console.log(req.params.labId)
-//     console.log(req.body.parentId)
+const labProtect = asyncHandler( async(req, res, next) => {
+  
+  
+  if (req.headers) {
 
-//     next();
+    try {
 
-//   } catch (err) {
-//     console.log(err)
-//     res.status(401);
-//     throw new Error('Not authorized')
-//   }
-// })
+      
+      console.log(`labProtect l:47 -- ${req.header('labId')}`)
+      req.lab = await Lab.findOne({labId: req.header('labId')}).select('-password');
+
+      next();
+  
+    } catch (err) {
+      console.log(err)
+      res.status(401);
+      throw new Error('Not authorized')
+    }
+  } else {
+    res.status(401);
+    throw new Error('Not authorized, check your headers')
+  }
+})
 
 module.exports = {
   protect,
-  updateProtect
+  labProtect
 }

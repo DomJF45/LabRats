@@ -5,11 +5,13 @@ const {
   setLabs,
   updateLabs,
   deleteLabs,
-  joinLab
+  joinLab,
+  getOneLab
 } = require('../controllers/labController')
-const { protect, updateProtect } = require('../middleware/authMiddleware');
+const { protect, labProtect } = require('../middleware/authMiddleware');
 
 router.route('/').get(protect, getLabs).post(protect, setLabs);
 router.route('/:labId').put(protect, updateLabs).delete(protect, deleteLabs);
 router.post('/join', protect, joinLab)
+router.get('/getOneLab', labProtect, getOneLab)
 module.exports = router;

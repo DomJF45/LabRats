@@ -22,6 +22,18 @@ const getLab  = async (token) => {
   return response.data;
 }
 
+const getSingleLab = async(labId) => {
+  
+  console.log(`Lab ID at getSingle Lab: ${labId}`)
+  const response = await axios.get(`${API_URL}getOneLab`, {
+    headers: {
+      labId: labId
+    }
+  })
+
+  return response.data;
+}
+
 const joinLab = async (labData, token) => {
   console.log(labData)
   const response = await axios.post(`${API_URL}join`, labData, {
@@ -35,5 +47,6 @@ const joinLab = async (labData, token) => {
 export const labService = {
   registerLab,
   getLab,
-  joinLab
+  joinLab,
+  getSingleLab
 }

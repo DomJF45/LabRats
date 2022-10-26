@@ -1,11 +1,13 @@
 import React, { useEffect, createContext, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { getLab, reset } from '../../features/lab/labSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { randomColor } from '../../util/colors';
+import Lab from '../lab/Lab';
 import Dots from '../loading/dots';
 import Navigation from '../nav/Nav'; 
-import { randomColor } from '../../util/colors';
 import './Dashboard.css';
+
 
 const Dashboard = () => {
 
@@ -32,13 +34,14 @@ const Dashboard = () => {
     setColor(randomColor());
 
     dispatch(getLab())
-    console.log(labs)
+    console.log('infinite loop at Dashboard.jsx')
+
     return () => {
       dispatch(reset());
 
     }
 
-  }, [user, navigate, error, message, dispatch])
+  }, [user, navigate, message])
 
   if(loading) {
     return <Dots />
@@ -52,15 +55,15 @@ const Dashboard = () => {
           <h2>Current Labs:</h2>
         </div>
         { labs.map((lab) => (
-            <div className="DcontentContainer">
+          <div className="DcontentContainer">
               <div className="Dcard">
-                <a onClick={() => navigate(`labs/${lab.labId}`)}>
-                <div className="DcardImg" style={{backgroundColor: color}}></div>
-                <div className="Dcontainer">
-                  <h4 className='DcardTitle'>{lab.labName}</h4>
-                  <p className='DcardBio'>{lab.institution}</p>
-                </div>  
-                </a>    
+                <Link to={`/${lab.labId}`}>
+                  <div className="DcardImg" style={{backgroundColor: color}}></div>
+                    <div className="Dcontainer">
+                      <h4 className='DcardTitle'>{lab.labName}</h4>
+                      <p className='DcardBio'>{lab.institution}</p>
+                    </div>  
+                </Link>    
               </div>
             </div>
           

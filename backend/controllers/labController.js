@@ -15,10 +15,20 @@ const getLabs = asyncHandler(async (req, res) => {
   } else {
     labs = await Lab.find({'users': {$elemMatch: {userId: req.user.id}}})
   }
-   // later on will find by user
-  console.log('I am a bug at getLabs - labController');
-  console.log(labs);
+
+  console.log(`this is the labs object: ${labs}`);
   res.status(200).json(labs); 
+})
+
+const getOneLab = asyncHandler(async (req, res) => {
+  
+  const lab = await Lab.findOne({labId: req.lab.labId})
+  console.log(`This is the labID: ${req.lab.labId}`);
+  if (!lab) {
+    res.status(400);
+    throw new Error('Not found')
+  }
+  res.status(200).json(lab);
 })
 
 // creates lab
@@ -137,5 +147,6 @@ module.exports = {
   setLabs,
   updateLabs,
   deleteLabs,
-  joinLab
+  joinLab,
+  getOneLab
 }

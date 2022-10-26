@@ -12,6 +12,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   createBrowserRouter,
   RouterProvider,
+  BrowserRouter,
+  Routes,
+  Route
 } from "react-router-dom"
 import UserSettingsPage from './pages/UserSettings';
 import Lab from './components/lab/Lab';
@@ -39,7 +42,7 @@ const router = createBrowserRouter([
     element: <UserSettingsPage />
   },
   {
-    path: "/labs/:labId",
+    path: "dashboard/:labId",
     element: <Lab />
   }
 ])
@@ -61,7 +64,17 @@ function App() {
         {/* <RegisterContainer /> */}
         <UserContext.Provider>
 
-          <RouterProvider router={router} />
+          {/* <RouterProvider router={router} /> */}
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={<Landing />} />
+              <Route path='/register' element={<RegisterPage />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/dashboard' element={<DashboardPage />} />
+              <Route path='/user-settings' element={<UserSettingsPage />} />
+              <Route path='/:labId' element={<Lab />} />
+            </Routes>
+          </BrowserRouter>
           <ToastContainer />
         </UserContext.Provider>
       </div>
