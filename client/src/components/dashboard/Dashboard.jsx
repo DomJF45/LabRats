@@ -1,13 +1,15 @@
-import React, { useEffect, createContext } from 'react'
+import React, { useEffect, createContext, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { getLab, reset } from '../../features/lab/labSlice';
 import { useNavigate } from 'react-router-dom';
 import Dots from '../loading/dots';
 import Navigation from '../nav/Nav'; 
+import { randomColor } from '../../util/colors';
+import './Dashboard.css';
 
 const Dashboard = () => {
 
-  
+  const [color, setColor] = useState('');
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { labs, loading, error, success, message } = useSelector((state) => state.lab)
@@ -27,6 +29,7 @@ const Dashboard = () => {
       navigate('/')
     }
     
+    setColor(randomColor());
 
     dispatch(getLab())
     console.log(labs)
@@ -44,9 +47,25 @@ const Dashboard = () => {
   return (
     <>
       <Navigation props={user} />
-      { labs.map((lab) => (
-        <h1>{lab.labName}</h1>
-      ))}
+      <div className='dashboard-container'>
+        <div>
+          <h2>Current Labs:</h2>
+        </div>
+        { labs.map((lab) => (
+            <div className="DcontentContainer">
+              <div className="Dcard">
+                <a onClick={() => navigate(`labs/${lab.labId}`)}>
+                <div className="DcardImg" style={{backgroundColor: color}}></div>
+                <div className="Dcontainer">
+                  <h4 className='DcardTitle'>{lab.labName}</h4>
+                  <p className='DcardBio'>{lab.institution}</p>
+                </div>  
+                </a>    
+              </div>
+            </div>
+          
+          ))}
+        </div>
      
       
     </>

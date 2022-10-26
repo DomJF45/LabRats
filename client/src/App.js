@@ -14,6 +14,7 @@ import {
   RouterProvider,
 } from "react-router-dom"
 import UserSettingsPage from './pages/UserSettings';
+import Lab from './components/lab/Lab';
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/user-settings",
     element: <UserSettingsPage />
+  },
+  {
+    path: "/labs/:labId",
+    element: <Lab />
   }
 ])
 

@@ -18,10 +18,6 @@ const getLab  = async (token) => {
       Authorization: `Bearer ${token}`
     }
   })
-
-  if (response) {
-    console.log('get lab print');
-  }
   
   return response.data;
 }

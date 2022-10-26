@@ -1,0 +1,63 @@
+
+.dashboard-container {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 40% 50%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+}
+
+.DcontentContainer {
+  
+  
+}
+
+.Dcard {
+  box-shadow: 6px 6px #888;
+  transition: 0.2s;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  border-radius: 10px;
+  background-color: #fdfcf9;
+  border: .5px #303030 solid;
+  position: relative;
+}
+
+.Dcard:hover {
+  transform:translateY(-6px);
+  box-shadow: 12px 12px #888;
+  cursor: pointer;
+}
+
+.Dcontainer {
+  padding: 0 10px; 
+  
+}
+
+.DcardImg {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 100px;
+}
+
+.DcardTitle {
+  padding: 0;
+  color: #303030;
+  font-weight: 400;
+  margin-top: 1.5rem;
+  
+}
+.Dcard h4{  
+
+}
+
+.DcardBio {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 18px;
+  color: #303030;
+}
