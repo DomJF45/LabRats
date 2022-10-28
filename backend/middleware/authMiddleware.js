@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 
 const protect = asyncHandler(async(req, res, next) => {
+
   let token;
   
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
@@ -11,10 +12,11 @@ const protect = asyncHandler(async(req, res, next) => {
       // get token from header
       token = req.headers.authorization.split(' ')[1];
       // bearer token -> bearer' 'token -> ['bearer','token'] [1]='token'
+      
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       
       req.user = await User.findById(decoded.id).select('-password'); // wil not include password
-      
+      console.log(`authMiddleware -- 19 -- user object: ${req.user}`)
       
       next(); // middleware needs to call next middleware
 
@@ -22,8 +24,7 @@ const protect = asyncHandler(async(req, res, next) => {
 
       console.log(error);
       res.status(401);
-      throw new Error('Not authorized')
-
+      throw new Error('Not authorized');
     }
   }
 

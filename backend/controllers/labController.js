@@ -10,11 +10,21 @@ const Lab = require('../models/labModel');
 const getLabs = asyncHandler(async (req, res) => {
   // get body data
   let labs;
+
   if (req.user.role === 'Principle Investigator') {
     labs = await Lab.find({'admin': {$elemMatch: {adminID: req.user.id}}})
+    if (!labs) {
+      res.status(400);
+      throw new Error('Lab not found')
+    }
   } else {
     labs = await Lab.find({'users': {$elemMatch: {userId: req.user.id}}})
+    if (!labs) {
+      res.status(400);
+      throw new Error('Lab not found')
+    }
   }
+  
 
   console.log(`this is the labs object: ${labs}`);
   res.status(200).json(labs); 

@@ -90,6 +90,12 @@ const Register = () => {
                 ref={emailRef}
                 className="mb-3" 
               />
+              <Form.Label>Role</Form.Label>
+              <Form.Select ref={roleRef} className="mb-3">
+                <option>Principle Investigator</option>
+                <option>Graduate Research Assistant</option>
+                <option>Undergraduate Research Assistant</option>
+              </Form.Select>
               <Form.Label>Password:</Form.Label>
               <Form.Control 
                 type="password" 
@@ -104,12 +110,6 @@ const Register = () => {
               ref={confirmPassRef} 
               className="mb-3"
               ></Form.Control>
-              <Form.Label>Role</Form.Label>
-              <Form.Select ref={roleRef}>
-                <option>Principle Investigator</option>
-                <option>Graduate Research Assistant</option>
-                <option>Undergraduate Research Assistant</option>
-              </Form.Select>
             </Form.Group>
             <MyButton props={"100%"} onClick={() => this.submit()}>Register</MyButton>
           </Form>

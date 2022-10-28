@@ -5,7 +5,9 @@ import {labService} from './labService'
 
 const initialState = {
   labs: [],
-  lab: {},
+  lab: {
+    
+  },
   error: false,
   success: false,
   loading: false,
@@ -26,6 +28,7 @@ export const getLab = createAsyncThunk('lab/get', async(_, thunkAPI) => {
   
   try {
     const token = thunkAPI.getState().auth.user.token
+    console.log(token)
     return await labService.getLab(token);
   } catch(error) {
     const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString());

@@ -79,7 +79,7 @@ const LoginUser = () => {
               className="mb-3" 
             ></Form.Control>
           </Form.Group>
-          <MyButton props={"100%"} onClick={() => this.submit()}>Register</MyButton>
+          <MyButton props={"100%"} onClick={() => this.submit()}>Log In</MyButton>
         </Form>
         <div style={{padding: "1.5rem 0", display: "flex", justifyContent: "center"}}>
           <div style={{paddingRight: ".5rem"}}>

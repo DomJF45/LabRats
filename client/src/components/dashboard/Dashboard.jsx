@@ -1,12 +1,14 @@
 import React, { useEffect, createContext, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { getLab, reset } from '../../features/lab/labSlice';
+import { logout } from '../../features/auth/authSlice';
 import { useNavigate, Link } from 'react-router-dom';
 import { randomColor } from '../../util/colors';
 import Lab from '../lab/Lab';
 import Dots from '../loading/dots';
 import Navigation from '../nav/Nav'; 
 import './Dashboard.css';
+import { toast } from 'react-toastify';
 
 
 const Dashboard = () => {
@@ -23,7 +25,38 @@ const Dashboard = () => {
 
     if (error) {
       console.log(message);
+      /* 
+      ===== for testing purposes PLEASE DELETE LATER =====
+      
+      dispatch(logout());
+      navigate('/');
+      
+      ==================================================== 
+      */
+      // return (
+      //   <>
+      //     <Navigation />
+      //     <div>
+      //       Error
+      //     </div>
+      //   </>
+      // )
+      dispatch(getLab()).then((response) => {
+        
+      }).catch((error)=> {
+        console.log(error);
+        toast.error('Trouble getting data, returning to landing page')
+        dispatch(logout());
+        navigate('/login')
+      })
     }
+
+    if (!user) {
+      dispatch(logout());
+      navigate('/login');
+    }
+
+    dispatch(reset());
 
     if (!user) {
       // navigate to '/'
@@ -33,12 +66,12 @@ const Dashboard = () => {
     
     setColor(randomColor());
 
-    dispatch(getLab())
+    dispatch(getLab());
     console.log('infinite loop at Dashboard.jsx')
 
     return () => {
       dispatch(reset());
-
+      
     }
 
   }, [user, navigate, message])
@@ -57,7 +90,7 @@ const Dashboard = () => {
         { labs.map((lab) => (
           <div className="DcontentContainer">
               <div className="Dcard">
-                <Link to={`/${lab.labId}`}>
+                <Link to={`/${lab.labId}`} style={{textDecoration:"none"}}>
                   <div className="DcardImg" style={{backgroundColor: color}}></div>
                     <div className="Dcontainer">
                       <h4 className='DcardTitle'>{lab.labName}</h4>
