@@ -1,29 +1,18 @@
-
-.dashboard-container {
+.project-container {
   max-width: 1200px;
   display: grid;
   grid-template-columns: 40% 50%;
-  justify-content: center;
+  justify-content: start;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
 }
 
-.DcontentContainer {
-  
-  
+.project-content-container {
+  margin-bottom: 2rem;
 }
 
-.loading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  width: 100%;
-}
-
-.Dcard {
+.project-card {
   box-shadow: 6px 6px #888;
   transition: 0.2s;
   width: 100%;
@@ -35,35 +24,29 @@
   position: relative;
 }
 
-.Dcard:hover {
+.project-card:hover {
   transform:translateY(-6px);
   box-shadow: 12px 12px #888;
   cursor: pointer;
 }
 
-.Dcontainer {
-  padding: 0 10px; 
-  
-}
-
-.DcardImg {
+.project-card-img {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   height: 100px;
 }
 
-.DcardTitle {
+.project-container-2 {
+  padding: 0 10px; 
+}
+
+.project-card-title {
   padding: 0;
   color: #303030;
   font-weight: 400;
   margin-top: 1.5rem;
-  
 }
-.Dcard h4{  
-
-}
-
-.DcardBio {
+.project-card-bio {
   padding: 0;
   margin-top: 0;
   margin-bottom: 1.5rem;

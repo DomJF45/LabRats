@@ -3,7 +3,7 @@ import './dots.css';
 
 function Dots({ styleProps}) {
   return (
-    <div>
+    <div className='dots-container'>
 
       <div className="snippet" data-title=".dot-windmill">
         <div className="stage">

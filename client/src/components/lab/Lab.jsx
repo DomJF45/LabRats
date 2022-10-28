@@ -3,6 +3,11 @@ import { getSingleLab, reset } from '../../features/lab/labSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
+import { projectData } from '../projects/testData';
+import Projects from '../projects/Projects';
+import Navigation from '../nav/Nav';
+import '../../styles/Lab.css';
+
 
 const Lab = () => {
 
@@ -33,12 +38,18 @@ const Lab = () => {
 
     }
 
-  }, [user, navigate, error, message, dispatch])
+  }, [user, navigate, error, message])
 
   return (
     <>
-      <h1>{lab.labName}</h1>
-      <p>{lab.institution}</p>
+      <Navigation props={user} />
+      <div className='lab-container'>
+        <h1>{lab.labName}</h1>
+        <p>{lab.institution}</p>
+      </div>
+      
+      <Projects />
+      
     </>
   )
 }

@@ -33,14 +33,7 @@ const Dashboard = () => {
       
       ==================================================== 
       */
-      // return (
-      //   <>
-      //     <Navigation />
-      //     <div>
-      //       Error
-      //     </div>
-      //   </>
-      // )
+      
       dispatch(getLab()).then((response) => {
         
       }).catch((error)=> {
@@ -77,7 +70,11 @@ const Dashboard = () => {
   }, [user, navigate, message])
 
   if(loading) {
-    return <Dots />
+    return (
+      <div className='loading-container'>
+        <Dots />
+      </div>
+    )
   }
 
   return (

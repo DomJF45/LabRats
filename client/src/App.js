@@ -18,6 +18,7 @@ import {
 } from "react-router-dom"
 import UserSettingsPage from './pages/UserSettings';
 import Lab from './components/lab/Lab';
+import Project from './components/projects/Project';
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: ":labId",
     element: <Lab />
+  },
+  {
+    path: "/projects/:projectId",
+    element: <Project />
   }
 ])
 
