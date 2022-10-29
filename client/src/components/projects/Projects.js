@@ -21,7 +21,6 @@ const Projects = () => {
         <h2>Current Projects:</h2>
       </div>
       <div className='c-2'>
-
         {projectData.map((project) => (
           <div className='project-content-container'>
             <div className='project-card'>

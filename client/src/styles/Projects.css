@@ -8,7 +8,14 @@
   margin-top: 2rem;
 }
 
+.c-2 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  column-gap: 2rem;
+}
+
 .project-content-container {
+  
   margin-bottom: 2rem;
 }
 
@@ -22,6 +29,7 @@
   background-color: #fdfcf9;
   border: .5px #303030 solid;
   position: relative;
+  
 }
 
 .project-card:hover {
