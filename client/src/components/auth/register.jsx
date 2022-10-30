@@ -65,7 +65,11 @@ const Register = () => {
   }
 
   if (loading) {
-    return <Dots />
+    return (<>
+      <div className='loading-container'>
+        <Dots />
+      </div>
+    </>)
   }
 
   return (

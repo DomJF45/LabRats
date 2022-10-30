@@ -15,7 +15,7 @@
 }
 
 .project-content-container {
-  
+  position: relative;
   margin-bottom: 2rem;
 }
 
@@ -60,4 +60,26 @@
   margin-bottom: 1.5rem;
   font-size: 18px;
   color: #303030;
+}
+
+.add-project-icon {
+  color: #FFB703;
+  width: 35%;
+  height: 35%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.add-project-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.add-project-label {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

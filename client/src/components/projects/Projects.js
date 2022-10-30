@@ -3,12 +3,16 @@ import { projectData } from './testData'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { randomColor } from '../../util/colors'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 import Navigation from '../nav/Nav'
 import '../../styles/Projects.css';
+import AddProject from './AddProject'
 
 const Projects = () => {
 
-  const [color,setColor] = useState('');
+  const [color, setColor] = useState('');
+  const [modalShow, setModalShow] = useState(false)
   const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -34,7 +38,17 @@ const Projects = () => {
             </div>
           </div>
         ))}
+        <div className='add-project-container'>
+          <div className='project-card' onClick={() => setModalShow(true)}>
+          
+
+          <FontAwesomeIcon icon={faPlusSquare} className='add-project-icon'/>
+          <h4 className='add-project-label'>Add Project</h4>
+          </div>
+            
+        </div>
       </div>
+      <AddProject show={modalShow} onHide={() => setModalShow(false)} />
     </div>
   )
 }

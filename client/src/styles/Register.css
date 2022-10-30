@@ -12,6 +12,15 @@
   font-weight: 200;
 }
 
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
 .loading-on {
   position: absolute;
   top: 2.5rem;

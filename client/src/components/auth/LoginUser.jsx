@@ -48,7 +48,13 @@ const LoginUser = () => {
 
   }
 
-  
+  if (loading) {
+    return (
+      <div className='loading-container'>
+        <Dots />
+      </div>
+    )
+  }
 
   return (
     <>
@@ -57,9 +63,6 @@ const LoginUser = () => {
       
       <div>
         <h1>Log In</h1>
-        <div className={loading ? 'loading-on' : 'loading-off'}>
-          <Dots />
-        </div>
       </div>
       <div className='form-group'>
       <Form onSubmit={handleLogin}>
