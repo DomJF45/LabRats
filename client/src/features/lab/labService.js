@@ -22,6 +22,8 @@ const getLab  = async (token) => {
     }
   }) // stores array of labs from Lab route in Server
   // api/labs/
+
+  localStorage.setItem('labs', JSON.stringify(response.data))
   
   return response.data; // returns response from data as Labs[]
 }
@@ -35,7 +37,7 @@ const getSingleLab = async(labId) => {
     }
   }) // stores single lab object from Lab route in server
   // api/labs/getOneLab route
-
+  localStorage.setItem(`lab:${labId}`, JSON.stringify(response.data))
   return response.data; // returns single lab
 }
 
@@ -48,18 +50,9 @@ const joinLab = async (labData, token) => {
   }); // post request to lab, allows user to join, sends body and token for auth, responds with labObject
   // api/labs/join route
 
+  localStorage.setItem(`labs`, JSON.stringify(response.data))
+
   return response.data;
-}
-
-/* 
-======================= Projects =========================
-*/
-
-const getProjects = async (token) => {
-  // await axios.get from project route
-
-
-
 }
 
 export const labService = {

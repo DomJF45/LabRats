@@ -1,11 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import {labService} from './labService'
-
+import { projectServce } from './projectService'
 
 
 const initialState = {
   labs: [], // sets labs to an empty array
-  lab: {}, // used for getting one lab from dashboard
+  lab: {
+    projects: []
+  }, // used for getting one lab from dashboard
   error: false, // used to signal if there is an error
   success: false, // used to signal if there was a success
   loading: false, // used to signal loading
@@ -58,11 +60,19 @@ export const joinLab = createAsyncThunk('lab/join', async(labData, thunkAPI) => 
   ========================== Projects ================================
 */
 
-export const getProjects = createAsyncThunk('projects/getProjects', async(_, thunkAPI) => {
+export const getProjects = createAsyncThunk('projects/getProjects', async(labId, thunkAPI) => {
   try {
-    const token  = thunkAPI.getState().auth.user.token;
-    return await labService.getProjects(token);
+    return await projectServce.getProjects(labId);
   } catch (error) {
+    const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString());
+    return thunkAPI.rejectWithValue(message);
+  }
+})
+
+export const createProject = createAsyncThunk('projects/createProjects', async(projectData, labId, thunkAPI) => {
+  try {
+    return await projectServce.createProject(projectData, labId);
+  } catch(error) {
     const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString());
     return thunkAPI.rejectWithValue(message);
   }
@@ -146,7 +156,27 @@ export const labSlice = createSlice({
         state.message = action.payload
         // when the function is rejected, sets error to true, loading to false, and the message state to the response payload (error)
       })
-      
+      .addCase(getProjects.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(getProjects.fulfilled, (state, action) => {
+        state.loading = false
+        state.success = true
+        state.lab.projects = action.payload
+      })
+      .addCase(getProjects.rejected, (state, action) => {
+        state.loading = false
+        state.error = true
+        state.message = action.payload
+      })
+      .addCase(createProject.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(createProject.fulfilled, (state, action) => {
+        state.loading = false
+        state.success = true
+        state.lab.projects.push(action.payload)
+      })
   }
 })
 

@@ -13,11 +13,13 @@ const Projects = () => {
 
   const [color, setColor] = useState('');
   const [modalShow, setModalShow] = useState(false)
-  const { user } = useSelector((state) => state.auth);
+ 
 
   useEffect(() => {
     setColor((prev) => randomColor());
+    
   }, []);
+
 
   return (
     <div className='project-container'>
@@ -28,7 +30,7 @@ const Projects = () => {
         {projectData.map((project) => (
           <div className='project-content-container'>
             <div className='project-card'>
-              <Link to={`/projects/${project.id}`} style={{textDecoration: 'none'}}>
+              <Link to={`projects/${project.id}`} style={{textDecoration: 'none'}}>
                 <div className='project-card-img' style={{backgroundColor: project.color}}></div>
                   <div className='project-container-2'>
                     <h1 className='project-card-title'>{project.name}</h1>

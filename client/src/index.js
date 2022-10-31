@@ -6,7 +6,9 @@ import App from './App';
 import { ToastContainer } from 'react-toastify';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react'
 import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

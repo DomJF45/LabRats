@@ -3,11 +3,118 @@ import { randomColor } from "../../util/colors"
 export const projectData = [
   {
     id: '1',
-    name: 'project 1',
+    name: 'EEG Project',
     tasks: 5,
     assignedTo: 'Big Mac',
     isComplete: false,
-    color: randomColor()
+    color: randomColor(),
+    tasks: [
+      {
+        taskName: 'Clean Data',
+        inProgress: true,
+        complete: false,
+        notes: 'Here are notes about the task, notes will contain long strings of info for the task',
+        assignedTo: 'Big Mac'
+      },
+      {
+        taskName: 'Send emails',
+        inProgress: true,
+        complete: true,
+        notes: "here are notes about the current task",
+        assignedTo: "Sandy"
+      },
+      {
+        taskName: 'Investigate ERPs ',
+        inProgress: true,
+        complete: false,
+        notes: "here are notes about the current task",
+        assignedTo: "Alice"
+      },
+      {
+        taskName: 'Clean Data',
+        inProgress: true,
+        complete: true,
+        notes: 'Here are notes about the task, notes will contain long strings of info for the task',
+        assignedTo: 'Big Mac'
+      },
+      {
+        taskName: 'Send emails',
+        inProgress: true,
+        complete: true,
+        notes: "here are notes about the current task",
+        assignedTo: "Sandy"
+      },
+      {
+        taskName: 'Investigate ERPs ',
+        inProgress: true,
+        complete: false,
+        notes: "here are notes about the current task",
+        assignedTo: "Alice"
+      },
+      {
+        taskName: 'Clean Data',
+        inProgress: true,
+        complete: false,
+        notes: 'Here are notes about the task, notes will contain long strings of info for the task',
+        assignedTo: 'Big Mac'
+      },
+      {
+        taskName: 'Send emails',
+        inProgress: true,
+        complete: true,
+        notes: "here are notes about the current task",
+        assignedTo: "Sandy"
+      },
+      {
+        taskName: 'Investigate ERPs ',
+        inProgress: true,
+        complete: false,
+        notes: "here are notes about the current task",
+        assignedTo: "Alice"
+      },
+      {
+        taskName: 'Clean Data',
+        inProgress: true,
+        complete: false,
+        notes: 'Here are notes about the task, notes will contain long strings of info for the task',
+        assignedTo: 'Big Mac'
+      },
+      {
+        taskName: 'Send emails',
+        inProgress: true,
+        complete: false,
+        notes: "here are notes about the current task",
+        assignedTo: "Sandy"
+      },
+      {
+        taskName: 'Investigate ERPs ',
+        inProgress: true,
+        complete: false,
+        notes: "here are notes about the current task",
+        assignedTo: "Alice"
+      },
+      {
+        taskName: 'Clean Data',
+        inProgress: true,
+        complete: false,
+        notes: 'Here are notes about the task, notes will contain long strings of info for the task',
+        assignedTo: 'Big Mac'
+      },
+      {
+        taskName: 'Send emails',
+        inProgress: true,
+        complete: false,
+        notes: "here are notes about the current task",
+        assignedTo: "Sandy"
+      },
+      {
+        taskName: 'Investigate ERPs ',
+        inProgress: true,
+        complete: false,
+        notes: "here are notes about the current task",
+        assignedTo: "Alice"
+      },
+    ]
   },
   {
     id: '2',
@@ -15,7 +122,16 @@ export const projectData = [
     tasks: 2,
     assignedTo: 'Sandy',
     isComplete: false,
-    color: randomColor()
+    color: randomColor(),
+    tasks: [
+      {
+        taskName: 'Clean Data',
+        inProgress: true,
+        complete: false,
+        notes: 'Here are notes about the task, notes will contain long strings of info for the task',
+        assignedTo: 'Big Mac'
+      }
+    ]
   },
   {
     id: '3',
@@ -23,7 +139,16 @@ export const projectData = [
     tasks: 3,
     assignedTo: 'emily',
     isComplete: false,
-    color: randomColor()
+    color: randomColor(),
+    tasks: [
+      {
+        taskName: 'Clean Data',
+        inProgress: true,
+        complete: false,
+        notes: 'Here are notes about the task, notes will contain long strings of info for the task',
+        assignedTo: 'Big Mac'
+      }
+    ]
   },
   {
     id: '4',
@@ -31,7 +156,16 @@ export const projectData = [
     tasks: 3,
     assignedTo: 'Bob',
     isComplete: false,
-    color: randomColor()
+    color: randomColor(),
+    tasks: [
+      {
+        taskName: 'Clean Data',
+        inProgress: true,
+        complete: false,
+        notes: 'Here are notes about the task, notes will contain long strings of info for the task',
+        assignedTo: 'Big Mac'
+      }
+    ]
   },
   {
     id: '5',
@@ -39,7 +173,16 @@ export const projectData = [
     tasks: 3,
     assignedTo: 'Big Mac',
     isComplete: false,
-    color: randomColor()
+    color: randomColor(),
+    tasks: [
+      {
+        taskName: 'Clean Data',
+        inProgress: true,
+        complete: false,
+        notes: 'Here are notes about the task, notes will contain long strings of info for the task',
+        assignedTo: 'Big Mac'
+      }
+    ]
   },
   {
     id: '6',
@@ -47,7 +190,16 @@ export const projectData = [
     tasks: 1,
     assignedTo: 'Alice',
     isComplete: false,
-    color: randomColor()
+    color: randomColor(),
+    tasks: [
+      {
+        taskName: 'Clean Data',
+        inProgress: true,
+        complete: false,
+        notes: 'Here are notes about the task, notes will contain long strings of info for the task',
+        assignedTo: 'Big Mac'
+      }
+    ]
   },
   {
     id: '7',

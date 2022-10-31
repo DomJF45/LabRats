@@ -1,0 +1,121 @@
+.task-container {
+  max-width: 1200px;
+  display: block;
+  justify-content: start;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+}
+.task-c-1 {
+  margin-bottom: 2rem;
+}
+.task-c-2 {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  column-gap: 2rem;
+}
+.card-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #303030;
+}
+.task-card-img {
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-bottom: 1rem;
+}
+.task-card {
+  transition: .2s;
+  box-shadow: 6px 6px #888;
+  border-radius: 10px;
+  border: .5px #303030 solid;
+  width: 100%;
+  
+  background-color: #fdfcf9;
+  margin: 0;
+  padding: 0;
+}
+.task-card:hover {
+  transform:translateY(-6px);
+  box-shadow: 12px 12px #888;
+  
+}
+.incomplete {
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  border: #303030;
+  margin-left: 1rem;
+  border-radius: 5px;
+}
+.complete {
+  background-color: green;
+  width: 20px;
+  height: 20px;
+  border: #303030;
+  margin-left: 1rem;
+  border-radius: 5px;
+}
+.task-card-title {
+  padding: 0;
+  color: #fff;
+  font-weight: 400;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0;
+  
+}
+.task-card-icon {
+  background-color: rgba(180,180,180,.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 1rem;
+  transition: .2s;
+  margin-top: .8rem;
+}
+.task-card-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px rgba(0, 0, 0, .4);
+  cursor: pointer;
+}
+.task-card-bio {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 18px;
+  color: #303030;
+  
+  text-align: start;
+  
+  position: relative;
+}
+.task-card-info {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.task-card-status {
+  
+  display: flex;
+  align-items: center;
+  
+}
+
+.task-card-assignment {
+  display: flex;
+  position: relative;
+}
+.assigned-to {
+  margin-top: 3px;
+  margin-left: 8px;
+}
+.task-toolbar {
+  margin-bottom: 1rem;
+}

@@ -30,15 +30,18 @@ const Lab = () => {
       navigate('/')
     }
     
-
-    dispatch(getSingleLab(labId))
+    // dispatch(getSingleLab(labId))
+    const lab = JSON.parse(localStorage.getItem(`lab:${labId}`))
     
+    console.log(lab)
+
     return () => {
       dispatch(reset());
 
     }
 
   }, [user, navigate, error, message])
+
 
   return (
     <>
