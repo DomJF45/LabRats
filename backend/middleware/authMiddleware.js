@@ -16,7 +16,6 @@ const protect = asyncHandler(async(req, res, next) => {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       
       req.user = await User.findById(decoded.id).select('-password'); // wil not include password
-      console.log(`authMiddleware -- 19 -- user object: ${req.user}`)
       
       next(); // middleware needs to call next middleware
 
@@ -43,8 +42,6 @@ const labProtect = asyncHandler( async(req, res, next) => {
 
     try {
 
-      
-      console.log(`labProtect l:47 -- ${req.header('labId')}`)
       req.lab = await Lab.findOne({labId: req.header('labId')}).select('-password');
 
       next();

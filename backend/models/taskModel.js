@@ -11,7 +11,8 @@ const taskModel = mongoose.Schema({
   notes: String,
   assigned: [
     {
-      user: mongoose.Schema.Types.ObjectId
+      user: String,
+      userId: mongoose.Types.ObjectId
     }
   ]
 })

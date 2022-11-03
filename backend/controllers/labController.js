@@ -25,15 +25,13 @@ const getLabs = asyncHandler(async (req, res) => {
     }
   }
   
-
-  console.log(`this is the labs object: ${labs}`);
   res.status(200).json(labs); 
 })
 
 const getOneLab = asyncHandler(async (req, res) => {
   
   const lab = await Lab.findOne({labId: req.lab.labId})
-  console.log(`This is the labID: ${req.lab.labId}`);
+  
   if (!lab) {
     res.status(400);
     throw new Error('Not found')

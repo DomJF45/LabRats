@@ -14,9 +14,14 @@ const projectModel = mongoose.Schema({
   //   required: [true, 'Please add a description']
   // }
 
-  parentId: mongoose.Schema.Types.ObjectId,
-  name: String,
-  userId: Number, // needs to be user later on
+  labId: String,
+  projectName: String,
+  manager: String,
+  assignedTo: [
+    {
+      assignedName: String
+    }
+  ], // needs to be user later on
   tasks: [
     {
       name: String,

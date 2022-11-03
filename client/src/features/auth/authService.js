@@ -1,6 +1,7 @@
 // service is for http request and sending data back, also sets data in local storage
 
 import axios from 'axios';
+import { labService } from '../lab/labService';
 
 const API_URL = '/api/users/';
 
@@ -26,7 +27,8 @@ const loginUser = async(userData) => {
 }
 
 const signoutUser = async () => {
-  localStorage.removeItem('user');
+  localStorage.clear();
+  // clear method from labservice (logout)
 }
 
 const updateUser = async(userData, userToken) => {

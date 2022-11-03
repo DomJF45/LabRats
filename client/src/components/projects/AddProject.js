@@ -1,38 +1,58 @@
 import React, { useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getSingleLab, reset } from '../../features/lab/labSlice'
+import { createProject, getSingleLab, reset } from '../../features/lab/labSlice'
 import { useParams } from 'react-router-dom'
+import { nanoid } from '@reduxjs/toolkit'
 import Modal from 'react-bootstrap/Modal'
 import MyButton from '../button/MyButton'
 import Form from 'react-bootstrap/Form'
+import { randomColor } from '../../util/colors'
+import { toast } from 'react-toastify'
 
 const AddProject = (props) => {
 
-  const {labId} = useParams();
+  const { labId } = useParams();
   const projectTitleRef = useRef();
-  const projectOwnerRef = useRef();
+  const assignedRef = useRef();
 
   const dispatch = useDispatch();
-  // const { lab } = useSelector((state) => state.lab)
+  const { error, success, loading, message } = useSelector((state) => state.lab)
+  const { user } = useSelector((state) => state.auth);
   const lab = JSON.parse(localStorage.getItem(`lab:${labId}`))
+
+
   const onSubmit = (e) => {
+    
     e.preventDefault();
+
+    console.log(labId)
+
     const projectData = {
-      title: projectTitleRef.current.value,
-      owner: projectOwnerRef.current.value
+      projectId: nanoid(),
+      labId: labId,
+      projectName: projectTitleRef.current.value,
+      manager: user.name,
+      assignedTo: assignedRef.current.value,
+      color: randomColor()
     }
     
+    dispatch(createProject(projectData))
+    props.onHide();
+    dispatch(getSingleLab(labId));
     
   }
 
   React.useEffect(() => {
     
-    dispatch(getSingleLab(labId))
+    if (error) {
+      toast.error(message)
+    }
 
     return () => {
       dispatch(reset())
     }
-  }, [dispatch])
+
+  }, [error, success, loading, message])
 
 
   return (
@@ -50,13 +70,24 @@ const AddProject = (props) => {
           <Form.Group>
             <Form.Label>Project Title:</Form.Label>
             <Form.Control type='text' placeholder='Project Title' className='mb-3' ref={projectTitleRef} />
-            <Form.Label>Manager</Form.Label>
-            <Form.Select className='mb-3' ref={projectOwnerRef}>
-              {lab.users.map((user) => (
-                <option>{user.name}</option>
-              ))}
-              {/* Get users from lab, map through*/}
-            </Form.Select>
+            
+            { lab.users.length > 0 ? (
+              <>
+                <Form.Label>Assign To: </Form.Label>
+                <Form.Select ref={assignedRef}>
+                  {lab.users.map((user) => {
+                    <option>{user.name}</option>
+                  })}
+                </Form.Select>
+              </>
+            ): (
+              <>
+                <Form.Label>Assigned To: </Form.Label>
+                <Form.Select ref={assignedRef}>
+                  <option>{user.name}</option>
+                </Form.Select>
+              </>
+            )}
           </Form.Group>
         </Form>
       </Modal.Body>

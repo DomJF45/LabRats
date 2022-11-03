@@ -1,13 +1,17 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import {labService} from './labService'
-import { projectServce } from './projectService'
+import { projectService } from './projectService'
 
 
 const initialState = {
   labs: [], // sets labs to an empty array
   lab: {
-    projects: []
+    projects: [{}]
   }, // used for getting one lab from dashboard
+  project: {
+    tasks: []
+  },
+  task: {},
   error: false, // used to signal if there is an error
   success: false, // used to signal if there was a success
   loading: false, // used to signal loading
@@ -62,16 +66,27 @@ export const joinLab = createAsyncThunk('lab/join', async(labData, thunkAPI) => 
 
 export const getProjects = createAsyncThunk('projects/getProjects', async(labId, thunkAPI) => {
   try {
-    return await projectServce.getProjects(labId);
+    return await projectService.getProjects(labId);
   } catch (error) {
     const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString());
     return thunkAPI.rejectWithValue(message);
   }
 })
 
-export const createProject = createAsyncThunk('projects/createProjects', async(projectData, labId, thunkAPI) => {
+export const createProject = createAsyncThunk('projects/createProjects', async(projectData, thunkAPI) => {
   try {
-    return await projectServce.createProject(projectData, labId);
+    console.log(`LabID ${projectData.labId} @ createProject Slice`)
+    return await projectService.createProject(projectData);
+
+  } catch(error) {
+    const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString());
+    return thunkAPI.rejectWithValue(message);
+  }
+})
+
+export const deleteProject = createAsyncThunk('projects/deleteProject', async(projectData, thunkAPI) => {
+  try {
+    return await projectService.deleteProject(projectData)
   } catch(error) {
     const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString());
     return thunkAPI.rejectWithValue(message);
@@ -162,7 +177,7 @@ export const labSlice = createSlice({
       .addCase(getProjects.fulfilled, (state, action) => {
         state.loading = false
         state.success = true
-        state.lab.projects = action.payload
+        state.lab.projects = action.payload;
       })
       .addCase(getProjects.rejected, (state, action) => {
         state.loading = false
@@ -176,6 +191,23 @@ export const labSlice = createSlice({
         state.loading = false
         state.success = true
         state.lab.projects.push(action.payload)
+      })
+      .addCase(createProject.rejected, (state, action) => {
+        state.loading = false
+        state.error = true
+        state.message = action.payload
+      })
+      .addCase(deleteProject.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(deleteProject.fulfilled, (state) => {
+        state.loading = false
+        state.success = true
+      })
+      .addCase(deleteProject.rejected, (state, action) => {
+        state.error = true
+        state.loading = false
+        state.message = action.payload
       })
   }
 })

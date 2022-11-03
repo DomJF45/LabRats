@@ -1,25 +1,39 @@
 import React, { useState, useEffect } from 'react'
 import { projectData } from './testData'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { getProjects, getSingleLab, deleteProject, reset } from '../../features/lab/labSlice'
 import { randomColor } from '../../util/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 import Navigation from '../nav/Nav'
 import '../../styles/Projects.css';
 import AddProject from './AddProject'
+import Lab from '../lab/Lab'
 
 const Projects = () => {
 
+  const { labId } = useParams();
+  const dispatch = useDispatch();
   const [color, setColor] = useState('');
-  const [modalShow, setModalShow] = useState(false)
- 
+  const [modalShow, setModalShow] = useState(false);
+  const { lab } = useSelector((state) => state.lab);
+
+  const handleDelete = (projectData) => {
+    dispatch(deleteProject(projectData));
+    dispatch(reset());
+    dispatch(getSingleLab(labId));
+  }
 
   useEffect(() => {
-    setColor((prev) => randomColor());
     
-  }, []);
+    dispatch(getSingleLab(labId))
+    
+    return () => {
+      dispatch(reset());
+    }
 
+  }, []);
 
   return (
     <div className='project-container'>
@@ -27,25 +41,32 @@ const Projects = () => {
         <h2>Current Projects:</h2>
       </div>
       <div className='c-2'>
-        {projectData.map((project) => (
+        {lab.projects.map((project) => (
           <div className='project-content-container'>
             <div className='project-card'>
-              <Link to={`projects/${project.id}`} style={{textDecoration: 'none'}}>
-                <div className='project-card-img' style={{backgroundColor: project.color}}></div>
-                  <div className='project-container-2'>
-                    <h1 className='project-card-title'>{project.name}</h1>
-                    <p className='project-card-bio'>{project.assignedTo}</p>
-                  </div>
-              </Link>
+              <div className='project-card-img' style={{backgroundColor: project.color}}>
+                <Link to={`projects/${project.projectId}`} style={{textDecoration: 'none'}}>
+                <h1 className='project-card-title'>{project.projectName}</h1>
+                </Link>
+                <div className='project-card-icon'>
+                  <FontAwesomeIcon icon={faTrash} size="lg" style={{color: "white"}} onClick={() => handleDelete({labId, projectId: project.projectId})} />
+
+                </div>
+              </div>
+              <div className='project-container-2'>
+                <p className='project-card-bio'>{project.manager}</p>
+              </div>
             </div>
           </div>
         ))}
         <div className='add-project-container'>
-          <div className='project-card' onClick={() => setModalShow(true)}>
-          
-
-          <FontAwesomeIcon icon={faPlusSquare} className='add-project-icon'/>
-          <h4 className='add-project-label'>Add Project</h4>
+          <div className='task-card'>
+            <div className='task-card-img' style={{backgroundColor: "#ffb703", borderRadius: "10px"}}>
+              <h1 className='task-card-title'>Add a Project</h1>
+              <div className='task-card-icon' onClick={() => {setModalShow(true)}}>
+                <FontAwesomeIcon icon={faPlus} size='lg' style={{color:'white'}} />
+              </div>
+            </div>
           </div>
             
         </div>

@@ -132,8 +132,9 @@ const GetLab = () => {
                   <h5 style={{marginRight:"1rem"}}>ID:</h5>
                   <p>{lab._id}</p>
                 </div>
-                <div my-btn-group>
-                  <MyButton onClick={() => {return (<JoinLab />)}}>Join Lab</MyButton>
+                <div className='my-btn-group'>
+                  {joinLab}
+                  <MyButton style={isShowing ? {display: "none"}: {}} onClick={showJoinLab}>Join Lab</MyButton>
                 </div>
               </>
             ))

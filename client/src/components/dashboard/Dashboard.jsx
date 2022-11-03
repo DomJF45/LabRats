@@ -81,9 +81,11 @@ const Dashboard = () => {
     <>
       <Navigation props={user} />
       <div className='dashboard-container'>
-        <div>
+        <div className='l-c-1'>
           <h2>Current Labs:</h2>
         </div>
+        <div className='l-c-2'>
+
         { labs.map((lab) => (
           <div className="DcontentContainer">
               <div className="Dcard">
@@ -98,6 +100,7 @@ const Dashboard = () => {
             </div>
           
           ))}
+        </div>
         </div>
      
       

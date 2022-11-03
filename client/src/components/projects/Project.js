@@ -8,17 +8,18 @@ import { faCheck, faPenToSquare, faPlus } from '@fortawesome/free-solid-svg-icon
 import AddTask from './AddTask';
 import Navigation from '../nav/Nav';
 import '../../styles/Task.css'
-import { projectServce } from '../../features/lab/projectService';
+
 
 const Project = () => {
 
   let { projectId } = useParams();
+  let { labId } = useParams();
   const { user } = useSelector((state) => state.auth)
-  const { lab } = useSelector((state) => state.lab)
+  const lab = JSON.parse(localStorage.getItem(`lab:${labId}`));
   const [modalShow, setModalShow] = useState(false)
   
-  const project = projectData.find(proj => {
-    return proj.id === projectId;
+  const project = lab.projects.find(proj => {
+    return proj.projectId === projectId;
   });
 
   
@@ -49,10 +50,6 @@ const Project = () => {
                   
                   </div>
                   <div className='task-container-2' >
-                    <div className='task-card-title'>
-                      
-                      
-                    </div>
                     <div className='task-card-bio'>
                       <div className='task-card-info'> 
                       

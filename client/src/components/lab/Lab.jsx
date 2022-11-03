@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getSingleLab, reset } from '../../features/lab/labSlice'; 
+import { getProjects, getSingleLab, reset } from '../../features/lab/labSlice'; 
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -30,7 +30,8 @@ const Lab = () => {
       navigate('/')
     }
     
-    // dispatch(getSingleLab(labId))
+    dispatch(getSingleLab(labId))
+    
     const lab = JSON.parse(localStorage.getItem(`lab:${labId}`))
     
     console.log(lab)

@@ -37,8 +37,28 @@ const labModel = mongoose.Schema({
   ],
   projects: [
     { 
-      name: String, 
-      userId: Number
+      projectId: String,
+      labId: String,
+      projectName: {
+        type: String,
+        required: [true, 'Please add a Project Name']
+      },
+      manager: String,
+      assignedTo: String,
+      tasks: [
+        {
+          parentId: mongoose.Schema.Types.ObjectId,
+          taskName: {
+            type: String,
+            required: [true, 'please add a task name']
+          },
+          inProgress: Boolean,
+          complete: Boolean,
+          notes: String,
+          assigned: String
+        }
+      ],
+      color: String
     }
   ]
 

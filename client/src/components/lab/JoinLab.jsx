@@ -22,11 +22,8 @@ const JoinLab = () => {
   useEffect(() => {
     if (error) {
       toast.error(message);
-      console.log(message);
     }
-    if (success) {
-      toast.error('Joined Lab!');
-    }
+    
   }, [user, error, message, success, loading])
 
   
@@ -45,6 +42,9 @@ const JoinLab = () => {
       }
       dispatch(joinLab(labData));
     }
+    // if (success) {
+    //   toast.success('Joined Lab!');
+    // }
     dispatch(reset());
   }
 
