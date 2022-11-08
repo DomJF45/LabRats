@@ -40,10 +40,10 @@
 
 .project-card-img {
   display: flex;
-  align-items: center;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding-bottom: 1rem;
+  align-items: center;
 }
 
 .project-container-2 {
@@ -56,9 +56,10 @@
   font-weight: 400;
   height: 100%;
   width: 100%;
-  text-align: center;
   border-radius: 5px;
   margin: 0;
+  font-size: x-large;
+  margin-left: 1rem;
 }
 .project-card-icon {
   background-color: rgba(180,180,180,.4);
@@ -69,6 +70,7 @@
   height: 40px;
   border-radius: 5px;
   margin-right: 1rem;
+  margin-left: 1rem;
   transition: .2s;
   margin-top: .8rem;
 }

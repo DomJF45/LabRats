@@ -46,15 +46,14 @@ const Projects = () => {
             <div className='project-card'>
               <div className='project-card-img' style={{backgroundColor: project.color}}>
                 <Link to={`projects/${project.projectId}`} style={{textDecoration: 'none'}}>
-                <h1 className='project-card-title'>{project.projectName}</h1>
+                  <h1 className='project-card-title'>{project.projectName}</h1>
                 </Link>
                 <div className='project-card-icon'>
                   <FontAwesomeIcon icon={faTrash} size="lg" style={{color: "white"}} onClick={() => handleDelete({labId, projectId: project.projectId})} />
-
                 </div>
               </div>
               <div className='project-container-2'>
-                <p className='project-card-bio'>{project.manager}</p>
+                <p className='project-card-bio'>Posted By: {project.manager}</p>
               </div>
             </div>
           </div>

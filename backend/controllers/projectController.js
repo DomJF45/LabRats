@@ -4,7 +4,7 @@ const Lab = require('../models/labModel');
 const User = require('../models/userModel');
 const mongoose = require('mongoose');
 
-const getProjects = asyncHandler( async(req, res) => {
+const getProjects = asyncHandler( async (req, res) => {
   // const lab = await Lab.find({})
 
   const projects = await Project.find({parentId: req.params.labId});
@@ -12,13 +12,37 @@ const getProjects = asyncHandler( async(req, res) => {
   res.status(200).json(projects);
 })
 
-const setProject = asyncHandler( async(req, res) => {
+const getOneProject = asyncHandler( async (req, res) => {
+
+  const lab = await Lab.findOne({labId: req.params.labId});
+
+  if (!lab) {
+    res.status(400);
+    throw new Error('Not Found');
+  }
+
+  const project = await Lab.findOne({labId: req.params.labId}).select({projects: {
+    $elemMatch: {
+      projectId: req.params.projectId
+    }
+  }})
+
+  if (project) {
+    res.status(200).json(project);
+  } else {
+    res.status(400);
+    throw new Error('Error');
+  }
+
+})
+
+const setProject = asyncHandler( async (req, res) => {
   
   const lab = await Lab.findOne({labId: req.params.labId});
   
   if (!lab) {
-    res.status(400)
-    throw new error('Not found')
+    res.status(400);
+    throw new Error('Not found');
   }
   
   console.log('set project @ project controller')
@@ -94,5 +118,6 @@ module.exports = {
   getProjects,
   setProject,
   updateProject,
-  deleteProject
+  deleteProject,
+  getOneProject
 }

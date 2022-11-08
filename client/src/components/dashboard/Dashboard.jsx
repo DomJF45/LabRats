@@ -90,7 +90,7 @@ const Dashboard = () => {
           <div className="DcontentContainer">
               <div className="Dcard">
                 <Link to={`/${lab.labId}`} style={{textDecoration:"none"}}>
-                  <div className="DcardImg" style={{backgroundColor: color}}></div>
+                  <div className="DcardImg" style={{backgroundColor: lab.color}}></div>
                     <div className="Dcontainer">
                       <h4 className='DcardTitle'>{lab.labName}</h4>
                       <p className='DcardBio'>{lab.institution}</p>

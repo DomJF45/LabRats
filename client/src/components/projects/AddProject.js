@@ -32,7 +32,6 @@ const AddProject = (props) => {
       labId: labId,
       projectName: projectTitleRef.current.value,
       manager: user.name,
-      assignedTo: assignedRef.current.value,
       color: randomColor()
     }
     
@@ -70,24 +69,6 @@ const AddProject = (props) => {
           <Form.Group>
             <Form.Label>Project Title:</Form.Label>
             <Form.Control type='text' placeholder='Project Title' className='mb-3' ref={projectTitleRef} />
-            
-            { lab.users.length > 0 ? (
-              <>
-                <Form.Label>Assign To: </Form.Label>
-                <Form.Select ref={assignedRef}>
-                  {lab.users.map((user) => {
-                    <option>{user.name}</option>
-                  })}
-                </Form.Select>
-              </>
-            ): (
-              <>
-                <Form.Label>Assigned To: </Form.Label>
-                <Form.Select ref={assignedRef}>
-                  <option>{user.name}</option>
-                </Form.Select>
-              </>
-            )}
           </Form.Group>
         </Form>
       </Modal.Body>

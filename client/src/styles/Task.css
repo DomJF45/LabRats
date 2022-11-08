@@ -64,9 +64,10 @@
   font-weight: 400;
   height: 100%;
   width: 100%;
-  text-align: center;
   border-radius: 5px;
-  margin: 0;
+  margin-left: 1rem;
+  font-size: x-large;
+  
   
 }
 .task-card-icon {

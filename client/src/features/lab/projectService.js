@@ -10,6 +10,13 @@ const getProjects = async(labId) => {
 
 }
 
+const getSingleProject = async (data) => {
+
+  const response = await axios.get(`/${API_URL}${data.labId}/projects/${data.projectId}`)
+
+  return response.data;
+}
+
 const createProject = async(projectData) => {
 
   console.log(`LabID: ${projectData.labId} @ createProject service`)
@@ -28,5 +35,6 @@ const deleteProject = async(projectData) => {
 export const projectService = {
   getProjects,
   createProject,
-  deleteProject
+  deleteProject,
+  getSingleProject
 }

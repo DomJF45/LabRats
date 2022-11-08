@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { getSingleLab, reset } from '../../features/lab/labSlice';
 import { useParams } from 'react-router-dom'
 import { projectData } from './testData';
 import { randomColor } from '../../util/colors';
@@ -12,18 +13,33 @@ import '../../styles/Task.css'
 
 const Project = () => {
 
-  let { projectId } = useParams();
-  let { labId } = useParams();
+  const { projectId } = useParams();
+  const { labId } = useParams();
   const { user } = useSelector((state) => state.auth)
-  const lab = JSON.parse(localStorage.getItem(`lab:${labId}`));
+  // const lab = JSON.parse(localStorage.getItem(`lab:${labId}`));
+  const { lab } = useSelector((state) => state.lab)
   const [modalShow, setModalShow] = useState(false)
-  
+  const dispatch = useDispatch();
+
   const project = lab.projects.find(proj => {
     return proj.projectId === projectId;
   });
 
-  
+  const tasks = lab.tasks.filter((task) => {
+    return task.projectId === projectId;
+  })
 
+  console.log(lab.tasks)
+
+  useEffect(() => {
+    dispatch(getSingleLab(labId))
+
+    return () => {
+      dispatch(reset());
+    }
+
+  }, [])
+  
   return (
     <>
       <Navigation props={user} />
@@ -33,13 +49,13 @@ const Project = () => {
           <h2>Tasks:</h2>
         </div>
         <div className='task-c-2'>
-          { project.tasks.length > 0 ? (
+          { tasks?.length > 0 ? (
             <>
             
-            {project.tasks.map((task) => (
+            {tasks.map((task) => (
               <div className='project-content-container'>
                 <div className='task-card'>
-                  <div className='task-card-img' style={{backgroundColor: randomColor()}}>
+                  <div className='task-card-img' style={{backgroundColor: task.color}}>
                     <h1 className='task-card-title'>{task.taskName}</h1>
                     <div className='task-card-icon'>
                       <FontAwesomeIcon icon={faPenToSquare} size="lg" style={{color: "white"}}/>
@@ -55,7 +71,7 @@ const Project = () => {
                       
                         <div className='task-card-notes'>
                           <h4>Notes:</h4>
-                          <p>Hello notes test</p>
+                          <p>{task.notes}</p>
                         </div>
                         <div className='task-card-assignment'>
                           <h4>Assigned To:</h4>
@@ -73,7 +89,7 @@ const Project = () => {
             ))}
             <div className='project-content-container'>
               <div className='task-card'>
-                <div className='task-card-img' style={{backgroundColor: randomColor(), borderRadius: '10px'}}>
+                <div className='task-card-img' style={{backgroundColor: "#ffb703", borderRadius: '10px'}}>
                       <h1 className='task-card-title'>Add a task</h1>
                       <div className='task-card-icon' onClick={() => {setModalShow(true)}}>
                         <FontAwesomeIcon icon={faPlus} size="lg" style={{color: "white"}}/>
@@ -85,7 +101,7 @@ const Project = () => {
           ):(
             <div className='project-content-container'>
               <div className='task-card'>
-                <div className='task-card-img' style={{backgroundColor: randomColor(), borderRadius: '10px'}}>
+                <div className='task-card-img' style={{backgroundColor: "#ffb703", borderRadius: '10px'}}>
                       <h1 className='task-card-title'>Add a task</h1>
                       <div className='task-card-icon' onClick={() => {setModalShow(true)}}>
                         <FontAwesomeIcon icon={faPlus} size="lg" style={{color: "white"}}/>

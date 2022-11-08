@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import {labService} from './labService'
 import { projectService } from './projectService'
-
+import { taskService } from './taskService'
 
 const initialState = {
   labs: [], // sets labs to an empty array
@@ -73,6 +73,15 @@ export const getProjects = createAsyncThunk('projects/getProjects', async(labId,
   }
 })
 
+export const getSingleProject = createAsyncThunk('projects/getSingleProject', async(data, thunkAPI) => {
+  try {
+    return await projectService.getSingleProject(data);
+  } catch (error) {
+    const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString());
+    return thunkAPI.rejectWithValue(message);
+  }
+})
+
 export const createProject = createAsyncThunk('projects/createProjects', async(projectData, thunkAPI) => {
   try {
     console.log(`LabID ${projectData.labId} @ createProject Slice`)
@@ -92,6 +101,30 @@ export const deleteProject = createAsyncThunk('projects/deleteProject', async(pr
     return thunkAPI.rejectWithValue(message);
   }
 })
+
+/*
+ ================= TASKS =============================================
+*/
+
+export const getTasks = createAsyncThunk('tasks/getTasks', async(route, thunkAPI) => {
+  try {
+    return await taskService.getTasks(route);
+  } catch(error) {
+    const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString());
+    return thunkAPI.rejectWithValue(message);
+  }
+})
+
+export const addTask = createAsyncThunk('tasks/addTask', async(taskData, thunkAPI) => {
+  try {
+    return await taskService.addTask(taskData)
+  } catch (error) {
+    const message = (error.response && error.response.data && error.response.data.message || error.message || error.toString());
+    return thunkAPI.rejectWithValue(message);
+  }
+})
+
+// ================ REDUCERS ===================
 
 export const labSlice = createSlice({
   // creates lab slice, name is 'lab', initialState is defined above
@@ -184,6 +217,19 @@ export const labSlice = createSlice({
         state.error = true
         state.message = action.payload
       })
+      .addCase(getSingleProject.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(getSingleProject.fulfilled, (state, action) => {
+        state.loading = false
+        state.success = true
+        state.project = action.payload
+      })
+      .addCase(getSingleProject.rejected, (state, action) => {
+        state.success = false
+        state.error = true
+        state.message = action.payload
+      })
       .addCase(createProject.pending, (state) => {
         state.loading = true
       })
@@ -205,6 +251,33 @@ export const labSlice = createSlice({
         state.success = true
       })
       .addCase(deleteProject.rejected, (state, action) => {
+        state.error = true
+        state.loading = false
+        state.message = action.payload
+      })
+      .addCase(getTasks.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(getTasks.fulfilled, (state, action) => {
+        state.loading = false
+        state.success = true
+        state.project.tasks.push(action.payload);
+      })
+      .addCase(getTasks.rejected, (state, action) => {
+        state.error = true
+        state.success = false
+        state.loading = false
+        state.message = action.payload
+      })
+      .addCase(addTask.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(addTask.fulfilled, (state, action) => {
+        state.loading = false
+        state.success = true
+        state.project.tasks.push(action.payload)
+      })
+      .addCase(addTask.rejected, (state, action) => {
         state.error = true
         state.loading = false
         state.message = action.payload
