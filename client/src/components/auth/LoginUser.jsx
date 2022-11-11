@@ -65,7 +65,7 @@ const LoginUser = () => {
         <h1>Log In</h1>
       </div>
       <div className='form-group'>
-      <Form onSubmit={handleLogin}>
+      <Form id="login-form" onSubmit={handleLogin}>
           <Form.Group className="mb-3" >
             <Form.Label>Email:</Form.Label>
             <Form.Control 
@@ -82,11 +82,10 @@ const LoginUser = () => {
               className="mb-3" 
             ></Form.Control>
           </Form.Group>
-          <MyButton props={"100%"} onClick={() => this.submit()}>Log In</MyButton>
+          <MyButton props={"100%"} type="submit" form="login-form">Log In</MyButton>
         </Form>
         <div style={{padding: "1.5rem 0", display: "flex", justifyContent: "center"}}>
           <div style={{paddingRight: ".5rem"}}>
-
             <p style={{textAlign: "center"}}>Don't have an account? </p>
           </div>
           <NavLink 

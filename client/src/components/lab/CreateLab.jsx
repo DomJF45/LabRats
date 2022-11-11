@@ -29,9 +29,7 @@ const CreateLab = () => {
     if (error) {
       toast.error(message)
     }
-    if (success) {
-      toast.success('Created Lab!')
-    }
+    
   }, [lab, user, error, success, loading, message])
 
   const onSubmit = (e) => {
@@ -72,7 +70,7 @@ const CreateLab = () => {
     
     <div>
       <div>
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} id="form-id">
           <Form.Group>
             <Form.Label>Lab Name: </Form.Label>
         

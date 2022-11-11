@@ -50,6 +50,7 @@ const labModel = mongoose.Schema({
   ],
   tasks: [
     {
+      labId: String,
       projectId: String,
       taskId: String,
       taskName: {

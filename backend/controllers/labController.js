@@ -46,7 +46,7 @@ const setLabs = asyncHandler(async (req, res) => {
   //   throw new Error('Please add Lab Name')
   // }
   
-  const { labName, labId, password, institution, fieldOfStudy } = req.body;
+  const { labName, labId, password, institution, fieldOfStudy, color } = req.body;
 
   if (!labName || !password || !institution || !fieldOfStudy ) {
     res.status(400);
@@ -74,7 +74,8 @@ const setLabs = asyncHandler(async (req, res) => {
       }
     ],
     institution,
-    fieldOfStudy
+    fieldOfStudy,
+    color
   });
 
   if (lab) {

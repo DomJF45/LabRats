@@ -20,13 +20,14 @@ const addTask = asyncHandler( async(req, res) => {
   const addTaskToLab = await Lab.findOneAndUpdate({labId: req.params.labId}, {
     $push: {
       tasks: {
+        labId: req.params.labId,
         projectId: req.params.projectId,
         taskId: req.body.taskId,
         taskName: req.body.taskName,
         inProgress: true,
         complete: false,
         notes: req.body.notes,
-        // assigned to 
+        assigned: req.body.assigned,
         color: req.body.color
       }
     }
@@ -51,7 +52,7 @@ const addTask = asyncHandler( async(req, res) => {
   }
 })
 
-const completeTask = asyncHandler(async(req, res) => {
+const editTask = asyncHandler(async(req, res) => {
   const lab = await Lab.findOne({labId: req.params.labId});
 
   if (!lab) {
@@ -59,27 +60,31 @@ const completeTask = asyncHandler(async(req, res) => {
     throw new Error('Lab not found');
   }
 
-  const completeTask = lab.update({labId: req.params.labId}, 
-    {taskId: req.params.taskId}, {$set: {
-      inProgress: false,
-      complete: true
+  const editTask = await Lab.findOneAndUpdate({labId: req.params.labId, 'tasks.taskId': req.params.taskId}, {
+    $set: {
+      'tasks.$': req.body
     }
-  })
+  }, {overwrite: false})
 
-  if (completeTask) {
-    res.status(200);
-    res.json({
-      taskUpdated: {
-        taskId: req.body.taskId
-      }
-    })
-  }
+  res.status(200).json(editTask);
+
 })
 
+const deleteTask = asyncHandler( async (req, res) => {
+  const lab = await Lab.findOneAndUpdate({labId: req.params.labId}, {
+    $pull: {
+      tasks: {
+        taskId: req.params.taskId
+      }
+    }
+  })
+  res.status(200).json(lab);
+})
 
 
 module.exports = {
   getTasks,
   addTask,
-  completeTask
+  editTask,
+  deleteTask
 }

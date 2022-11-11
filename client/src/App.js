@@ -19,6 +19,7 @@ import {
 import UserSettingsPage from './pages/UserSettings';
 import Lab from './components/lab/Lab';
 import Project from './components/projects/Project';
+import Projects from './components/projects/Projects';
 
 
 const router = createBrowserRouter([
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
   },
   {
     path: ":labId",
-    element: <Lab />
+    element: <Projects />
   },
   {
     path: ":labId/projects/:projectId",
@@ -61,13 +62,15 @@ function App() {
     name: user ? user.name : null
   })
 
+  console.log('app rendering')
+
   return (
     <>
 
       <div className="App">
         {/* <Navigation /> */}
         {/* <RegisterContainer /> */}
-        <UserContext.Provider>
+        
 
           <RouterProvider router={router} />
           {/* <BrowserRouter>
@@ -81,7 +84,7 @@ function App() {
             </Routes>
           </BrowserRouter> */}
           <ToastContainer />
-        </UserContext.Provider>
+        
       </div>
     </>
   );

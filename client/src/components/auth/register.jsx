@@ -78,7 +78,7 @@ const Register = () => {
         <div>
           <h1>Sign Up</h1>
         </div>
-        <div className="form-group">
+        <div className="form-group" id="form-id">
           <Form onSubmit={handleRegister}>
             <Form.Group className="mb-3" >
               <Form.Label>Name:</Form.Label>
@@ -115,7 +115,7 @@ const Register = () => {
               className="mb-3"
               ></Form.Control>
             </Form.Group>
-            <MyButton props={"100%"} onClick={() => this.submit()}>Register</MyButton>
+            <MyButton props={"100%"} type="submit" form="form-id">Register</MyButton>
           </Form>
         </div>
         <div style={{padding: "1.5rem 0", display: "flex", justifyContent: "center"}}>

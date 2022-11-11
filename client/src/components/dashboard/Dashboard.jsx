@@ -9,7 +9,10 @@ import Dots from '../loading/dots';
 import Navigation from '../nav/Nav'; 
 import './Dashboard.css';
 import { toast } from 'react-toastify';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ModalAddLab } from '../lab/ModalAddLab';
+import { ModalJoinLab } from '../lab/ModalJoinLab';
 
 const Dashboard = () => {
 
@@ -17,57 +20,30 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { labs, loading, error, success, message } = useSelector((state) => state.lab)
-
+  const [modalShow, setModalShow] = useState(false);
 
   const navigate = useNavigate();
+  const labForm = user?.role === 'Principle Investigator' ? <ModalAddLab show={modalShow} onHide = {() => setModalShow(false)} /> : <ModalJoinLab show={modalShow} onHide = {() => setModalShow(false)} />
+  console.log('dashboard rendering')
+
 
   useEffect(() => {
-
-    if (error) {
-      console.log(message);
-      /* 
-      ===== for testing purposes PLEASE DELETE LATER =====
-      
-      dispatch(logout());
-      navigate('/');
-      
-      ==================================================== 
-      */
-      
-      dispatch(getLab()).then((response) => {
-        
-      }).catch((error)=> {
-        console.log(error);
-        toast.error('Trouble getting data, returning to landing page')
-        dispatch(logout());
-        navigate('/login')
-      })
-    }
 
     if (!user) {
       dispatch(logout());
       navigate('/login');
     }
 
-    dispatch(reset());
-
-    if (!user) {
-      // navigate to '/'
-
-      navigate('/')
-    }
-    
-    setColor(randomColor());
-
     dispatch(getLab());
-    console.log('infinite loop at Dashboard.jsx')
+    // console.log('infinite loop at Dashboard.jsx')
+
 
     return () => {
       dispatch(reset());
       
     }
 
-  }, [user, navigate, message])
+  }, [])
 
   if(loading) {
     return (
@@ -83,26 +59,36 @@ const Dashboard = () => {
       <div className='dashboard-container'>
         <div className='l-c-1'>
           <h2>Current Labs:</h2>
+          
         </div>
         <div className='l-c-2'>
 
-        { labs.map((lab) => (
-          <div className="DcontentContainer">
-              <div className="Dcard">
-                <Link to={`/${lab.labId}`} style={{textDecoration:"none"}}>
-                  <div className="DcardImg" style={{backgroundColor: lab.color}}></div>
-                    <div className="Dcontainer">
-                      <h4 className='DcardTitle'>{lab.labName}</h4>
-                      <p className='DcardBio'>{lab.institution}</p>
-                    </div>  
-                </Link>    
-              </div>
+        { labs.map((lab, index) => (
+          <div key={index} className="DcontentContainer">
+            <div className="Dcard">
+              <Link to={`/${lab.labId}`} style={{textDecoration:"none"}}>
+                <div className="DcardImg" style={{backgroundColor: lab.color}}></div>
+                  <div className="Dcontainer">
+                    <h4 className='DcardTitle'>{lab.labName}</h4>
+                    <p className='DcardBio'>{lab.institution}</p>
+                  </div>  
+              </Link>    
             </div>
+          </div>
           
           ))}
+          <div className='task-card' style={{width: "100%"}}>
+            <div className='task-card-img' style={{backgroundColor: "#ffb703", borderRadius: '10px'}}>
+              <h1 className='task-card-title'>{user?.role === 'Principle Investigator' ? 'Create a Lab' : 'Join a Lab'}</h1>
+              <div className='task-card-icon' onClick={() => {setModalShow(true)}}>
+                <FontAwesomeIcon icon={faPlus} size="lg" style={{color: "white"}} />
+              </div>
+            </div>
+          </div>
         </div>
+
         </div>
-     
+        {labForm}
       
     </>
   )

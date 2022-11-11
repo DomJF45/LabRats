@@ -28,14 +28,14 @@ const AddTask = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
+    console.log('addtask.js render')
     const taskData = {
       labId: labId,
       projectId: projectId,
       taskId: nanoid(),
       taskName: taskNameRef.current.value,
       notes: notesRef.current.value,
-      assignTo: assignRef.current.value,
+      assign: assignRef.current.value,
       color: randomColor()
     }
 
