@@ -41,7 +41,6 @@ const labProtect = asyncHandler( async(req, res, next) => {
   if (req.headers) {
 
     try {
-
       req.lab = await Lab.findOne({labId: req.header('labId')}).select('-password');
 
       next();

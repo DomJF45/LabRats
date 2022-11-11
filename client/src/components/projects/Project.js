@@ -20,7 +20,7 @@ const Project = () => {
   const { labId } = useParams();
   const { user } = useSelector((state) => state.auth)
   // const lab = JSON.parse(localStorage.getItem(`lab:${labId}`));
-  const { lab, lab: {projects}, loading, error, success, message } = useSelector((state) => state.lab)
+  const { lab, loading, error, success, message } = useSelector((state) => state.lab)
   const [modalShow, setModalShow] = useState(false)
   const [editMode, setEditMode] = useState(false)
   const dispatch = useDispatch();
@@ -31,12 +31,7 @@ const Project = () => {
   // });
 
   const handleComplete = (taskData) => {
-
-    console.log(taskData);
     dispatch(editTask(taskData));
-    if (success) {
-      toast.success('Completed!');
-    }
     dispatch(reset());
     dispatch(getSingleLab(labId));
   }
@@ -49,26 +44,23 @@ const Project = () => {
 
   useEffect(() => {
 
+    // dispatch(getSingleLab(labId))
     dispatch(getSingleLab(labId))
 
     return () => {
       dispatch(reset());
     }
 
-  }, [loading])
+  }, [])
 
-  if (loading) {
-    return(
-      <div className='loading-container'>
-        <Dots />
-      </div>
-    )
-  }
+  
   
   return (
     <>
       <Navigation props={user} />
+      
       <div className='task-container'>
+      
         <div className='task-c-1'>
           {/* <h1>{project.name}</h1> */}
           <h2>Tasks:</h2>
@@ -160,7 +152,7 @@ const Project = () => {
           )}
         </div>
       </div>
-      <AddTask show={modalShow} onHide={() => setModalShow(false)} labProp={lab} />
+      <AddTask show={modalShow} onHide={() => {setModalShow(false)}} labProp={lab} />
     </>
   )
 }

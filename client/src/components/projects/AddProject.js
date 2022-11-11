@@ -25,8 +25,6 @@ const AddProject = (props) => {
     
     e.preventDefault();
 
-    console.log(labId)
-
     const projectData = {
       projectId: nanoid(),
       labId: labId,
@@ -38,6 +36,9 @@ const AddProject = (props) => {
     dispatch(createProject(projectData))
     props.onHide();
     dispatch(getSingleLab(labId));
+    if (success) {
+      toast.success('Project Created!')
+    }
     
   }
 
@@ -51,7 +52,7 @@ const AddProject = (props) => {
       dispatch(reset())
     }
 
-  }, [error, success, loading, message])
+  }, [])
 
 
   return (

@@ -24,7 +24,7 @@ export const ModalJoinLab = (props) => {
       toast.error(message);
     }
     
-  }, [user, error, message, success, loading])
+  }, [])
 
   const onSubmit = (e) => {
     e.preventDefault();

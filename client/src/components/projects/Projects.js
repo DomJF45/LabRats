@@ -30,12 +30,8 @@ const Projects = () => {
   useEffect(() => {
     
     dispatch(getSingleLab(labId))
-    
-    return () => {
-      dispatch(reset());
-    }
 
-  }, [labId, loading]);
+  }, [loading]);
 
   if (loading) {
     return (

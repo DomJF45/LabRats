@@ -218,8 +218,8 @@ export const labSlice = createSlice({
         state.lab = action.payload
       })
       .addCase(getSingleLab.rejected, (state, action) => {
-        state.loading = false
         state.error = true
+        state.loading = false
         state.message = action.payload
         // when the function is rejected, sets error to true, loading to false, and the message state to the response payload (error)
       })
@@ -245,6 +245,7 @@ export const labSlice = createSlice({
         state.project = action.payload
       })
       .addCase(getSingleProject.rejected, (state, action) => {
+        state.loading = false
         state.success = false
         state.error = true
         state.message = action.payload

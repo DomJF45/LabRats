@@ -30,7 +30,7 @@ const CreateLab = () => {
       toast.error(message)
     }
     
-  }, [lab, user, error, success, loading, message])
+  }, [])
 
   const onSubmit = (e) => {
     e.preventDefault();

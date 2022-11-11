@@ -35,14 +35,16 @@ const AddTask = (props) => {
       taskId: nanoid(),
       taskName: taskNameRef.current.value,
       notes: notesRef.current.value,
-      assign: assignRef.current.value,
+      assigned: assignRef.current.value,
       color: randomColor()
     }
 
     dispatch(addTask(taskData));
     props.onHide();
     dispatch(getSingleLab(labId));
-    
+    if (success) {
+      toast.success('Task Added!');
+    }
     
   }
 
@@ -56,17 +58,7 @@ const AddTask = (props) => {
       dispatch(reset());
     }
 
-  }, [error, success, loading, message, lab, dispatch])
-
-  if (loading) {
-    return (
-      <>
-        <div className='loading-container'>
-          <Dots />
-        </div>
-      </>
-    )
-  }
+  }, [])
 
   return (
     <Modal
