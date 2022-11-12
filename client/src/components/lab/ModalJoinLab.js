@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { labs, success, error, message, loading } from '../../features/lab/labSlice';
-import { joinLab, reset } from '../../features/lab/labSlice';
+import { joinLab, getLab, reset } from '../../features/lab/labSlice';
 import { toast } from 'react-toastify';
 import Modal from "react-bootstrap/Modal"
 import Form from "react-bootstrap/Form"
@@ -19,13 +19,6 @@ export const ModalJoinLab = (props) => {
   const idRef = useRef();
   const passwordRef = useRef();
 
-  useEffect(() => {
-    if (error) {
-      toast.error(message);
-    }
-    
-  }, [])
-
   const onSubmit = (e) => {
     e.preventDefault();
     const labData = {
@@ -34,7 +27,19 @@ export const ModalJoinLab = (props) => {
     }
     dispatch(joinLab(labData));
     dispatch(reset());
+    props.onHide();
+    dispatch(getLab());
+    if (success) {
+      toast.success('Successfully Joined!')
+    }
   }
+
+  useEffect(() => {
+    if (error) {
+      toast.error(message);
+    }
+    
+  }, [])
 
   return (
     <Modal
