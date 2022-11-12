@@ -30,20 +30,19 @@ const Dashboard = () => {
   useEffect(() => {
 
     if (!user) {
-      dispatch(logout());
-      navigate('/login');
+      navigate('/');
     }
 
-    dispatch(getLab());
-    // console.log('infinite loop at Dashboard.jsx')
-
-
-    return () => {
-      dispatch(reset());
-      
+    if (user) {
+      dispatch(getLab());
+      return () => {
+        dispatch(reset());
+        
+      }
     }
 
-  }, [])
+
+  }, [user])
 
   if(loading) {
     return (

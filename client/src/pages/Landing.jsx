@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import LandingNav from '../components/nav/landingNav'
-import { register } from '../features/auth/authSlice'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import MyButton from '../components/button/MyButton'
-import {landingData, org, lab} from './data'
+import {landingData} from './data'
 
 import '../styles/Landing.css'
 
@@ -43,7 +42,7 @@ const Landing = () => {
                 </div>
               </div>
               <div className='jumboImage'>
-                <img src={data.img}/>
+                <img src={data.img} alt='card-img'/>
               </div>
             </div>
           </>

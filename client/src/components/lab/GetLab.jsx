@@ -63,27 +63,23 @@ const GetLab = () => {
     case 'Principle Investigator':
       return(
         <>
-          <div style={{display: "block", marginTop: "2rem"}}>
+            <div className="list-labs">
+                
+            
             {labs.map((lab) => (
-              <>
-                <h3>Lab Name: {lab.labName} </h3>
-                <div style={{display: "flex"}}>
-                  <h5 style={{marginRight:"1rem"}}>Institution:</h5>
-                  <p>{lab.institution}</p>
-                </div>
-                <div style={{display: "flex"}}>
-                  <h5 style={{marginRight:"1rem"}}>Admin:</h5>
-                  <p>{lab.admin[0].adminName}</p>
-                </div>
-                <div style={{display: "flex"}}>
-                  <h5 style={{marginRight:"1rem"}}>ID:</h5>
-                  <p>{lab.labId}</p>
-                </div>
-              </>
+              <div className='lab-grid-item'>
+                <h3>{lab.labName} </h3>
+                <h5 style={{marginRight:"1rem"}}>Institution:</h5>
+                <p>{lab.institution}</p>
+                <h5 style={{marginRight:"1rem"}}>Admin:</h5>
+                <p>{lab.admin[0].adminName}</p>
+                <h5 style={{marginRight:"1rem"}}>ID:</h5>
+                <p>{lab.labId}</p>
+              </div>
             ))}
+            </div>
             
-            
-          </div> {/* map through multiple labs later */}
+          {/* map through multiple labs later */}
           <div className='my-btn-group'>
             {createLab}
             <MyButton style={isShowing ? {display: "none"} : {}} onClick={showLab}>Create Lab</MyButton>

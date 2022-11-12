@@ -1,6 +1,17 @@
 .lab-container {
   max-width: 1200px;
   display: block;
-  margin-inline: auto;
+  margin-inline: auto; 
+}
+
+.list-labs {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 1rem;
+}
+
+.lab-grid-item {
+  margin-bottom: 1rem;
+
   
 }

@@ -6,6 +6,7 @@ import { getProjects, getSingleLab, deleteProject, reset } from '../../features/
 import { randomColor } from '../../util/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { toast } from 'react-toastify'
 import Navigation from '../nav/Nav'
 import '../../styles/Projects.css';
 import AddProject from './AddProject'
@@ -23,6 +24,9 @@ const Projects = () => {
 
   const handleDelete = (projectData) => {
     dispatch(deleteProject(projectData));
+    if (success) {
+      toast.success('Project Deleted!')
+    }
     dispatch(reset());
     dispatch(getSingleLab(labId));
   }
@@ -55,13 +59,16 @@ const Projects = () => {
         <div className='c-2'>
           {lab.projects.map((project, index) => (
             <div key={index} className='project-content-container'>
+              
+
               <div className='project-card'>
+              
                 <div className='project-card-img' style={{backgroundColor: project.color}}>
-                  <Link to={`projects/${project.projectId}`} style={{textDecoration: 'none'}}>
-                    <h1 className='project-card-title'>{project.projectName}</h1>
-                  </Link>
+                <Link to={`projects/${project.projectId}`} style={{textDecoration: 'none', width: "75%", padding: "1rem"}}>
+                  <h1 className='project-card-title'>{project.projectName}</h1>
+                </Link>
                   <div className='project-card-icon'>
-                    <FontAwesomeIcon icon={faTrash} size="lg" style={{color: "white"}} onClick={() => handleDelete({labId, projectId: project.projectId})} />
+                    <FontAwesomeIcon icon={faTrash} size="lg" style={{color: "white", zIndex: "1"}} onClick={() => handleDelete({labId, projectId: project.projectId})} />
                   </div>
                 </div>
                 <div className='project-container-2'>

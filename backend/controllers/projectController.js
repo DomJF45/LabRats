@@ -44,9 +44,6 @@ const setProject = asyncHandler( async (req, res) => {
     res.status(400);
     throw new Error('Not found');
   }
-  
-  console.log('set project @ project controller')
-  console.log(lab)
 
   const labUpdated = await Lab.findOneAndUpdate({labId: req.params.labId}, {$push: {
     projects: {
@@ -76,10 +73,6 @@ const setProject = asyncHandler( async (req, res) => {
     throw new Error ('Error, please try again')
   }
   
-  // console.log('setProject - line 38 - Project Controller')
-
-  // res.status(200).json(lab.projects);
-
 })
 
 const updateProject = asyncHandler( async(req, res) =>{
@@ -95,14 +88,6 @@ const updateProject = asyncHandler( async(req, res) =>{
 })
 
 const deleteProject = asyncHandler( async(req, res) => {
-
-  // const project = await Project.findById(req.params.projectId);
-  // if (!project) {
-  //   res.status(400);
-  //   throw new Error('Not Found');
-  // }
-
-  // await project.remove();
   
   const lab = await Lab.findOneAndUpdate({labId: req.params.labId}, {
     $pull: {
