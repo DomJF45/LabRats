@@ -30,6 +30,7 @@ const Register = () => {
   const passwordRef = useRef();
   const confirmPassRef = useRef();
   const roleRef = useRef();
+
   useEffect(() => {
     if (error) {
       toast.error(message);
@@ -53,14 +54,7 @@ const Register = () => {
         password: passwordRef.current.value,
         role: roleRef.current.value
       }
-
       dispatch(register(userData));
-      // console.log({
-      //   name: nameRef.current.value,
-      //   email: emailRef.current.value,
-      //   password: passwordRef.current.value,
-      //   confirmPassRef: confirmPassRef.current.value
-      // })
     }
   }
 
@@ -78,8 +72,8 @@ const Register = () => {
         <div>
           <h1>Sign Up</h1>
         </div>
-        <div className="form-group" id="form-id">
-          <Form onSubmit={handleRegister}>
+        <div className="form-group">
+          <Form id='form-id' onSubmit={handleRegister}>
             <Form.Group className="mb-3" >
               <Form.Label>Name:</Form.Label>
               <Form.Control 
