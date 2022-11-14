@@ -30,6 +30,7 @@ const AddProject = (props) => {
       labId: labId,
       projectName: projectTitleRef.current.value,
       manager: user.name,
+      complete: false,
       color: randomColor()
     }
     

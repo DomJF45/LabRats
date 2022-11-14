@@ -38,19 +38,17 @@ const GetLab = () => {
       console.log(message);
     }
 
-    if (success) {
-      toast.success('Joined Lab!!')
-    }
-
     if (!user) {
       // navigate to '/'
 
       navigate('/')
     }
     
+    if (user) {
 
-    dispatch(getLab())
-    console.log('infinite loop at GetLab.jsx')
+      dispatch(getLab())
+    }
+    
     return () => {
       dispatch(reset());
 
@@ -63,23 +61,21 @@ const GetLab = () => {
     case 'Principle Investigator':
       return(
         <>
-            <div className="list-labs">
-                
-            
+          <div className="list-labs">
             {labs.map((lab) => (
               <div className='lab-grid-item'>
                 <h3>{lab.labName} </h3>
                 <h5 style={{marginRight:"1rem"}}>Institution:</h5>
                 <p>{lab.institution}</p>
                 <h5 style={{marginRight:"1rem"}}>Admin:</h5>
-                <p>{lab.admin[0].adminName}</p>
+                <p>{lab.admin?.map((ad) => {
+                  return ad.adminName
+                })}</p>
                 <h5 style={{marginRight:"1rem"}}>ID:</h5>
                 <p>{lab.labId}</p>
               </div>
             ))}
-            </div>
-            
-          {/* map through multiple labs later */}
+          </div>
           <div className='my-btn-group'>
             {createLab}
             <MyButton style={isShowing ? {display: "none"} : {}} onClick={showLab}>Create Lab</MyButton>
@@ -89,60 +85,49 @@ const GetLab = () => {
     case 'Graduate Research Assistant':
       return (
         <>
-          {labs ? (
-              <> 
-                <div style={{display: "block", marginTop: "2rem"}}>
-                  <h3>Lab Name: {labs.labName} </h3>
-                  <p>Hello There</p>
-                </div>
-                <div my-btn-group>
-                  <MyButton onClick={() => {return (<JoinLab />)}}>Join Lab</MyButton>
-                </div>
-              </>
-            ) : (
-              <>
-                <div my-btn-group>
-                  <MyButton onClick={() => {return (<JoinLab />)}}>Join Lab</MyButton>
-                </div>
-              </>
-            )
-          }
+          <div className="list-labs">
+            {labs.map((lab) => (
+              <div className='lab-grid-item'>
+                <h3>{lab.labName} </h3>
+                <h5 style={{marginRight:"1rem"}}>Institution:</h5>
+                <p>{lab.institution}</p>
+                <h5 style={{marginRight:"1rem"}}>Admin:</h5>
+                <p>{lab.admin?.map((ad) => {
+                  return ad.adminName
+                })}</p>
+                <h5 style={{marginRight:"1rem"}}>ID:</h5>
+                <p>{lab.labId}</p>
+              </div>
+            ))}
+          </div>
+          <div className='my-btn-group'>
+            {joinLab}
+            <MyButton style={isShowing ? {display: "none"}: {}} onClick={showJoinLab}>Join Lab</MyButton>
+          </div>
         </>
       )
     case 'Undergraduate Research Assistant':
       return (
         <>
-          { labs.length !== 0 ? (
-            labs.map((lab) => (
-              <> 
+          <div className="list-labs">
+            {labs.map((lab) => (
+              <div className='lab-grid-item'>
                 <h3>{lab.labName} </h3>
-                <div style={{display: "flex"}}>
-                  <h5 style={{marginRight:"1rem"}}>Institution:</h5>
-                  <p>{lab.institution}</p>
-                </div>
-                <div style={{display: "flex"}}>
-                  <h5 style={{marginRight:"1rem"}}>PI:</h5>
-                  <p>{lab.admin[0].adminName}</p>
-                </div>
-                <div style={{display: "flex"}}>
-                  <h5 style={{marginRight:"1rem"}}>ID:</h5>
-                  <p>{lab._id}</p>
-                </div>
-                <div className='my-btn-group'>
-                  {joinLab}
-                  <MyButton style={isShowing ? {display: "none"}: {}} onClick={showJoinLab}>Join Lab</MyButton>
-                </div>
-              </>
-            ))
-          ) : (
-            <> 
-              <h1>Lab not Found</h1>
-              <div my-btn-group>
-                  {joinLab}
-                  <MyButton style={isShowing ? {display: "none"} : {}} onClick={showJoinLab}>Join Lab</MyButton>
+                <h5 style={{marginRight:"1rem"}}>Institution:</h5>
+                <p>{lab.institution}</p>
+                <h5 style={{marginRight:"1rem"}}>Admin:</h5>
+                <p>{lab.admin?.map((ad) => {
+                  return ad.adminName
+                })}</p>
+                <h5 style={{marginRight:"1rem"}}>ID:</h5>
+                <p>{lab.labId}</p>
               </div>
-            </>
-          )}
+            ))}
+          </div>
+          <div className='my-btn-group'>
+            {joinLab}
+            <MyButton style={isShowing ? {display: "none"}: {}} onClick={showJoinLab}>Join Lab</MyButton>
+          </div>
         </>
       )
     default:

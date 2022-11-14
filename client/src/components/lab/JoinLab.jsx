@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { labs, success, error, message, loading } from '../../features/lab/labSlice';
-import { joinLab, reset } from '../../features/lab/labSlice';
+import { getLab, joinLab, reset } from '../../features/lab/labSlice';
 import { subjectData } from '../settings/subjectData'
 import Dots from '../loading/dots'
 import MyButton from '../button/MyButton'
@@ -41,11 +41,16 @@ const JoinLab = () => {
         password: passwordRef.current.value
       }
       dispatch(joinLab(labData));
+      dispatch(reset());
+      dispatch(getLab());
+      if (error) {
+        toast.error(message)
+      }
     }
     // if (success) {
     //   toast.success('Joined Lab!');
     // }
-    dispatch(reset());
+    
   }
 
   return (
@@ -55,7 +60,7 @@ const JoinLab = () => {
           </div>
           <div className='info-container' style={{marginBottom: "2rem"}}>
             <div className="about-container">
-              <Form onSubmit={onSubmit}>
+              <Form onSubmit={onSubmit} id='form-id'>
                 <Form.Group>
                   <Form.Label>ID:</Form.Label>
                   <Form.Control 
@@ -73,6 +78,7 @@ const JoinLab = () => {
                     style={{maxWidth: "10rem", float: "left"}}
                     className='submit-btn'
                     type="submit"
+                    form='form-id'
                     onClick={() => (state.button = 1)}
                   >Submit</MyButton>
                   <MyButton 

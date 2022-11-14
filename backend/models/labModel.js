@@ -45,6 +45,7 @@ const labModel = mongoose.Schema({
       },
       manager: String,
       assignedTo: String,
+      complete: Boolean,
       color: String
     }
   ],

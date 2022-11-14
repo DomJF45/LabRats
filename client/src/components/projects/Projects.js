@@ -7,6 +7,7 @@ import { randomColor } from '../../util/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { toast } from 'react-toastify'
+import projectPicture from '../../img/projectPicture.svg';
 import Navigation from '../nav/Nav'
 import '../../styles/Projects.css';
 import AddProject from './AddProject'
@@ -55,6 +56,9 @@ const Projects = () => {
       <div className='project-container'>
         <div className='c-1'>
           <h2>Current Projects:</h2>
+          <div className='grid-item'>
+            <object data={projectPicture} type="image/svg+xml" /> 
+          </div>
         </div>
         <div className='c-2'>
           {lab.projects.map((project, index) => (
@@ -64,9 +68,9 @@ const Projects = () => {
               <div className='project-card'>
               
                 <div className='project-card-img' style={{backgroundColor: project.color}}>
-                <Link to={`projects/${project.projectId}`} style={{textDecoration: 'none', width: "75%", padding: "1rem"}}>
-                  <h1 className='project-card-title'>{project.projectName}</h1>
-                </Link>
+                  <Link to={`projects/${project.projectId}`} style={{textDecoration: 'none', width: "75%", padding: "1rem"}}>
+                    <h1 className='project-card-title'>{project.projectName}</h1>
+                  </Link>
                   <div className='project-card-icon'>
                     <FontAwesomeIcon icon={faTrash} size="lg" style={{color: "white", zIndex: "1"}} onClick={() => handleDelete({labId, projectId: project.projectId})} />
                   </div>
@@ -77,17 +81,26 @@ const Projects = () => {
               </div>
             </div>
           ))}
-          <div className='add-project-container'>
-            <div className='task-card'>
-              <div className='task-card-img' style={{backgroundColor: "#ffb703", borderRadius: "10px"}}>
-                <h1 className='task-card-title'>Add a Project</h1>
-                <div className='task-card-icon' onClick={() => {setModalShow(true)}}>
-                  <FontAwesomeIcon icon={faPlus} size='lg' style={{color:'white'}} />
+          { user.role === 'Principle Investigator' || user.role === 'Graduate Research Assistant' ? (
+          <>
+            <div className='add-project-container'>
+              <div className='task-card'>
+                <div className='task-card-img' style={{backgroundColor: "#ffb703", borderRadius: "10px"}}>
+                  <h1 className='task-card-title'>Add a Project</h1>
+                  <div className='task-card-icon' onClick={() => {setModalShow(true)}}>
+                    <FontAwesomeIcon icon={faPlus} size='lg' style={{color:'white'}} />
+                  </div>
                 </div>
               </div>
             </div>
-              
-          </div>
+          </>):(
+          <>
+            
+          </>
+          )}
+          { lab.projects?.length === 0 ? (<>
+            <h3>No Projects Yet!</h3>
+          </>):(<></>)}
         </div>
         <AddProject show={modalShow} onHide={() => setModalShow(false)} />
         

@@ -9,6 +9,7 @@ import './Nav.css';
 import { Navbar } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout, reset } from '../../features/auth/authSlice';
+import { clearLab } from '../../features/lab/labSlice';
 
 const Navigation = ({props}) => {
 

@@ -7,7 +7,6 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
-  
 }
 
 .loading-container {
@@ -71,6 +70,44 @@
   color: #303030;
 }
 
+.l-c-1 {
+  padding: 1rem;
+  height: 45%;
+}
+
 .l-c-2 {
   margin-bottom: 2rem;
+  overflow-y: scroll;
+  height: 45%;
+  padding: 1rem;
+}
+
+.l-c-2::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.l-c-2::-webkit-scrollbar-track {
+  display: none;
+}
+
+/* Handle */
+.l-c-2::-webkit-scrollbar-thumb {
+  background: rgb(112, 112, 112); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.l-c-2::-webkit-scrollbar-thumb:hover {
+  background: #ffb703; 
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+}
+
+object {
+  width: 500px;
+  margin-right: 12rem;
 }

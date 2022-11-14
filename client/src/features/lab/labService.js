@@ -55,9 +55,14 @@ const joinLab = async (labData, token) => {
   return response.data;
 }
 
+const clearLab = async () => {
+  localStorage.clear();
+}
+
 export const labService = {
   registerLab,
   getLab,
   joinLab,
-  getSingleLab
+  getSingleLab,
+  clearLab
 }

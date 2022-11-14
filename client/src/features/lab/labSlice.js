@@ -60,6 +60,10 @@ export const joinLab = createAsyncThunk('lab/join', async(labData, thunkAPI) => 
   }
 })
 
+export const clearLab = createAsyncThunk('lab/clear', async() => {
+  await labService.clearLab();
+})
+
 /* 
   ========================== Projects ================================
 */
@@ -222,6 +226,10 @@ export const labSlice = createSlice({
         state.loading = false
         state.message = action.payload
         // when the function is rejected, sets error to true, loading to false, and the message state to the response payload (error)
+      })
+      .addCase(clearLab.fulfilled, (state) => {
+        state.lab = null
+        state.labs = null
       })
       .addCase(getProjects.pending, (state) => {
         state.loading = true

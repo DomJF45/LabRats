@@ -16,6 +16,13 @@
   margin-top: 2rem;
   
 }
+
+.about-info {
+  display: flex;
+}
+.about-info > p {
+  margin-left: 1rem;
+}
 .user-settings-container {
   max-width: 100%;
   /* background-color: green; */
@@ -45,6 +52,27 @@
   /* background-color: blue; */
   width: 100%;
   
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff !important;
+  background-color: #FFB703 !important;
+}
+
+.nav-link {
+  color: #FFB703 !important;
+}
+
+.pill:active {
+  background-color: #FFB703 !important;
+}
+
+.pill:focus {
+  background-color: #FFB703 !important;
+}
+
+.pill::before {
+  background-color: #FFB703 !important;
 }
 
 /*

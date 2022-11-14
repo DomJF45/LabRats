@@ -22,15 +22,17 @@ const UserSettingsPage = () => {
       </div>
       <div className='settings-container'>
         <div className='nav-settings'>
-          <Nav variant='tabs' className="flex-column" defaultActiveKey='user'>
+          <Nav variant='pills' className="flex-column" defaultActiveKey='user'>
             <Nav.Link 
               eventKey='user' 
               onClick={() => {setActive('user')}}
+              className="pill"
               >User</Nav.Link>
 
             <Nav.Link 
               eventKey='lab'
               onClick={() => {setActive('lab')}}
+              className="pill"
             >Lab</Nav.Link>
           </Nav>
         </div>

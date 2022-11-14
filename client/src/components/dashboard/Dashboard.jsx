@@ -9,6 +9,7 @@ import Dots from '../loading/dots';
 import Navigation from '../nav/Nav'; 
 import './Dashboard.css';
 import { toast } from 'react-toastify';
+import labPicture from '../../img/labPicture.svg'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ModalAddLab } from '../lab/ModalAddLab';
@@ -35,14 +36,20 @@ const Dashboard = () => {
 
     if (user) {
       dispatch(getLab());
+
+      labs.forEach((lab) => {
+        localStorage.removeItem(`lab:${lab.labId}`);
+      })
+
       return () => {
         dispatch(reset());
         
       }
     }
 
+    
 
-  }, [user])
+  }, [user, labs.labId])
 
   if(loading) {
     return (
@@ -58,7 +65,9 @@ const Dashboard = () => {
       <div className='dashboard-container'>
         <div className='l-c-1'>
           <h2>Current Labs:</h2>
-          
+          <div className='grid-item'>
+            <object data={labPicture} type="image/svg+xml" />
+          </div>
         </div>
         <div className='l-c-2'>
 
@@ -69,8 +78,9 @@ const Dashboard = () => {
                 <div className="DcardImg" style={{backgroundColor: lab.color}}></div>
                   <div className="Dcontainer">
                     <h4 className='DcardTitle'>{lab.labName}</h4>
+                    <p className='DcardBio'>ID: {lab.labId}</p>
                     <p className='DcardBio'>{lab.institution}</p>
-                  </div>  
+                  </div>
               </Link>    
             </div>
           </div>

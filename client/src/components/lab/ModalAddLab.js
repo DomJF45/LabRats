@@ -98,8 +98,8 @@ export const ModalAddLab = (props) => {
               className='mb-3'
               ref={fieldRef}
             >
-              {subjectData.map((subject) => (
-                  <option>{subject.name}</option>
+              {subjectData.map((subject, index) => (
+                  <option key={{index}}>{subject.name}</option>
               ))}
             </Form.Select>
             <Form.Label>Lab Password:</Form.Label>
