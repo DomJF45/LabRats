@@ -32,9 +32,7 @@ const Dashboard = () => {
 
     if (!user) {
       navigate('/');
-    }
-
-    if (user) {
+    } else if (user) {
       dispatch(getLab());
 
       labs.forEach((lab) => {
