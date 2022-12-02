@@ -7,7 +7,12 @@
   margin-top: 2rem;
 }
 .task-c-1 {
+  display: flex;
+  align-items: baseline;
   margin-bottom: 2rem;
+}
+.task-c-1 > p {
+  margin-left: 1rem;
 }
 .task-c-2 {
   display: grid;
@@ -44,19 +49,19 @@
 }
 .incomplete {
   background-color: red;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border: #303030;
   margin-left: 1rem;
-  border-radius: 5px;
+  border-radius: 50%;
 }
 .complete {
   background-color: green;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border: #303030;
   margin-left: 1rem;
-  border-radius: 5px;
+  border-radius: 50%;
 }
 .task-card-title {
   padding: 0;
@@ -104,10 +109,9 @@
   margin-right: 1rem;
 }
 .task-card-status {
-  
   display: flex;
   align-items: center;
-  
+  float: left;
 }
 
 .task-card-assignment {
@@ -121,3 +125,9 @@
 .task-toolbar {
   margin-bottom: 1rem;
 }
+
+.task-card-footer {
+  display: grid;
+  grid-template-columns: 85% 15%;
+}
+

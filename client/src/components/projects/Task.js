@@ -1,18 +1,20 @@
 import React, { useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faCheck, faXmark, faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { Form } from 'react-bootstrap'
-import { editTask, reset, getSingleLab } from '../../features/lab/labSlice'
+import { editTask, deleteTask, reset, getSingleLab } from '../../features/lab/labSlice'
+import { toast } from 'react-toastify';
 import MyButton from '../button/MyButton'
 
 const Task = ({task}, key) => {
 
   const [editMode, setEditMode] = useState(false);
-  const { labId } = useParams();  
+  const { labId } = useParams();
+  const { projectId } = useParams();
   const dispatch = useDispatch();
-
+  const { error, success, message, loading } = useSelector((state) => state.lab);
   const newNameRef = useRef();
   const newNotesRef = useRef();
   const newAssignRef = useRef();
@@ -23,11 +25,25 @@ const Task = ({task}, key) => {
     dispatch(getSingleLab(labId));
   }
 
-  const handleEdit = () => {
+  const handleDelete = (taskData) =>{
+    dispatch(deleteTask(taskData));
+    if (success) {
+      toast.success('Successfully Deleted Task!')
+    }
+    dispatch(reset());
+    dispatch(getSingleLab(labId));
+  }
+
+  const handleEdit = (e) => {
+    e.preventDefault();
     const taskData = {
+      labId: labId,
+      projectId: task.projectId,
+      taskId: task.taskId,
       taskName: newNameRef.current.value,
       notes: newNotesRef.current.value,
-      assigned: newAssignRef.current.value
+      assigned: newAssignRef.current.value,
+      color: task.color
     }
     dispatch(editTask(taskData));
     dispatch(reset());
@@ -43,7 +59,7 @@ const Task = ({task}, key) => {
             <div className='task-card-img' style={{backgroundColor: task.color}}>
               { editMode ? (<Form.Control 
                   type='text' 
-                  placeholder={task.taskName} 
+                  placeholder={task.taskName ? task.taskName : 'No Name for Task'} 
                   className="mx-3 mt-3"
                   ref={newNameRef}
                 />):(<h1 className='task-card-title' >{task.taskName}</h1>) }
@@ -57,6 +73,9 @@ const Task = ({task}, key) => {
                   
                 />
               </div>
+              { task.complete ? (<div className='task-card-icon'>
+                <FontAwesomeIcon icon={faTrash} style={{color: "white"}} onClick={() => {handleDelete({labId,projectId: task.projectId, taskId: task.taskId})}}/>
+              </div>):(<></>) }
               <div className='task-card-icon'>
                 { task.complete ? (<>
                   <FontAwesomeIcon icon={faXmark} size="lg" style={{color: "white"}} onClick={() => handleComplete({
@@ -67,6 +86,7 @@ const Task = ({task}, key) => {
                   inProgress: !task.inProgress,
                   complete: !task.complete,
                   notes: task.notes,
+                  assigned: task.assigned,
                   color: task.color
                 })} />
                 </>):(<>
@@ -78,12 +98,11 @@ const Task = ({task}, key) => {
                   inProgress: !task.inProgress,
                   complete: !task.complete,
                   notes: task.notes,
+                  assigned: task.assigned,
                   color: task.color
                 })} />
                 </>)}
-        
               </div>
-            
             </div>
             <div className='task-container-2' >
               <div className='task-card-bio'>
@@ -107,9 +126,11 @@ const Task = ({task}, key) => {
                       <p className='assigned-to'>{task.assigned ? task.assigned : 'No one assigned...'}</p>
                     </>)}
                   </div>
-                  <div className='task-card-status'>
-                    <h4>Status:</h4>
-                    <div className={task.complete ? 'complete' : 'incomplete'}></div>
+                  <div className='task-card-footer'>
+                    <div className='task-card-status'>
+                      <h4>Status:</h4>
+                      <div className={task.complete ? 'complete' : 'incomplete'}></div>
+                    </div>
                   </div>
                   { editMode ? (<>
                     <MyButton type='submit' style={{width: "100%"}}>Update</MyButton>
