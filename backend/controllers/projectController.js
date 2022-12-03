@@ -93,6 +93,9 @@ const deleteProject = asyncHandler( async(req, res) => {
     $pull: {
       projects: {
         projectId: req.params.projectId
+      },
+      tasks: {
+        projectId: req.params.projectId
       }
     }
   })

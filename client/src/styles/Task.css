@@ -110,7 +110,7 @@
 }
 .task-card-status {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   float: left;
 }
 

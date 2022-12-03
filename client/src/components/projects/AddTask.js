@@ -28,7 +28,7 @@ const AddTask = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('addtask.js render')
+    
     const taskData = {
       labId: labId,
       projectId: projectId,
@@ -40,8 +40,9 @@ const AddTask = (props) => {
     }
 
     dispatch(addTask(taskData));
-    props.onHide();
+    
     dispatch(getSingleLab(labId));
+    props.onHide();
     if (success) {
       toast.success('Task Added!');
     }

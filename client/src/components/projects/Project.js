@@ -40,8 +40,8 @@ const Project = () => {
 
   useEffect(() => {
 
-    // dispatch(getSingleLab(labId))
     dispatch(getSingleLab(labId))
+    
 
     return () => {
       dispatch(reset());
@@ -50,6 +50,8 @@ const Project = () => {
   }, [filterView])
 
   
+
+  console.log(lab)
   
   return (
     <>
