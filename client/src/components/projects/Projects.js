@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { projectData } from './testData'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getProjects, getSingleLab, deleteProject, reset } from '../../features/lab/labSlice'
-import { randomColor } from '../../util/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faTrash, faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import { toast } from 'react-toastify'
+import Directory from '../nav/Directory'
 import projectPicture from '../../img/projectPicture.svg';
 import Navigation from '../nav/Nav'
 import '../../styles/Projects.css';
@@ -22,6 +22,7 @@ const Projects = () => {
   const [modalShow, setModalShow] = useState(false);
   const { lab, loading, error, success, message } = useSelector((state) => state.lab);
   const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const handleDelete = (projectData) => {
     dispatch(deleteProject(projectData));
@@ -49,9 +50,8 @@ const Projects = () => {
   return (
     <>
       <Navigation props={user} />
-      <div className='lab-container'>
-        <h1>{lab.labName}</h1>
-        <p>{lab.institution}</p>
+      <div className='task-container'>
+        <Directory labName={lab.labName} />
       </div>
       <div className='project-container'>
         <div className='c-1'>

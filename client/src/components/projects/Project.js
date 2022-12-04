@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { getSingleLab, editTask, deleteTask, reset } from '../../features/lab/labSlice';
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faPenToSquare, faPlus, faXmark, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faPenToSquare, faPlus, faXmark, faTrash, faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import Form from 'react-bootstrap/Form';
 import AddTask from './AddTask';
 import Navigation from '../nav/Nav';
@@ -11,6 +11,7 @@ import '../../styles/Task.css'
 import Dots from '../loading/dots';
 import Task from './Task'
 import MyButton from '../button/MyButton';
+import Directory from '../nav/Directory';
 
 const Project = () => {
 
@@ -20,9 +21,11 @@ const Project = () => {
   // const lab = JSON.parse(localStorage.getItem(`lab:${labId}`));
   const { lab, loading, error, success, message } = useSelector((state) => state.lab)
   const [modalShow, setModalShow] = useState(false)
+  const [projectName, setProjectName] = useState();
   const [filterView, setFilterView] = useState('all');
   const dispatch = useDispatch();
   const taskNameRef = useRef();
+  const navigate = useNavigate();
 
   const tasks = lab.tasks?.filter((task) => {
 
@@ -36,22 +39,22 @@ const Project = () => {
 
   });
 
+  
+
   console.log('project.js render');
 
   useEffect(() => {
 
     dispatch(getSingleLab(labId))
-    
-
+  
     return () => {
       dispatch(reset());
     }
 
-  }, [filterView])
+  }, [])
 
   
-
-  console.log(lab)
+  const { labName } = lab;
   
   return (
     <>
@@ -61,17 +64,23 @@ const Project = () => {
       
         <div className='task-c-1'>
           {/* <h1>{project.name}</h1> */}
-          <h2>Tasks:</h2>
-          <p>Filter By: </p>
-          <Form>
-            <Form.Group>
-              <Form.Select style={{marginLeft: "1rem"}} input='select' onChange={(e) => {setFilterView(e.target.value)}}>
-                <option value='all'>all</option>
-                <option value='incomplete'>incomplete</option>
-                <option value='complete'>complete</option>
-              </Form.Select>
-            </Form.Group>
-          </Form>
+          {/* <FontAwesomeIcon className="back-icon" icon={faChevronCircleLeft} onClick={() => navigate(`/${labId}`)} />
+          <h2>Tasks:</h2> */}
+          <div className='directory-container'>
+            <Directory labName={labName} projectId={projectId} labId={labId} />
+          </div>
+          <div className='filter-container'>
+            <p>Filter By: </p>
+            <Form>
+              <Form.Group>
+                <Form.Select style={{marginLeft: "1rem"}} size='sm' input='select' onChange={(e) => {setFilterView(e.target.value)}}>
+                  <option value='all'>all</option>
+                  <option value='incomplete'>incomplete</option>
+                  <option value='complete'>complete</option>
+                </Form.Select>
+              </Form.Group>
+            </Form>
+          </div>
           
         </div>
         <div className='task-c-2'>

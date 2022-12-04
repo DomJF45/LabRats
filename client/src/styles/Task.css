@@ -1,3 +1,16 @@
+.back-icon {
+  margin-right: 1rem;
+  height: 20px;
+  color:#303030;
+}
+.back-icon:hover {
+  cursor: pointer;
+}
+.filter-container {
+  display: flex;
+  justify-content: end;
+
+}
 .task-container {
   max-width: 1200px;
   display: block;
@@ -7,7 +20,8 @@
   margin-top: 2rem;
 }
 .task-c-1 {
-  display: flex;
+  display: grid;
+  grid-template-columns: 50% 50%;
   align-items: baseline;
   margin-bottom: 2rem;
 }
@@ -16,8 +30,9 @@
 }
 .task-c-2 {
   display: grid;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 32% 32% 32%;
   column-gap: 2rem;
+  justify-content: center;
 }
 .card-divider {
   width: 100%;
@@ -131,3 +146,7 @@
   grid-template-columns: 85% 15%;
 }
 
+.directory-container {
+  display: flex;
+  float: left;
+}

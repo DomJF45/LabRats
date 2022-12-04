@@ -1,6 +1,8 @@
 .lab-container {
   max-width: 1200px;
-  display: block;
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
   margin-inline: auto; 
 }
 

@@ -1,3 +1,10 @@
+
+.lab-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
 .project-container {
   max-width: 1200px;
   display: grid;
