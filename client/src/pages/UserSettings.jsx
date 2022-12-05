@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import Nav from 'react-bootstrap/nav'
+import Nav from 'react-bootstrap/Nav'
 import UserSettings from '../components/settings/userSettings'
 import LabSettings from '../components/settings/labSettings';
 import GetLab from '../components/lab/GetLab';
