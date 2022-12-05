@@ -29,7 +29,13 @@ const Dashboard = () => {
 
   const handleCreate = (labData) => {
     dispatch(registerLab(labData, user.token));
-    dispatch(getLab());
+    if (success) {
+      toast.success('Lab Created!');
+      dispatch(getLab());
+      setModalShow(false);
+    } else if (error) {
+      toast.error(message);
+    }
   }
 
   const labForm = user?.role === 'Principle Investigator' ? <ModalAddLab show={modalShow} onHide = {() => setModalShow(false)} create={handleCreate} /> : <ModalJoinLab show={modalShow} onHide = {() => setModalShow(false)} />

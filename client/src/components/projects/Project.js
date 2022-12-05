@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { getSingleLab, editTask, deleteTask, reset } from '../../features/lab/labSlice';
+import { getSingleLab, addTask, editTask, deleteTask, reset } from '../../features/lab/labSlice';
 import { useParams, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faPenToSquare, faPlus, faXmark, faTrash, faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +12,7 @@ import Dots from '../loading/dots';
 import Task from './Task'
 import MyButton from '../button/MyButton';
 import Directory from '../nav/Directory';
+import { toast } from 'react-toastify';
 
 const Project = () => {
 
@@ -39,7 +40,18 @@ const Project = () => {
 
   });
 
-  
+  const handleCreate = (taskData) => {
+
+    dispatch(addTask(taskData));
+    
+    if (success) {
+      toast.success('Task Created!')
+      dispatch(getSingleLab(labId));
+      setModalShow(false);
+    } else if (error) {
+      toast.error(message);
+    }
+  }
 
   console.log('project.js render');
 
@@ -113,7 +125,7 @@ const Project = () => {
           )}
         </div>
       </div>
-      <AddTask show={modalShow} onHide={() => {setModalShow(false)}} labProp={lab} />
+      <AddTask show={modalShow} onHide={() => {setModalShow(false)}} labProp={lab} create={handleCreate} />
       
     </>
   )

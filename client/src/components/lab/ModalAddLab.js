@@ -53,11 +53,8 @@ export const ModalAddLab = (props) => {
     // })
     
     dispatch(getLab());
-    dispatch(reset());
     props.onHide();
-    if (success) {
-      toast.success('Lab Created!');
-    }
+    
   }
 
   useEffect(() => {

@@ -24,6 +24,7 @@ const AddProject = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    
     const projectData = {
       projectId: nanoid(),
       labId: labId,

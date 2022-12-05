@@ -39,12 +39,10 @@ const AddTask = (props) => {
       color: randomColor()
     }
 
-    dispatch(addTask(taskData));
+    // dispatch(addTask(taskData));
+    props.create(taskData);
     dispatch(getSingleLab(labId));
     props.onHide();
-    if (success) {
-      toast.success('Task Added!');
-    }
     
   }
 
