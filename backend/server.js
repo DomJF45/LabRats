@@ -17,7 +17,7 @@ app.use('/api/labs', require('./routes/labRoute'));
 app.use('/api/labs/:labId/projects', require('./routes/projectRoute'));
 app.use('/api/labs/:labId/projects/:projectId/tasks', require('./routes/taskRoute'));
 // serve the client
-if (process.env.NODE_ENV === production) {
+if (process.env.NODE_ENV === 'production') {
   // set static (build) folder
   app.use(express.static(path.join(__dirname, '../client/build')))
   app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'client', 'build', 'index.html')))
