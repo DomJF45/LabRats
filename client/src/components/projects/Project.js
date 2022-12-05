@@ -51,7 +51,7 @@ const Project = () => {
       dispatch(reset());
     }
 
-  }, [])
+  }, [filterView])
 
   
   const { labName } = lab;

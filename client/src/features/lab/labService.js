@@ -31,7 +31,7 @@ const getLab  = async (token) => {
 const getSingleLab = async(labId) => {
   
   // console.log(`Lab ID at getSingle Lab: ${labId}`)
-  const response = await axios.get(`${API_URL}getOneLab`, {
+  const response = await axios.get(`/${API_URL}getOneLab`, {
     headers: {
       labId: labId
     }
