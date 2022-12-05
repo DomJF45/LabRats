@@ -37,7 +37,7 @@ const Projects = () => {
     
     dispatch(getSingleLab(labId))
 
-  }, [loading]);
+  }, []);
 
   if (loading) {
     return (
