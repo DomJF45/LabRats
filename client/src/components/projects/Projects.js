@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { projectData } from './testData'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { getProjects, getSingleLab, deleteProject, reset } from '../../features/lab/labSlice'
+import { getProjects, getSingleLab, deleteProject, reset, createProject } from '../../features/lab/labSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faTrash, faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import { toast } from 'react-toastify'
@@ -33,20 +33,37 @@ const Projects = () => {
     dispatch(getSingleLab(labId));
   }
 
+  const handleCreate = (projectData) => {
+    
+    dispatch(createProject(projectData));
+    
+    if (error) {
+      toast.error(message);
+    } else if (success) {
+      toast.success('Project Created!');
+      dispatch(getSingleLab(labId));
+      setModalShow(false);
+    }
+
+  }
+
   useEffect(() => {
+
     dispatch(getSingleLab(labId))
-    return () => {
+
+    return() => {
       dispatch(reset());
     }
+
   }, []);
 
-  if (loading) {
-    return (
-      <div className='loading-container'>
-        <Dots />
-      </div>
-    )
-  }
+  // if (loading) {
+  //   return (
+  //     <div className='loading-container'>
+  //       <Dots />
+  //     </div>
+  //   )
+  // }
 
   return (
     <>
@@ -62,7 +79,7 @@ const Projects = () => {
           </div>
         </div>
         <div className='c-2'>
-          {lab.projects.map((project, index) => (
+          {lab.projects?.map((project, index) => (
             <div key={index} className='project-content-container'>
               
 
@@ -103,7 +120,7 @@ const Projects = () => {
             <h3>No Projects Yet!</h3>
           </>):(<></>)}
         </div>
-        <AddProject show={modalShow} onHide={() => setModalShow(false)} />
+        <AddProject show={modalShow} onHide={() => setModalShow(false)} create={handleCreate} />
         
       </div>
     </>

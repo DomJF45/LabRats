@@ -8,6 +8,7 @@ import MyButton from '../button/MyButton'
 import Form from 'react-bootstrap/Form'
 import { randomColor } from '../../util/colors'
 import { toast } from 'react-toastify'
+import Dots from '../loading/dots'
 
 const AddProject = (props) => {
 
@@ -22,9 +23,7 @@ const AddProject = (props) => {
 
 
   const onSubmit = (e) => {
-    
     e.preventDefault();
-
     const projectData = {
       projectId: nanoid(),
       labId: labId,
@@ -34,27 +33,29 @@ const AddProject = (props) => {
       color: randomColor()
     }
     
-    dispatch(createProject(projectData))
-    props.onHide();
+    // dispatch(createProject(projectData))
+    // dispatch(getSingleLab(labId));
+
+    
+    props.create(projectData);
     dispatch(getSingleLab(labId));
-    if (success) {
-      toast.success('Project Created!')
-    }
+    props.onHide();
+    
+
     
   }
 
   React.useEffect(() => {
-    
+
     if (error) {
       toast.error(message)
     }
 
-    return () => {
-      dispatch(reset())
-    }
-
   }, [])
 
+  if (loading) {
+    return <Dots />
+  }
 
   return (
     <Modal

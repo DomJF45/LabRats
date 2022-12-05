@@ -42,8 +42,8 @@ export const ModalAddLab = (props) => {
       fieldOfStudy: fieldRef.current.value,
       color: randomColor()
     }
-
-    dispatch(registerLab(labData, user.token))
+    props.create(labData);
+    // dispatch(registerLab(labData, user.token))
     // console.log({
     //   labName: labNameRef.current.value,
     //   insitute: instituteRef.current.value,
@@ -52,9 +52,9 @@ export const ModalAddLab = (props) => {
     //   confirm: confirmPassRef.current.value
     // })
     
+    dispatch(getLab());
     dispatch(reset());
     props.onHide();
-    dispatch(getLab());
     if (success) {
       toast.success('Lab Created!');
     }

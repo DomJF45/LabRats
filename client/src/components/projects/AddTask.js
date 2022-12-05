@@ -40,7 +40,6 @@ const AddTask = (props) => {
     }
 
     dispatch(addTask(taskData));
-    
     dispatch(getSingleLab(labId));
     props.onHide();
     if (success) {
@@ -53,10 +52,6 @@ const AddTask = (props) => {
 
     if (error) {
       toast.error(message)
-    }
-
-    return () => {
-      dispatch(reset());
     }
 
   }, [])

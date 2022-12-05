@@ -46,10 +46,6 @@ const Project = () => {
   useEffect(() => {
 
     dispatch(getSingleLab(labId))
-  
-    return () => {
-      dispatch(reset());
-    }
 
   }, [filterView])
 
