@@ -1,7 +1,8 @@
 .back-icon {
   margin-right: 1rem;
-  height: 20px;
+  height: 25px;
   color:#303030;
+  
 }
 .back-icon:hover {
   cursor: pointer;
@@ -30,9 +31,30 @@
 }
 .task-c-2 {
   display: grid;
-  grid-template-columns: 32% 32% 32%;
+  grid-template-columns: 30% 30% 30%;
+  height: 575px;
+  overflow-y: scroll;
   column-gap: 2rem;
   justify-content: center;
+  background-color: #DBE4E9;
+  border-radius: 20px;
+  padding-top: 1rem;
+}
+.task-c-2::-webkit-scrollbar {
+  width: 8px;
+}
+.task-c-2::-webkit-scrollbar-track {
+  display: none;
+}
+.task-c-2::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+.task-c-2::-webkit-scrollbar-thumb:hover {
+  background: #ffb703;
+}
+.task-c-2::-webkit-scrollbar-button {
+  cursor: pointer;
 }
 .card-divider {
   width: 100%;
@@ -61,6 +83,9 @@
   transform:translateY(-6px);
   box-shadow: 12px 12px #888;
   
+}
+#add-task-card {
+  order: -1;
 }
 .incomplete {
   background-color: red;

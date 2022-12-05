@@ -23,11 +23,11 @@ const Directory = ({ labName, projectId, labId }) => {
         labName && projectName ? 
         (<>
           <FontAwesomeIcon className='back-icon' icon={faChevronCircleLeft} onClick={() => navigate(`/${labId}`) } />
-          <div>{labName} / {projectName} / Tasks / </div>
+          <div>{labName} / {projectName} / Tasks </div>
         </>) :
         (<>
           <FontAwesomeIcon className='back-icon' icon={faChevronCircleLeft} onClick={() => navigate(`/dashboard`)} />
-          <div>{labName} / </div>
+          <div>{labName} </div>
         </>)
       }
       

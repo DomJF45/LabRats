@@ -1,6 +1,6 @@
 .directory {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 .dashboard-container {
   max-width: 1200px;
@@ -81,8 +81,10 @@
 .l-c-2 {
 
   overflow-y: scroll;
-  
+  height: 600px;
   padding: 1rem;
+  background-color: #DBE4E9;
+  border-radius: 20px;
 }
 
 .l-c-2::-webkit-scrollbar {
@@ -96,7 +98,7 @@
 
 /* Handle */
 .l-c-2::-webkit-scrollbar-thumb {
-  background: rgb(112, 112, 112); 
+  background: #888; 
   border-radius: 10px;
 }
 

@@ -60,13 +60,15 @@ const Task = ({task}, key) => {
         <div className='project-content-container' key={key}>
           <div className='task-card'>
             <div className='task-card-img' style={{backgroundColor: task.color}}>
-              { editMode ? (<Form.Control 
+              { 
+                editMode ? (<Form.Control 
                   type='text' 
                   value={nameState} 
                   className="mx-3 mt-3"
                   ref={newNameRef}
                   onChange={(e) => setNameState(e.target.value)}
-                />):(<h1 className='task-card-title' >{task.taskName ? task.taskName : 'No Name for Task'}</h1>) }
+                />):(<h1 className='task-card-title' >{task.taskName ? task.taskName : 'No Name for Task'}</h1>) 
+              }
 
               <div className='task-card-icon'>
                 <FontAwesomeIcon 

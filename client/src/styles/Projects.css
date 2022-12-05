@@ -9,7 +9,7 @@
   max-width: 1200px;
   display: grid;
   grid-template-columns: 40% 50%;
-  justify-content: start;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
@@ -18,9 +18,14 @@
 .c-2 {
   display: grid;
   grid-template-columns: 45% 45%;
-  column-gap: 2rem;
-  
-  padding: 1rem;
+  column-gap: 1rem;
+  overflow-y: scroll;
+  height: 490px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  justify-content: center;
+  background-color: #DBE4E9;
+  border-radius: 20px;
 }
 
 .c-2::-webkit-scrollbar {
@@ -34,7 +39,7 @@
 
 /* Handle */
 .c-2::-webkit-scrollbar-thumb {
-  background: rgb(112, 112, 112); 
+  background: #888; 
   border-radius: 10px;
 }
 
