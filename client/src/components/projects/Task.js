@@ -11,6 +11,9 @@ import MyButton from '../button/MyButton'
 const Task = ({task}, key) => {
 
   const [editMode, setEditMode] = useState(false);
+  const [nameState, setNameState] = useState(task.taskName);
+  const [notesState, setNotesState] = useState(task.notes);
+  const [assignedState, setAssignedState] = useState(task.assigned);
   const { labId } = useParams();
   const { projectId } = useParams();
   const dispatch = useDispatch();
@@ -40,9 +43,9 @@ const Task = ({task}, key) => {
       labId: labId,
       projectId: task.projectId,
       taskId: task.taskId,
-      taskName: newNameRef.current.value,
-      notes: newNotesRef.current.value,
-      assigned: newAssignRef.current.value,
+      taskName: nameState,
+      notes: notesState,
+      assigned: assignedState,
       color: task.color
     }
     dispatch(editTask(taskData));
@@ -59,10 +62,11 @@ const Task = ({task}, key) => {
             <div className='task-card-img' style={{backgroundColor: task.color}}>
               { editMode ? (<Form.Control 
                   type='text' 
-                  placeholder={task.taskName ? task.taskName : 'No Name for Task'} 
+                  value={nameState} 
                   className="mx-3 mt-3"
                   ref={newNameRef}
-                />):(<h1 className='task-card-title' >{task.taskName}</h1>) }
+                  onChange={(e) => setNameState(e.target.value)}
+                />):(<h1 className='task-card-title' >{task.taskName ? task.taskName : 'No Name for Task'}</h1>) }
 
               <div className='task-card-icon'>
                 <FontAwesomeIcon 
@@ -111,7 +115,7 @@ const Task = ({task}, key) => {
                     
                     { editMode ? (<>
                       <h4>Notes:</h4>
-                      <Form.Control type='text' placeholder={task.notes ? task.notes : 'No notes assigned'} className='my-3' ref={newNotesRef} />
+                      <Form.Control type='text' value={task.notes ? notesState : 'No notes assigned'} className='my-3' ref={newNotesRef} onChange={(e) => setNotesState(e.target.value)} />
                     </>):(<>
                       <h4>Notes:</h4>
                       <p>{task.notes ? task.notes : 'No notes assigned'}</p>
@@ -120,7 +124,7 @@ const Task = ({task}, key) => {
                   <div className='task-card-assignment' style={editMode ? {display: "block"} : {display:"flex"}}>
                     { editMode ? (<>
                       <h4>Assigned To:</h4>
-                      <Form.Control type='text' placeholder={task.assigned ? task.assigned : 'No one assigned'}  className='my-3' ref={newAssignRef} />
+                      <Form.Control type='text' value={task.assigned ? assignedState : 'No one assigned'}  className='my-3' ref={newAssignRef} onChange={(e) => setAssignedState(e.target.value)} />
                     </>):(<>
                       <h4>Assigned To:</h4>
                       <p className='assigned-to'>{task.assigned ? task.assigned : 'No one assigned...'}</p>

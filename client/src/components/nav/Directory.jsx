@@ -19,13 +19,17 @@ const Directory = ({ labName, projectId, labId }) => {
   return (
     <div className='directory'>
       
-      { labName && projectName ? (<>
-        <FontAwesomeIcon className='back-icon' icon={faChevronCircleLeft} onClick={() => navigate(`/${labId}`) } />
-        <div>{labName} / {projectName} / Tasks / </div>
-      </>):(<>
-        <FontAwesomeIcon className='back-icon' icon={faChevronCircleLeft} onClick={() => navigate(`/dashboard`)} />
-        <div>{labName} / </div>
-      </>)}
+      { 
+        labName && projectName ? 
+        (<>
+          <FontAwesomeIcon className='back-icon' icon={faChevronCircleLeft} onClick={() => navigate(`/${labId}`) } />
+          <div>{labName} / {projectName} / Tasks / </div>
+        </>) :
+        (<>
+          <FontAwesomeIcon className='back-icon' icon={faChevronCircleLeft} onClick={() => navigate(`/dashboard`)} />
+          <div>{labName} / </div>
+        </>)
+      }
       
     </div>
   )
