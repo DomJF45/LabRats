@@ -26,7 +26,7 @@ export const ModalJoinLab = (props) => {
       password: passwordRef.current.value
     }
     
-    props.joinLab(labData);
+    props.join(labData);
     dispatch(getLab());
     props.onHide();
     
