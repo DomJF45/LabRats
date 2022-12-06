@@ -4,6 +4,14 @@ LabRats is a management system for research laboratories at institutions. No lon
 
 # How to Use it
 
+### Building and Running
+
+From website:
+If you don't want to go through the trouble of making sure your node environments are the same ones, just head over to https://labrats.herokuapp.com/ and sign up to start organizing your lab!
+
+From src:
+If you want to build the app from the source code, either download or clone the github repository. Once in the root directory, run npm install. Be sure to specify your .env file to connect to your mongodb database, set your port, and set your jwt secret. 
+
 ### Regsitering
 When registering (accessible by clicking 'Get Started Now !!' on the landing page), you will need to provide your Name, Email, Password, Password Confirmation, and your Role. After registering, you will be directed to the dashboard. 
 
@@ -28,10 +36,10 @@ If you are a Research Assistant, you can join a lab by clicking the down arrow n
 Once you have Created/Joined a lab, you will see a list of labs you are enrolled in under the dashboard. If you click the lab, you will be directed to that labs page which will include a list of projects.
 
 ### Projects
-Coming soon
+Each lab has a projects section! Here, you can create or delete a project where you can store those project specific tasks.
 
 ### Tasks
-Coming soon
+Each project has a section for tasks. Here, you can upload a task with a task name, notes, and assign the task to a member in your lab. You can also edit each task, complete each task, and filter tasks by completion status. If you want to delete a project, you need to complete it first by checking the check mark!
 
 ## Test Login Info
 

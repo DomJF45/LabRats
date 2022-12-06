@@ -1,0 +1,269 @@
+Date : 2022-12-05 17:45:21
+Directory : /Users/dominickfounds/Desktop/JS/LabRats
+Total : 178 files,  827 codes, 8 comments, 62 blanks, all 897 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| XML              |          4 |        505 |          0 |          2 |        507 |
+| JavaScript       |         91 |        155 |          9 |         24 |        188 |
+| CSS              |         28 |        148 |          6 |         26 |        180 |
+| JSON             |         10 |          9 |          0 |          0 |          9 |
+| Markdown         |          4 |          6 |          0 |          0 |          6 |
+| JavaScript React |         39 |          4 |         -7 |         10 |          7 |
+| HTML             |          2 |          0 |          0 |          0 |          0 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                       | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                          |        178 |        827 |          8 |         62 |        897 |
+| backend                                                                                    |         17 |        676 |         37 |        132 |        845 |
+| backend/config                                                                             |          1 |         11 |          0 |          2 |         13 |
+| backend/controllers                                                                        |          5 |        393 |         17 |         89 |        499 |
+| backend/middleware                                                                         |          2 |         53 |          4 |         19 |         76 |
+| backend/models                                                                             |          4 |        139 |         12 |         11 |        162 |
+| backend/routes                                                                             |          4 |         55 |          2 |          7 |         64 |
+| c:                                                                                         |         87 |    -40,557 |       -192 |       -678 |    -41,427 |
+| c:/Users                                                                                   |         87 |    -40,557 |       -192 |       -678 |    -41,427 |
+| c:/Users/domfo                                                                             |         87 |    -40,557 |       -192 |       -678 |    -41,427 |
+| c:/Users/domfo/Desktop                                                                     |         87 |    -40,557 |       -192 |       -678 |    -41,427 |
+| c:/Users/domfo/Desktop/JS                                                                  |         87 |    -40,557 |       -192 |       -678 |    -41,427 |
+| c:/Users/domfo/Desktop/JS/LabRats                                                          |         87 |    -40,557 |       -192 |       -678 |    -41,427 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend                                                  |         17 |       -665 |        -35 |       -132 |       -832 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/config                                           |          1 |        -11 |          0 |         -2 |        -13 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/controllers                                      |          5 |       -390 |        -17 |        -89 |       -496 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/middleware                                       |          2 |        -53 |         -4 |        -19 |        -76 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/models                                           |          4 |       -138 |        -12 |        -11 |       -161 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/routes                                           |          4 |        -55 |         -2 |         -7 |        -64 |
+| c:/Users/domfo/Desktop/JS/LabRats/client                                                   |         67 |    -34,859 |       -157 |       -529 |    -35,545 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/__mocks__                                         |          1 |         -1 |          0 |          0 |         -1 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/public                                            |          2 |        -45 |        -23 |         -2 |        -70 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src                                               |         61 |     -3,305 |       -134 |       -492 |     -3,931 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/app                                           |          2 |        -44 |          0 |         -6 |        -50 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components                                    |         28 |     -2,063 |        -78 |       -305 |     -2,446 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/auth                               |          2 |       -194 |        -19 |        -35 |       -248 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/button                             |          2 |       -104 |          0 |         -6 |       -110 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/dashboard                          |          3 |       -183 |         -9 |        -43 |       -235 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/lab                                |          7 |       -549 |        -18 |        -91 |       -658 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/loading                            |          2 |        -58 |          0 |        -11 |        -69 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/nav                                |          3 |       -169 |         -3 |        -26 |       -198 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/projects                           |          5 |       -600 |         -7 |        -66 |       -673 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/settings                           |          3 |       -195 |        -22 |        -25 |       -242 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/features                                      |          7 |       -528 |        -33 |        -88 |       -649 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/features/auth                                 |          2 |       -139 |         -6 |        -24 |       -169 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/features/lab                                  |          4 |       -386 |        -26 |        -62 |       -474 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/features/project                              |          1 |         -3 |         -1 |         -2 |         -6 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/pages                                         |          7 |       -163 |         -1 |        -26 |       -190 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/styles                                        |          8 |       -367 |         -7 |        -38 |       -412 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/util                                          |          2 |        -22 |          0 |         -3 |        -25 |
+| client                                                                                     |         71 |     35,664 |        163 |        591 |     36,418 |
+| client/__mocks__                                                                           |          1 |          1 |          0 |          0 |          1 |
+| client/public                                                                              |          2 |         45 |         23 |          2 |         70 |
+| client/src                                                                                 |         65 |      4,106 |        140 |        554 |      4,800 |
+| client/src/app                                                                             |          2 |         44 |          0 |          6 |         50 |
+| client/src/components                                                                      |         30 |      2,231 |         81 |        343 |      2,655 |
+| client/src/components/auth                                                                 |          2 |        194 |         13 |         35 |        242 |
+| client/src/components/button                                                               |          2 |        104 |          0 |          6 |        110 |
+| client/src/components/dashboard                                                            |          3 |        234 |         11 |         52 |        297 |
+| client/src/components/lab                                                                  |          7 |        538 |         19 |         90 |        647 |
+| client/src/components/loading                                                              |          2 |         58 |          0 |         11 |         69 |
+| client/src/components/nav                                                                  |          4 |        199 |          3 |         35 |        237 |
+| client/src/components/projects                                                             |          6 |        732 |         13 |         88 |        833 |
+| client/src/components/settings                                                             |          3 |        161 |         22 |         24 |        207 |
+| client/src/features                                                                        |          7 |        539 |         33 |         90 |        662 |
+| client/src/features/auth                                                                   |          2 |        139 |          6 |         24 |        169 |
+| client/src/features/lab                                                                    |          4 |        397 |         26 |         64 |        487 |
+| client/src/features/project                                                                |          1 |          3 |          1 |          2 |          6 |
+| client/src/img                                                                             |          2 |        505 |          0 |          2 |        507 |
+| client/src/pages                                                                           |          7 |        165 |          1 |         26 |        192 |
+| client/src/styles                                                                          |          8 |        482 |         10 |         58 |        550 |
+| client/src/util                                                                            |          2 |         22 |          0 |          3 |         25 |
++--------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                   | language         | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /Users/dominickfounds/Desktop/JS/LabRats/README.md                                         | Markdown         |         42 |          0 |         15 |         57 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/config/db.js                              | JavaScript       |         11 |          0 |          2 |         13 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/controllers/addUserController.js          | JavaScript       |         11 |          0 |          1 |         12 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/controllers/labController.js              | JavaScript       |        126 |         10 |         25 |        161 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/controllers/projectController.js          | JavaScript       |         89 |          1 |         21 |        111 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/controllers/taskController.js             | JavaScript       |         75 |          0 |         16 |         91 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/controllers/userController.js             | JavaScript       |         92 |          6 |         26 |        124 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/middleware/authMiddleware.js              | JavaScript       |         42 |          2 |         18 |         62 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/middleware/errorMiddleware.js             | JavaScript       |         11 |          2 |          1 |         14 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/models/labModel.js                        | JavaScript       |         72 |          0 |          3 |         75 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/models/projectModel.js                    | JavaScript       |         24 |         12 |          4 |         40 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/models/taskModel.js                       | JavaScript       |         18 |          0 |          2 |         20 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/models/userModel.js                       | JavaScript       |         25 |          0 |          2 |         27 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/routes/labRoute.js                        | JavaScript       |         16 |          0 |          1 |         17 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/routes/projectRoute.js                    | JavaScript       |         13 |          0 |          2 |         15 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/routes/taskRoute.js                       | JavaScript       |         11 |          0 |          2 |         13 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/routes/userRoutes.js                      | JavaScript       |         15 |          2 |          2 |         19 |
+| /Users/dominickfounds/Desktop/JS/LabRats/backend/server.js                                 | JavaScript       |         25 |          2 |          4 |         31 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/README.md                                  | Markdown         |         38 |          0 |         33 |         71 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/__mocks__/styleMock.js                     | JavaScript       |          1 |          0 |          0 |          1 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/package-lock.json                          | JSON             |     31,406 |          0 |          1 |     31,407 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/package.json                               | JSON             |         68 |          0 |          1 |         69 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/public/index.html                          | HTML             |         20 |         23 |          1 |         44 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/public/manifest.json                       | JSON             |         25 |          0 |          1 |         26 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/App.css                                | CSS              |          0 |          0 |          1 |          1 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/App.js                                 | JavaScript       |         71 |          8 |         15 |         94 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/app/localStorage.js                    | JavaScript       |         19 |          0 |          1 |         20 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/app/store.js                           | JavaScript       |         25 |          0 |          5 |         30 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/Layout.js                   | JavaScript       |         11 |          0 |          2 |         13 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/auth/LoginUser.jsx          | JavaScript React |         83 |          6 |         17 |        106 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/auth/register.jsx           | JavaScript React |        111 |          7 |         18 |        136 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/button/MyButton.css         | CSS              |         91 |          0 |          4 |         95 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/button/MyButton.js          | JavaScript       |         13 |          0 |          2 |         15 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/dashboard/Dashboard.css     | CSS              |         95 |          3 |         20 |        118 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/dashboard/Dashboard.jsx     | JavaScript React |         95 |          0 |         22 |        117 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/dashboard/Dashboard.test.js | JavaScript       |         44 |          8 |         10 |         62 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/lab/CreateLab.jsx           | JavaScript React |        110 |          7 |         16 |        133 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/lab/EditLab.jsx             | JavaScript React |          7 |          0 |          2 |          9 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/lab/GetLab.jsx              | JavaScript React |        128 |          1 |         19 |        148 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/lab/JoinLab.jsx             | JavaScript React |         89 |          3 |         14 |        106 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/lab/Lab.jsx                 | JavaScript React |         35 |          0 |         16 |         51 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/lab/ModalAddLab.js          | JavaScript       |        101 |          8 |         15 |        124 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/lab/ModalJoinLab.js         | JavaScript       |         68 |          0 |          8 |         76 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/loading/dots.css            | CSS              |         44 |          0 |          8 |         52 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/loading/dots.jsx            | JavaScript React |         14 |          0 |          3 |         17 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/nav/Directory.jsx           | JavaScript React |         29 |          0 |          9 |         38 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/nav/Nav.css                 | CSS              |         77 |          0 |         10 |         87 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/nav/Nav.jsx                 | JavaScript React |         48 |          0 |          9 |         57 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/nav/landingNav.jsx          | JavaScript React |         45 |          3 |          7 |         55 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/projects/AddProject.js      | JavaScript       |         67 |          2 |         19 |         88 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/projects/AddTask.js         | JavaScript       |         79 |          3 |         13 |         95 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/projects/Project.js         | JavaScript       |        110 |          1 |         23 |        134 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/projects/Projects.js        | JavaScript       |        104 |          7 |         19 |        130 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/projects/Task.js            | JavaScript       |        145 |          0 |         12 |        157 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/projects/testData.js        | JavaScript       |        227 |          0 |          2 |        229 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/settings/labSettings.jsx    | JavaScript React |         42 |         22 |         12 |         76 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/settings/subjectData.js     | JavaScript       |         56 |          0 |          0 |         56 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/components/settings/userSettings.jsx   | JavaScript React |         63 |          0 |         12 |         75 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/features/auth/authService.js           | JavaScript       |         39 |          3 |         12 |         54 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/features/auth/authSlice.js             | JavaScript       |        100 |          3 |         12 |        115 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/features/lab/labService.js             | JavaScript       |         47 |          6 |         15 |         68 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/features/lab/labSlice.js               | JavaScript       |        299 |         20 |         23 |        342 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/features/lab/projectService.js         | JavaScript       |         25 |          0 |         15 |         40 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/features/lab/taskService.js            | JavaScript       |         26 |          0 |         11 |         37 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/features/project/projectSlice.js       | JavaScript       |          3 |          1 |          2 |          6 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/img/labPicture.svg                     | XML              |        157 |          0 |          1 |        158 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/img/projectPicture.svg                 | XML              |        348 |          0 |          1 |        349 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/index.css                              | CSS              |         14 |          0 |          3 |         17 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/index.js                               | JavaScript       |         19 |          3 |          4 |         26 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/logo.svg                               | XML              |          1 |          0 |          0 |          1 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/pages/Dashboard.jsx                    | JavaScript React |         11 |          0 |          2 |         13 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/pages/Landing.jsx                      | JavaScript React |         68 |          0 |          7 |         75 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/pages/Landing.test.js                  | JavaScript       |          8 |          0 |          5 |         13 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/pages/Login.jsx                        | JavaScript React |          9 |          0 |          2 |         11 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/pages/Register.jsx                     | JavaScript React |          9 |          0 |          2 |         11 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/pages/UserSettings.jsx                 | JavaScript React |         41 |          1 |          7 |         49 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/pages/data.js                          | JavaScript       |         19 |          0 |          1 |         20 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/reportWebVitals.js                     | JavaScript       |         12 |          0 |          2 |         14 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/setupTests.js                          | JavaScript       |          1 |          4 |          1 |          6 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/styles/Dashboard.css                   | CSS              |          0 |          0 |          1 |          1 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/styles/Lab.css                         | CSS              |         15 |          0 |          4 |         19 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/styles/Landing.css                     | CSS              |         74 |          2 |          4 |         80 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/styles/Login.css                       | CSS              |          0 |          0 |          1 |          1 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/styles/Projects.css                    | CSS              |        129 |          3 |         20 |        152 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/styles/Register.css                    | CSS              |         37 |          0 |          3 |         40 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/styles/Task.css                        | CSS              |        166 |          0 |         11 |        177 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/styles/UserSettings.css                | CSS              |         61 |          5 |         14 |         80 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/util/colors.js                         | JavaScript       |          5 |          0 |          0 |          5 |
+| /Users/dominickfounds/Desktop/JS/LabRats/client/src/util/test-utils.jsx                    | JavaScript React |         17 |          0 |          3 |         20 |
+| /Users/dominickfounds/Desktop/JS/LabRats/package-lock.json                                 | JSON             |      4,965 |          0 |          1 |      4,966 |
+| /Users/dominickfounds/Desktop/JS/LabRats/package.json                                      | JSON             |         37 |          0 |          1 |         38 |
+| c:/Users/domfo/Desktop/JS/LabRats/README.md                                                | Markdown         |        -36 |          0 |        -15 |        -51 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/config/db.js                                     | JavaScript       |        -11 |          0 |         -2 |        -13 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/controllers/addUserController.js                 | JavaScript       |        -11 |          0 |         -1 |        -12 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/controllers/labController.js                     | JavaScript       |       -126 |        -10 |        -25 |       -161 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/controllers/projectController.js                 | JavaScript       |        -86 |         -1 |        -21 |       -108 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/controllers/taskController.js                    | JavaScript       |        -75 |          0 |        -16 |        -91 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/controllers/userController.js                    | JavaScript       |        -92 |         -6 |        -26 |       -124 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/middleware/authMiddleware.js                     | JavaScript       |        -42 |         -2 |        -18 |        -62 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/middleware/errorMiddleware.js                    | JavaScript       |        -11 |         -2 |         -1 |        -14 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/models/labModel.js                               | JavaScript       |        -71 |          0 |         -3 |        -74 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/models/projectModel.js                           | JavaScript       |        -24 |        -12 |         -4 |        -40 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/models/taskModel.js                              | JavaScript       |        -18 |          0 |         -2 |        -20 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/models/userModel.js                              | JavaScript       |        -25 |          0 |         -2 |        -27 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/routes/labRoute.js                               | JavaScript       |        -16 |          0 |         -1 |        -17 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/routes/projectRoute.js                           | JavaScript       |        -13 |          0 |         -2 |        -15 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/routes/taskRoute.js                              | JavaScript       |        -11 |          0 |         -2 |        -13 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/routes/userRoutes.js                             | JavaScript       |        -15 |         -2 |         -2 |        -19 |
+| c:/Users/domfo/Desktop/JS/LabRats/backend/server.js                                        | JavaScript       |        -18 |          0 |         -4 |        -22 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/README.md                                         | Markdown         |        -38 |          0 |        -33 |        -71 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/__mocks__/styleMock.js                            | JavaScript       |         -1 |          0 |          0 |         -1 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/package-lock.json                                 | JSON             |    -31,406 |          0 |         -1 |    -31,407 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/package.json                                      | JSON             |        -64 |          0 |         -1 |        -65 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/public/index.html                                 | HTML             |        -20 |        -23 |         -1 |        -44 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/public/manifest.json                              | JSON             |        -25 |          0 |         -1 |        -26 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/App.css                                       | CSS              |          0 |          0 |         -1 |         -1 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/App.js                                        | JavaScript       |        -71 |         -8 |        -15 |        -94 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/app/localStorage.js                           | JavaScript       |        -19 |          0 |         -1 |        -20 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/app/store.js                                  | JavaScript       |        -25 |          0 |         -5 |        -30 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/Layout.js                          | JavaScript       |        -11 |          0 |         -2 |        -13 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/auth/LoginUser.jsx                 | JavaScript React |        -83 |         -6 |        -17 |       -106 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/auth/register.jsx                  | JavaScript React |       -111 |        -13 |        -18 |       -142 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/button/MyButton.css                | CSS              |        -91 |          0 |         -4 |        -95 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/button/MyButton.js                 | JavaScript       |        -13 |          0 |         -2 |        -15 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/dashboard/Dashboard.css            | CSS              |        -62 |          0 |        -14 |        -76 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/dashboard/Dashboard.jsx            | JavaScript React |        -77 |         -1 |        -19 |        -97 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/dashboard/Dashboard.test.js        | JavaScript       |        -44 |         -8 |        -10 |        -62 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/lab/CreateLab.jsx                  | JavaScript React |       -110 |         -7 |        -16 |       -133 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/lab/EditLab.jsx                    | JavaScript React |         -7 |          0 |         -2 |         -9 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/lab/GetLab.jsx                     | JavaScript React |       -145 |         -1 |        -21 |       -167 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/lab/JoinLab.jsx                    | JavaScript React |        -84 |         -3 |        -13 |       -100 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/lab/Lab.jsx                        | JavaScript React |        -35 |          0 |        -16 |        -51 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/lab/ModalAddLab.js                 | JavaScript       |       -105 |         -7 |        -15 |       -127 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/lab/ModalJoinLab.js                | JavaScript       |        -63 |          0 |         -8 |        -71 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/loading/dots.css                   | CSS              |        -44 |          0 |         -8 |        -52 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/loading/dots.jsx                   | JavaScript React |        -14 |          0 |         -3 |        -17 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/nav/Nav.css                        | CSS              |        -77 |          0 |        -10 |        -87 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/nav/Nav.jsx                        | JavaScript React |        -47 |          0 |         -9 |        -56 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/nav/landingNav.jsx                 | JavaScript React |        -45 |         -3 |         -7 |        -55 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/projects/AddProject.js             | JavaScript       |        -68 |          0 |        -17 |        -85 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/projects/AddTask.js                | JavaScript       |        -86 |         -2 |        -13 |       -101 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/projects/Project.js                | JavaScript       |       -134 |         -5 |        -21 |       -160 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/projects/Projects.js               | JavaScript       |        -85 |          0 |        -13 |        -98 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/projects/testData.js               | JavaScript       |       -227 |          0 |         -2 |       -229 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/settings/labSettings.jsx           | JavaScript React |        -42 |        -22 |        -12 |        -76 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/settings/subjectData.js            | JavaScript       |        -56 |          0 |          0 |        -56 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/components/settings/userSettings.jsx          | JavaScript React |        -97 |          0 |        -13 |       -110 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/features/auth/authService.js                  | JavaScript       |        -39 |         -3 |        -12 |        -54 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/features/auth/authSlice.js                    | JavaScript       |       -100 |         -3 |        -12 |       -115 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/features/lab/labService.js                    | JavaScript       |        -43 |         -6 |        -14 |        -63 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/features/lab/labSlice.js                      | JavaScript       |       -292 |        -20 |        -22 |       -334 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/features/lab/projectService.js                | JavaScript       |        -25 |          0 |        -15 |        -40 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/features/lab/taskService.js                   | JavaScript       |        -26 |          0 |        -11 |        -37 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/features/project/projectSlice.js              | JavaScript       |         -3 |         -1 |         -2 |         -6 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/index.css                                     | CSS              |        -14 |          0 |         -3 |        -17 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/index.js                                      | JavaScript       |        -19 |         -3 |         -4 |        -26 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/logo.svg                                      | XML              |         -1 |          0 |          0 |         -1 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/pages/Dashboard.jsx                           | JavaScript React |        -11 |          0 |         -2 |        -13 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/pages/Landing.jsx                             | JavaScript React |        -68 |          0 |         -7 |        -75 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/pages/Landing.test.js                         | JavaScript       |         -8 |          0 |         -5 |        -13 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/pages/Login.jsx                               | JavaScript React |         -9 |          0 |         -2 |        -11 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/pages/Register.jsx                            | JavaScript React |         -9 |          0 |         -2 |        -11 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/pages/UserSettings.jsx                        | JavaScript React |        -39 |         -1 |         -7 |        -47 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/pages/data.js                                 | JavaScript       |        -19 |          0 |         -1 |        -20 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/reportWebVitals.js                            | JavaScript       |        -12 |          0 |         -2 |        -14 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/setupTests.js                                 | JavaScript       |         -1 |         -4 |         -1 |         -6 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/styles/Dashboard.css                          | CSS              |          0 |          0 |         -1 |         -1 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/styles/Lab.css                                | CSS              |         -5 |          0 |         -1 |         -6 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/styles/Landing.css                            | CSS              |        -74 |         -2 |         -4 |        -80 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/styles/Login.css                              | CSS              |          0 |          0 |         -1 |         -1 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/styles/Projects.css                           | CSS              |        -99 |          0 |        -11 |       -110 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/styles/Register.css                           | CSS              |        -37 |          0 |         -3 |        -40 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/styles/Task.css                               | CSS              |       -113 |          0 |         -9 |       -122 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/styles/UserSettings.css                       | CSS              |        -39 |         -5 |         -8 |        -52 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/util/colors.js                                | JavaScript       |         -5 |          0 |          0 |         -5 |
+| c:/Users/domfo/Desktop/JS/LabRats/client/src/util/test-utils.jsx                           | JavaScript React |        -17 |          0 |         -3 |        -20 |
+| c:/Users/domfo/Desktop/JS/LabRats/package-lock.json                                        | JSON             |     -4,965 |          0 |         -1 |     -4,966 |
+| c:/Users/domfo/Desktop/JS/LabRats/package.json                                             | JSON             |        -32 |          0 |         -1 |        -33 |
+| Total                                                                                      |                  |        827 |          8 |         62 |        897 |
++--------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
