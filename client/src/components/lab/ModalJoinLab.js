@@ -25,13 +25,11 @@ export const ModalJoinLab = (props) => {
       labId: idRef.current.value,
       password: passwordRef.current.value
     }
-    dispatch(joinLab(labData));
-    dispatch(reset());
-    props.onHide();
+    
+    props.joinLab(labData);
     dispatch(getLab());
-    if (success) {
-      toast.success('Successfully Joined!')
-    }
+    props.onHide();
+    
   }
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React, { useEffect, createContext, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { getLab, registerLab, reset } from '../../features/lab/labSlice';
+import { getLab, joinLab, registerLab, reset } from '../../features/lab/labSlice';
 import { logout } from '../../features/auth/authSlice';
 import { useNavigate, Link } from 'react-router-dom';
 import { randomColor } from '../../util/colors';
@@ -38,7 +38,20 @@ const Dashboard = () => {
     }
   }
 
-  const labForm = user?.role === 'Principle Investigator' ? <ModalAddLab show={modalShow} onHide = {() => setModalShow(false)} create={handleCreate} /> : <ModalJoinLab show={modalShow} onHide = {() => setModalShow(false)} />
+  const handleJoin = (labData) => {
+
+    dispatch(joinLab(labData));
+
+    if (success) {
+      toast.success('Lab Joined!');
+      dispatch(getLab());
+      setModalShow(false);
+    } else if (error) {
+      toast.error(message);
+    }
+  }
+
+  const labForm = user?.role === 'Principle Investigator' ? <ModalAddLab show={modalShow} onHide = {() => setModalShow(false)} create={handleCreate} /> : <ModalJoinLab show={modalShow} onHide = {() => setModalShow(false)} join={handleJoin} />
   console.log('dashboard rendering')
 
   useEffect(() => {

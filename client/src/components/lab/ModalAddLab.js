@@ -43,14 +43,6 @@ export const ModalAddLab = (props) => {
       color: randomColor()
     }
     props.create(labData);
-    // dispatch(registerLab(labData, user.token))
-    // console.log({
-    //   labName: labNameRef.current.value,
-    //   insitute: instituteRef.current.value,
-    //   field: fieldRef.current.value,
-    //   password: passwordRef.current.value,
-    //   confirm: confirmPassRef.current.value
-    // })
     
     dispatch(getLab());
     props.onHide();
