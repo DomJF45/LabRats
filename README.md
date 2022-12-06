@@ -10,7 +10,7 @@ From website:
 If you don't want to go through the trouble of making sure your node environments are the same ones, just head over to https://labrats.herokuapp.com/ and sign up to start organizing your lab!
 
 From src:
-If you want to build the app from the source code, either download or clone the github repository. Once in the root directory, run npm install. Be sure to specify your .env file to connect to your mongodb database, set your port, and set your jwt secret. 
+If you want to build the app from the source code, either download or clone the github repository. Once in the root directory, run npm install. Be sure to specify your .env file to connect to your mongodb database, set your port, and set your jwt secret. Then, (if all node dependencies are installed) run 'npm run dev' and a development version of the app will start running!.
 
 ### Regsitering
 When registering (accessible by clicking 'Get Started Now !!' on the landing page), you will need to provide your Name, Email, Password, Password Confirmation, and your Role. After registering, you will be directed to the dashboard. 
