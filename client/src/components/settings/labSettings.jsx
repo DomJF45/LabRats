@@ -66,7 +66,7 @@ const LabSettings = () => {
 
   return (
     <>
-      <div style={{maxWidth: "90%", marginLeft: "auto", marginRight: "auto", display: "grid"}}>
+      <div style={{maxWidth: "90%", marginLeft: "auto", marginRight: "auto", display: "block"}}>
         <GetLab />
       </div>      
     </>

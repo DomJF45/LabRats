@@ -48,7 +48,7 @@ const UserSettings = () => {
 
   return (
     <>
-      <div className='user-settings-container' style={{maxWidth: "90%", marginLeft: "auto", marginRight: "auto"}}>
+      <div className='user-settings-container' style={{maxWidth: "90%", marginLeft: "3rem", marginRight: "auto"}}>
         <h3>{user.name}</h3>
         <div className='info-container'>
           <div className="about-container">

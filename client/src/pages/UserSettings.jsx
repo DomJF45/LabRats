@@ -6,6 +6,7 @@ import LabSettings from '../components/settings/labSettings';
 import GetLab from '../components/lab/GetLab';
 import "../styles/UserSettings.css";
 import Navigation from '../components/nav/Nav';
+import NewNav from '../components/nav/NewNav';
 
 const UserSettingsPage = () => {
 
@@ -15,7 +16,7 @@ const UserSettingsPage = () => {
   return (
     <>
       {/* <UserSettings /> */}
-      <Navigation props={user} />
+      <NewNav />
       <div className='settings-header'>
         <h1>Settings</h1>
         <div className='div-divider' />

@@ -17,3 +17,10 @@
 
   
 }
+
+@media screen and (max-width: 1030px) {
+  .list-labs {
+    display: block;
+    margin-left: 2rem;
+  }
+}
