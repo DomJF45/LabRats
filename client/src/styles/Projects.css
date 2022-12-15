@@ -154,11 +154,12 @@ object {
 @media screen and (max-width: 1030px) {
   .project-container {
     display: block;
-    margin: 0 auto;
+    margin-top: 3rem;
+    margin-inline: auto;
   }
   .c-1 {
     width: 90%;
-    margin: 0 auto;
+    margin: 2rem auto;
   }
   .c-1 object {
     display: none;
@@ -166,7 +167,7 @@ object {
   .c-2 {
     width: 90%;
     margin: 0 auto;
-    height: 600px;
+    height: 650px;
   }
   .project-card {
     font-size: smaller;

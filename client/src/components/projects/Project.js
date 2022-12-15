@@ -13,6 +13,7 @@ import Task from './Task'
 import MyButton from '../button/MyButton';
 import Directory from '../nav/Directory';
 import { toast } from 'react-toastify';
+import NewNav from '../nav/NewNav';
 
 const Project = () => {
 
@@ -66,8 +67,7 @@ const Project = () => {
   
   return (
     <>
-      <Navigation props={user} />
-      
+      <NewNav />
       <div className='task-container'>
       
         <div className='task-c-1'>

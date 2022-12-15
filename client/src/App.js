@@ -20,6 +20,7 @@ import UserSettingsPage from './pages/UserSettings';
 import Lab from './components/lab/Lab';
 import Project from './components/projects/Project';
 import Projects from './components/projects/Projects';
+import NewNav from './components/nav/NewNav';
 
 
 const router = createBrowserRouter([
@@ -71,7 +72,7 @@ function App() {
         {/* <Navigation /> */}
         {/* <RegisterContainer /> */}
         
-
+          
           <RouterProvider router={router} />
           {/* <BrowserRouter>
             <Routes>

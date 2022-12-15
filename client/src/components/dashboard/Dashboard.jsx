@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ModalAddLab } from '../lab/ModalAddLab';
 import { ModalJoinLab } from '../lab/ModalJoinLab';
+import NewNav from '../nav/NewNav';
 
 const Dashboard = () => {
 
@@ -85,7 +86,8 @@ const Dashboard = () => {
 
   return (
     <>
-      <Navigation props={user} />
+      {/* <Navigation props={user} /> */}
+      <NewNav />
       <div className='dashboard-container'>
         <div className='l-c-1'>
           <h2>Current Labs:</h2>

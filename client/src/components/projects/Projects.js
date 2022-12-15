@@ -13,6 +13,7 @@ import '../../styles/Projects.css';
 import AddProject from './AddProject'
 import Lab from '../lab/Lab'
 import Dots from '../loading/dots'
+import NewNav from '../nav/NewNav'
 
 const Projects = () => {
 
@@ -67,7 +68,7 @@ const Projects = () => {
 
   return (
     <>
-      <Navigation props={user} />
+      <NewNav />
       <div className='task-container'>
         <Directory labName={lab.labName} />
       </div>
