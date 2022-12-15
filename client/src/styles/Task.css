@@ -175,3 +175,30 @@
   display: flex;
   float: left;
 }
+
+@media screen and (max-width: 1030px) {
+  .task-container {
+    display: block;
+    width: 90%;
+  }
+  .directory-container {
+    display: block;
+  }
+  .task-c-1 {
+    display: block;
+  }
+  .filter-container {
+    display: block;
+    width: 30%;
+    text-align: start;
+  }
+  .task-c-2 {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  .task-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

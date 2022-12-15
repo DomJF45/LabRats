@@ -116,3 +116,17 @@ object {
   width: 500px;
   margin-right: 12rem;
 }
+
+@media screen and (max-width: 1030px) {
+  .dashboard-container {
+    display: block;
+  }
+  .l-c-1 object {
+    display: none;
+  }
+
+  .l-c-2 {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

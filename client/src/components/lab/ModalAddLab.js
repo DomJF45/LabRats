@@ -43,7 +43,6 @@ export const ModalAddLab = (props) => {
       color: randomColor()
     }
     props.create(labData);
-    
     dispatch(getLab());
     props.onHide();
     

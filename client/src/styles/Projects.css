@@ -150,3 +150,31 @@ object {
   width: 500px;
   margin-right: 12rem;
 }
+
+@media screen and (max-width: 1030px) {
+  .project-container {
+    display: block;
+    margin: 0 auto;
+  }
+  .c-1 {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .c-1 object {
+    display: none;
+  }
+  .c-2 {
+    width: 90%;
+    margin: 0 auto;
+    height: 600px;
+  }
+  .project-card {
+    font-size: smaller;
+  }
+  .project-card-title {
+    font-size: large;
+  }
+  .project-card-bio {
+    font-size: small;
+  }
+}
