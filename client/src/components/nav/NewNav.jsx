@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import { logout, reset } from '../../features/auth/authSlice';
 import './Nav.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -10,10 +12,18 @@ const NewNav = () => {
 
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.lab);
 
   const variants = {
     open: {opacity: 1, x: 0},
     closed: {opacity: 0, x: '100%'}
+  }
+
+  const handleLogOut = () => {
+    dispatch(logout());
+    dispatch(reset());
   }
 
   const routerHelper = (page) => {
@@ -38,7 +48,7 @@ const NewNav = () => {
               <a onClick={() => routerHelper('/user-settings')}>User Info</a>
             </li>
             <li>
-              <MyButton style={{width: '100%'}}>Log Out</MyButton>
+              <MyButton onClick={handleLogOut} style={{width: '100%'}}>Log Out</MyButton>
             </li>
           </ul>
         </motion.div>

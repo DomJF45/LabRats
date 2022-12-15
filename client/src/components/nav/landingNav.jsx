@@ -11,7 +11,7 @@ const LandingNav = () => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div >
       <nav className="landingNav">
         <ul>
         <svg width="55" height="55" viewBox="0 0 67 65" fill="none" xmlns="http://www.w3.org/2000/svg" style={{marginRight: "1rem"}}>
@@ -42,13 +42,13 @@ const LandingNav = () => {
             Get Started
           </MyButton> */}
          
-            <MyButton className='nv-btn' onClick={() => navigate('/login')}>
-              Log In
-            </MyButton>
+          <MyButton className='nv-btn' onClick={() => navigate('/login')}>
+            Log In
+          </MyButton>
           
         </ul>
       </nav>
-    </>
+    </div>
   )
 }
 

@@ -19,9 +19,7 @@ const Landing = () => {
 
   return (
     <>
-      <div className='stickyNav'>
-        <LandingNav />
-      </div>
+      <LandingNav />
       <div className="landingLayout">
         {landingData.map((data) => (
           data.hasBtn ? (

@@ -1,21 +1,33 @@
+.my-nav-container {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
 .landingNav {
   overflow: hidden;
   padding: 0;
   padding-top: .5rem;
   padding-bottom: 2px;
-  box-shadow: 1px 1px 20px rgba(0,0,0,.1);
-  background-color: #fff;
+  width: 90%;
+  margin: 0 auto;
   position: sticky;
   top: 0;
+  margin: 0 auto;
   width: 100%;
   z-index: 999;
 } 
+
+.nv-btn {
+  
+}
 
 .dashboard-nav ul {
   padding-bottom: 0;
   margin-bottom: 0;
   text-decoration: none;
   list-style: none;
+  
 }
 .startBtn {
   padding: 8px 18px;
@@ -95,6 +107,19 @@ button.toggle {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+
+.landingNav {
+  
+}
+
+.landingNav ul {
+  display: flex;
+  align-items: center;
+}
+
+.landingNav li {
+  list-style: none;
 }
 
 nav .inner-nav ul {

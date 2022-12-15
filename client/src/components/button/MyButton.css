@@ -32,7 +32,7 @@
   border: #FFB703;
   border-radius: 8px;
   color: #fff;
-  
+  margin-right: 1rem;
   transition: all .2s ease-in;
   box-shadow: 3px 3px #888;
 }
